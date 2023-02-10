@@ -1,0 +1,6 @@
+qtpy
+iconify
+cairosvg
+qtsass
+matplotlib
+mock

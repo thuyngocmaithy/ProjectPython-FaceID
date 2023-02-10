@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>../image/icon/time_20px.png</file>
+  </qresource>
+</RCC>
