@@ -99,7 +99,7 @@ font-weight: bold;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/student_center_50px.png</normaloff>image/icon/student_center_50px.png</iconset>
+       <normaloff>../image/icon/student_center_50px.png</normaloff>../image/icon/student_center_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -168,7 +168,7 @@ font-weight: bold;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/Attendance_50px.png</normaloff>image/icon/Attendance_50px.png</iconset>
+       <normaloff>../image/icon/Attendance_50px.png</normaloff>../image/icon/Attendance_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -177,7 +177,7 @@ font-weight: bold;
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnThongKe">
+    <widget class="QPushButton" name="btnGiangVien">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -221,23 +221,23 @@ font-weight: bold;
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">#btnThongKe{
+      <string notr="true">#btnGiangVien{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 border-radius: 10px;
 font-weight: bold;
 }
-#btnThongKe:hover{
+#btnGiangVien:hover{
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
 }
 
 </string>
      </property>
      <property name="text">
-      <string>THỐNG KÊ</string>
+      <string>GIẢNG VIÊN</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/graph_report_script_50px.png</normaloff>image/icon/graph_report_script_50px.png</iconset>
+       <normaloff>../image/icon/teacher_50px.png</normaloff>../image/icon/teacher_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -306,7 +306,7 @@ font-weight: bold;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/google_classroom_50px.png</normaloff>image/icon/google_classroom_50px.png</iconset>
+       <normaloff>../image/icon/google_classroom_50px.png</normaloff>../image/icon/google_classroom_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -400,7 +400,7 @@ font-weight: bold;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/home_40px.png</normaloff>image/icon/home_40px.png</iconset>
+            <normaloff>../image/icon/home_40px.png</normaloff>../image/icon/home_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -439,7 +439,7 @@ font-weight: bold;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/document_40px.png</normaloff>image/icon/document_40px.png</iconset>
+            <normaloff>../image/icon/document_40px.png</normaloff>../image/icon/document_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -478,7 +478,46 @@ font-weight: bold;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/client_management_40px.png</normaloff>image/icon/client_management_40px.png</iconset>
+            <normaloff>../image/icon/client_management_40px.png</normaloff>../image/icon/client_management_40px.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnThongKe">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#btnThongKe
+{
+	font-weight:bold;
+}</string>
+          </property>
+          <property name="text">
+           <string>Thống kê</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../image/icon/graph_report_script_50px.png</normaloff>../image/icon/graph_report_script_50px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -517,7 +556,7 @@ font-weight: bold;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/password_40px.png</normaloff>image/icon/password_40px.png</iconset>
+            <normaloff>../image/icon/password_40px.png</normaloff>../image/icon/password_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -556,7 +595,7 @@ font-weight: bold;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/logout_40px.png</normaloff>image/icon/logout_40px.png</iconset>
+            <normaloff>../image/icon/logout_40px.png</normaloff>../image/icon/logout_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -603,7 +642,7 @@ font-weight: bold;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/close_50px.png</normaloff>image/icon/close_50px.png</iconset>
+       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -629,7 +668,7 @@ font-weight: bold;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/subtract_50px.png</normaloff>image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -842,7 +881,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/moon_symbol_50px.png</normaloff>image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -874,7 +913,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/time_50px.png</normaloff>image/icon/time_50px.png</iconset>
+       <normaloff>../image/icon/time_50px.png</normaloff>../image/icon/time_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>

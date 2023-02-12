@@ -88,7 +88,7 @@
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="txtIDDiemDanh">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -127,7 +127,7 @@
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QTimeEdit" name="timeEdit">
+    <widget class="QTimeEdit" name="timeGioVao">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -158,7 +158,7 @@
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QTimeEdit" name="timeEdit_2">
+    <widget class="QTimeEdit" name="timeGioRa">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -189,7 +189,7 @@
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="dateNgay">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -220,7 +220,7 @@
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="cmbLop">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -249,19 +249,19 @@
        <number>10</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="btnCapNhat">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">#pushButton_2{
+         <string notr="true">#btnCapNhat{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 5px;
 }
-#pushButton_2:hover{
+#btnCapNhat:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
         </property>
@@ -271,19 +271,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="btnXoa">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">#pushButton{
+         <string notr="true">#btnXoa{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 5px;
 }
-#pushButton:hover{
+#btnXoa:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
         </property>
@@ -293,19 +293,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="btnLamMoi">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">#pushButton_5{
+         <string notr="true">#btnLamMoi{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 5px;
 }
-#pushButton_5:hover{
+#btnLamMoi:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
         </property>
@@ -330,19 +330,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        <number>10</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="btnImport">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">#pushButton_3{
+         <string notr="true">#btnImport{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 5px;
 }
-#pushButton_3:hover{
+#btnImport:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
         </property>
@@ -352,19 +352,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="btnExport">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">#pushButton_6{
+         <string notr="true">#btnExport{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 5px;
 }
-#pushButton_6:hover{
+#btnExport:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
         </property>
@@ -374,19 +374,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="btnXemAnh">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">#pushButton_4{
+         <string notr="true">#btnXemAnh{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 5px;
 }
-#pushButton_4:hover{
+#btnXemAnh:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
         </property>
@@ -397,7 +397,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
       </item>
      </layout>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="txtIDSV">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -436,7 +436,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="txtHoTen">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -475,7 +475,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="cmbIDBuoiHoc">
      <property name="geometry">
       <rect>
        <x>93</x>
@@ -511,21 +511,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_3">
-     <property name="geometry">
-      <rect>
-       <x>93</x>
-       <y>280</y>
-       <width>121</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>Có mặt</string>
-      </property>
-     </item>
-    </widget>
     <widget class="QLabel" name="label_20">
      <property name="geometry">
       <rect>
@@ -545,6 +530,24 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </property>
      <property name="alignment">
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtDiemDanh">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>280</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Vắng 2 phút</string>
      </property>
     </widget>
    </widget>
@@ -626,7 +629,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox_5">
+     <widget class="QComboBox" name="cmbOptionFind">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -646,7 +649,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </property>
       </item>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
+     <widget class="QLineEdit" name="txtFind">
       <property name="geometry">
        <rect>
         <x>220</x>
@@ -665,7 +668,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
       </property>
      </widget>
     </widget>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="tbwDiemDanh">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1028,7 +1031,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/moon_symbol_50px.png</normaloff>image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1060,7 +1063,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/time_50px.png</normaloff>image/icon/time_50px.png</iconset>
+       <normaloff>../image/icon/time_50px.png</normaloff>../image/icon/time_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1108,7 +1111,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/close_50px.png</normaloff>image/icon/close_50px.png</iconset>
+       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1134,7 +1137,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/subtract_50px.png</normaloff>image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>

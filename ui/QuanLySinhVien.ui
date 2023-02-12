@@ -171,7 +171,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/moon_symbol_50px.png</normaloff>image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -251,7 +251,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/close_50px.png</normaloff>image/icon/close_50px.png</iconset>
+       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -277,7 +277,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/subtract_50px.png</normaloff>image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -336,7 +336,7 @@ background-color: transparent;
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -436,7 +436,7 @@ vertical-align: bottom;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="cmbKhoa">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -477,7 +477,7 @@ vertical-align: bottom;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="cmbKhoaHoc">
          <property name="geometry">
           <rect>
            <x>250</x>
@@ -580,7 +580,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="txtMaSV">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -598,7 +598,7 @@ font-weight: bold;
           <string>3120410521</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="txtHoTen">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -637,7 +637,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_3">
+        <widget class="QComboBox" name="cmbLop">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -678,7 +678,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="txtCMND">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -717,7 +717,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_4">
+        <widget class="QComboBox" name="cmbGioiTinh">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -758,7 +758,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QDateEdit" name="dateEdit">
+        <widget class="QDateEdit" name="dateNgaySinh">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -794,7 +794,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="txtEmail">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -833,7 +833,7 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_5">
+        <widget class="QLineEdit" name="txtSDT">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -851,7 +851,7 @@ font-weight: bold;
           <string/>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="rdoCoAnh">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -869,7 +869,7 @@ font-weight: bold;
           <string>Có ảnh</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="sdoKhongAnh">
          <property name="geometry">
           <rect>
            <x>90</x>
@@ -899,19 +899,19 @@ font-weight: bold;
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="btnThemSV">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
-            <string notr="true">#pushButton_5{
+            <string notr="true">#btnThemSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_5:hover{
+#btnThemSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
            </property>
@@ -921,19 +921,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_4">
+          <widget class="QPushButton" name="btnSuaSV">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
-            <string notr="true">#pushButton_4{
+            <string notr="true">#btnSuaSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_4:hover{
+#btnSuaSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
            </property>
@@ -943,19 +943,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="btnXoaSV">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
-            <string notr="true">#pushButton_3{
+            <string notr="true">#btnXoaSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_3:hover{
+#btnXoaSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
            </property>
@@ -965,19 +965,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="btnLamMoiSV">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
-            <string notr="true">#pushButton_2{
+            <string notr="true">#btnLamMoiSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_2:hover{
+#btnLamMoiSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
            </property>
@@ -999,19 +999,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="btnLayAnhSV">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
-            <string notr="true">#pushButton_6{
+            <string notr="true">#btnLayAnhSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_6:hover{
+#btnLayAnhSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
            </property>
@@ -1021,19 +1021,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_9">
+          <widget class="QPushButton" name="btnXemAnhSV">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
-            <string notr="true">#pushButton_9{
+            <string notr="true">#btnXemAnhSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_9:hover{
+#btnXemAnhSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
            </property>
@@ -1153,7 +1153,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBox_5">
+           <widget class="QComboBox" name="cmbOptionFindSV">
             <property name="geometry">
              <rect>
               <x>110</x>
@@ -1173,7 +1173,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              </property>
             </item>
            </widget>
-           <widget class="QLineEdit" name="lineEdit_6">
+           <widget class="QLineEdit" name="txtFindSV">
             <property name="geometry">
              <rect>
               <x>200</x>
@@ -1192,7 +1192,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             </property>
            </widget>
           </widget>
-          <widget class="QTableWidget" name="tableWidget">
+          <widget class="QTableWidget" name="tbwSV">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1399,7 +1399,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBox_6">
+           <widget class="QComboBox" name="cmbOptionFindLop">
             <property name="geometry">
              <rect>
               <x>110</x>
@@ -1419,7 +1419,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              </property>
             </item>
            </widget>
-           <widget class="QLineEdit" name="lineEdit_7">
+           <widget class="QLineEdit" name="txtFindLop">
             <property name="geometry">
              <rect>
               <x>200</x>
@@ -1459,7 +1459,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
            </property>
           </widget>
-          <widget class="QLineEdit" name="lineEdit_9">
+          <widget class="QLineEdit" name="txtLop">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -1488,19 +1488,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
-             <widget class="QPushButton" name="pushButton_14">
+             <widget class="QPushButton" name="btnXoaLop">
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">#pushButton_14{
+               <string notr="true">#btnXoaLop{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_14:hover{
+#btnXoaLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
               </property>
@@ -1510,19 +1510,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_15">
+             <widget class="QPushButton" name="btnLamMoiLop">
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">#pushButton_15{
+               <string notr="true">#btnLamMoiLop{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_15:hover{
+#btnLamMoiLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
               </property>
@@ -1533,7 +1533,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             </item>
            </layout>
           </widget>
-          <widget class="QTableWidget" name="tableWidget_2">
+          <widget class="QTableWidget" name="tbwLop">
            <property name="geometry">
             <rect>
              <x>180</x>
@@ -1624,19 +1624,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <widget class="QPushButton" name="pushButton_16">
+             <widget class="QPushButton" name="btnThemLop">
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">#pushButton_16{
+               <string notr="true">#btnThemLop{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_16:hover{
+#btnThemLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
               </property>
@@ -1646,19 +1646,19 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_17">
+             <widget class="QPushButton" name="btnSuaLop">
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">#pushButton_17{
+               <string notr="true">#btnSuaLop{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 color:white;
 font-weight:bold;
 border-radius:3px;
 padding: 3px;
 }
-#pushButton_17:hover{
+#btnSuaLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
 }</string>
               </property>

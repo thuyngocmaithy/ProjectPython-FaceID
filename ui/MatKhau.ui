@@ -63,7 +63,7 @@ border-radius: 5px;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="txtNhapLaiMatKhau">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -87,7 +87,7 @@ border-radius:3px;
 }</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="txtMatKhauCu">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -163,10 +163,10 @@ background-color:transparent;
 }</string>
       </property>
       <property name="text">
-       <string>Tài khoản</string>
+       <string>Email</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="txtEmail">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -238,7 +238,7 @@ background-color:transparent;
        <string>Nhập lại mật khẩu</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="txtMatKhauMoi">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -286,7 +286,7 @@ background-color:transparent;
        <string>Mật khẩu mới</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btnXacNhan">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -297,11 +297,18 @@ background-color:transparent;
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="cursor">
        <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#btnXacNhan
+{
+font-weight:bold;
+}</string>
       </property>
       <property name="text">
        <string>Xác nhận</string>
@@ -393,7 +400,7 @@ background-color:transparent;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/home_40px.png</normaloff>image/icon/home_40px.png</iconset>
+            <normaloff>../image/icon/home_40px.png</normaloff>../image/icon/home_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -432,7 +439,7 @@ background-color:transparent;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/document_40px.png</normaloff>image/icon/document_40px.png</iconset>
+            <normaloff>../image/icon/document_40px.png</normaloff>../image/icon/document_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -471,7 +478,46 @@ background-color:transparent;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/client_management_40px.png</normaloff>image/icon/client_management_40px.png</iconset>
+            <normaloff>../image/icon/client_management_40px.png</normaloff>../image/icon/client_management_40px.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnThongKe">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#btnThongKe
+{
+	font-weight:bold;
+}</string>
+          </property>
+          <property name="text">
+           <string>Thống kê</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../image/icon/graph_report_script_50px.png</normaloff>../image/icon/graph_report_script_50px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -510,7 +556,7 @@ background-color:transparent;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/password_40px.png</normaloff>image/icon/password_40px.png</iconset>
+            <normaloff>../image/icon/password_40px.png</normaloff>../image/icon/password_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -549,7 +595,7 @@ background-color:transparent;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>image/icon/logout_40px.png</normaloff>image/icon/logout_40px.png</iconset>
+            <normaloff>../image/icon/logout_40px.png</normaloff>../image/icon/logout_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -596,7 +642,7 @@ background-color:transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/close_50px.png</normaloff>image/icon/close_50px.png</iconset>
+       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -622,7 +668,7 @@ background-color:transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/subtract_50px.png</normaloff>image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -835,7 +881,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/moon_symbol_50px.png</normaloff>image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -867,7 +913,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/time_50px.png</normaloff>image/icon/time_50px.png</iconset>
+       <normaloff>../image/icon/time_50px.png</normaloff>../image/icon/time_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>

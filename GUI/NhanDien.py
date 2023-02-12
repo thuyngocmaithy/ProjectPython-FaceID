@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'NhanDien.ui'
+# Form implementation generated from reading ui file 'ui/NhanDien.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
         self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnDark.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnDark.setIcon(icon)
         self.btnDark.setIconSize(QtCore.QSize(20, 20))
         self.btnDark.setObjectName("btnDark")
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
 "}")
         self.btnTime.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTime.setIcon(icon1)
         self.btnTime.setIconSize(QtCore.QSize(20, 20))
         self.btnTime.setObjectName("btnTime")
@@ -353,7 +353,7 @@ class Ui_MainWindow(object):
         self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnClose.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnClose.setIcon(icon2)
         self.btnClose.setIconSize(QtCore.QSize(20, 20))
         self.btnClose.setObjectName("btnClose")
@@ -362,7 +362,7 @@ class Ui_MainWindow(object):
         self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnMinimize.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnMinimize.setIcon(icon3)
         self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
         self.btnMinimize.setObjectName("btnMinimize")

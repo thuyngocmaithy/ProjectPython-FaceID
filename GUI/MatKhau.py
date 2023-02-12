@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'MatKhau.ui'
+# Form implementation generated from reading ui file 'ui/MatKhau.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -38,28 +38,28 @@ class Ui_MainWindow(object):
         self.frmChangePass.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frmChangePass.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frmChangePass.setObjectName("frmChangePass")
-        self.lineEdit_4 = QtWidgets.QLineEdit(parent=self.frmChangePass)
-        self.lineEdit_4.setGeometry(QtCore.QRect(80, 280, 191, 23))
+        self.txtNhapLaiMatKhau = QtWidgets.QLineEdit(parent=self.frmChangePass)
+        self.txtNhapLaiMatKhau.setGeometry(QtCore.QRect(80, 280, 191, 23))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.lineEdit_4.setFont(font)
-        self.lineEdit_4.setAutoFillBackground(False)
-        self.lineEdit_4.setStyleSheet("#lineEdit_4\n"
+        self.txtNhapLaiMatKhau.setFont(font)
+        self.txtNhapLaiMatKhau.setAutoFillBackground(False)
+        self.txtNhapLaiMatKhau.setStyleSheet("#lineEdit_4\n"
 "{\n"
 "border-radius:3px;\n"
 "}")
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.lineEdit_2 = QtWidgets.QLineEdit(parent=self.frmChangePass)
-        self.lineEdit_2.setGeometry(QtCore.QRect(80, 140, 191, 23))
+        self.txtNhapLaiMatKhau.setObjectName("txtNhapLaiMatKhau")
+        self.txtMatKhauCu = QtWidgets.QLineEdit(parent=self.frmChangePass)
+        self.txtMatKhauCu.setGeometry(QtCore.QRect(80, 140, 191, 23))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setAutoFillBackground(False)
-        self.lineEdit_2.setStyleSheet("#lineEdit_2\n"
+        self.txtMatKhauCu.setFont(font)
+        self.txtMatKhauCu.setAutoFillBackground(False)
+        self.txtMatKhauCu.setStyleSheet("#lineEdit_2\n"
 "{\n"
 "border-radius:3px;\n"
 "}")
-        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.txtMatKhauCu.setObjectName("txtMatKhauCu")
         self.label_5 = QtWidgets.QLabel(parent=self.frmChangePass)
         self.label_5.setGeometry(QtCore.QRect(0, 0, 341, 51))
         font = QtGui.QFont()
@@ -85,17 +85,17 @@ class Ui_MainWindow(object):
 "background-color:transparent;\n"
 "}")
         self.label_6.setObjectName("label_6")
-        self.lineEdit = QtWidgets.QLineEdit(parent=self.frmChangePass)
-        self.lineEdit.setGeometry(QtCore.QRect(80, 80, 191, 23))
+        self.txtEmail = QtWidgets.QLineEdit(parent=self.frmChangePass)
+        self.txtEmail.setGeometry(QtCore.QRect(80, 80, 191, 23))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setAutoFillBackground(False)
-        self.lineEdit.setStyleSheet("#lineEdit\n"
+        self.txtEmail.setFont(font)
+        self.txtEmail.setAutoFillBackground(False)
+        self.txtEmail.setStyleSheet("#lineEdit\n"
 "{\n"
 "border-radius:3px;\n"
 "}")
-        self.lineEdit.setObjectName("lineEdit")
+        self.txtEmail.setObjectName("txtEmail")
         self.label_7 = QtWidgets.QLabel(parent=self.frmChangePass)
         self.label_7.setGeometry(QtCore.QRect(80, 110, 191, 31))
         font = QtGui.QFont()
@@ -116,17 +116,17 @@ class Ui_MainWindow(object):
 "background-color:transparent;\n"
 "}")
         self.label_9.setObjectName("label_9")
-        self.lineEdit_3 = QtWidgets.QLineEdit(parent=self.frmChangePass)
-        self.lineEdit_3.setGeometry(QtCore.QRect(80, 210, 191, 23))
+        self.txtMatKhauMoi = QtWidgets.QLineEdit(parent=self.frmChangePass)
+        self.txtMatKhauMoi.setGeometry(QtCore.QRect(80, 210, 191, 23))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.lineEdit_3.setFont(font)
-        self.lineEdit_3.setAutoFillBackground(False)
-        self.lineEdit_3.setStyleSheet("#lineEdit_3\n"
+        self.txtMatKhauMoi.setFont(font)
+        self.txtMatKhauMoi.setAutoFillBackground(False)
+        self.txtMatKhauMoi.setStyleSheet("#lineEdit_3\n"
 "{\n"
 "border-radius:3px;\n"
 "}")
-        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.txtMatKhauMoi.setObjectName("txtMatKhauMoi")
         self.label_8 = QtWidgets.QLabel(parent=self.frmChangePass)
         self.label_8.setGeometry(QtCore.QRect(80, 180, 191, 31))
         font = QtGui.QFont()
@@ -137,13 +137,18 @@ class Ui_MainWindow(object):
 "background-color:transparent;\n"
 "}")
         self.label_8.setObjectName("label_8")
-        self.pushButton = QtWidgets.QPushButton(parent=self.frmChangePass)
-        self.pushButton.setGeometry(QtCore.QRect(130, 320, 91, 31))
+        self.btnXacNhan = QtWidgets.QPushButton(parent=self.frmChangePass)
+        self.btnXacNhan.setGeometry(QtCore.QRect(130, 320, 91, 31))
         font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton.setFont(font)
-        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.pushButton.setObjectName("pushButton")
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnXacNhan.setFont(font)
+        self.btnXacNhan.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnXacNhan.setStyleSheet("#btnXacNhan\n"
+"{\n"
+"font-weight:bold;\n"
+"}")
+        self.btnXacNhan.setObjectName("btnXacNhan")
         self.frmMenu = QtWidgets.QFrame(parent=self.centralwidget)
         self.frmMenu.setGeometry(QtCore.QRect(19, 99, 151, 411))
         self.frmMenu.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
@@ -185,7 +190,7 @@ class Ui_MainWindow(object):
 "    font-weight:bold;\n"
 "}")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("image/icon/home_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/home_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTrangChu.setIcon(icon)
         self.btnTrangChu.setIconSize(QtCore.QSize(15, 15))
         self.btnTrangChu.setObjectName("btnTrangChu")
@@ -203,7 +208,7 @@ class Ui_MainWindow(object):
 "    font-weight:bold;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("image/icon/document_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/document_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnQuanLy.setIcon(icon1)
         self.btnQuanLy.setIconSize(QtCore.QSize(15, 15))
         self.btnQuanLy.setObjectName("btnQuanLy")
@@ -221,11 +226,29 @@ class Ui_MainWindow(object):
 "    font-weight:bold;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("image/icon/client_management_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/client_management_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnNhanDien.setIcon(icon2)
         self.btnNhanDien.setIconSize(QtCore.QSize(20, 20))
         self.btnNhanDien.setObjectName("btnNhanDien")
         self.verticalLayout_2.addWidget(self.btnNhanDien)
+        self.btnThongKe = QtWidgets.QPushButton(parent=self.verticalFrame)
+        self.btnThongKe.setMinimumSize(QtCore.QSize(0, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnThongKe.setFont(font)
+        self.btnThongKe.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnThongKe.setStyleSheet("#btnThongKe\n"
+"{\n"
+"    font-weight:bold;\n"
+"}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/graph_report_script_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnThongKe.setIcon(icon3)
+        self.btnThongKe.setIconSize(QtCore.QSize(20, 20))
+        self.btnThongKe.setObjectName("btnThongKe")
+        self.verticalLayout_2.addWidget(self.btnThongKe)
         self.btnMatKhau = QtWidgets.QPushButton(parent=self.verticalFrame)
         self.btnMatKhau.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
@@ -238,9 +261,9 @@ class Ui_MainWindow(object):
 "{\n"
 "    font-weight:bold;\n"
 "}")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("image/icon/password_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnMatKhau.setIcon(icon3)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("ui\\../image/icon/password_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnMatKhau.setIcon(icon4)
         self.btnMatKhau.setIconSize(QtCore.QSize(20, 20))
         self.btnMatKhau.setObjectName("btnMatKhau")
         self.verticalLayout_2.addWidget(self.btnMatKhau)
@@ -256,9 +279,9 @@ class Ui_MainWindow(object):
 "{\n"
 "    font-weight:bold;\n"
 "}")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("image/icon/logout_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnLogout.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("ui\\../image/icon/logout_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnLogout.setIcon(icon5)
         self.btnLogout.setIconSize(QtCore.QSize(20, 20))
         self.btnLogout.setObjectName("btnLogout")
         self.verticalLayout_2.addWidget(self.btnLogout)
@@ -272,18 +295,18 @@ class Ui_MainWindow(object):
         self.btnClose.setGeometry(QtCore.QRect(777, 4, 24, 24))
         self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnClose.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnClose.setIcon(icon5)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnClose.setIcon(icon6)
         self.btnClose.setIconSize(QtCore.QSize(20, 20))
         self.btnClose.setObjectName("btnClose")
         self.btnMinimize = QtWidgets.QPushButton(parent=self.frame)
         self.btnMinimize.setGeometry(QtCore.QRect(752, 4, 24, 24))
         self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnMinimize.setText("")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnMinimize.setIcon(icon6)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnMinimize.setIcon(icon7)
         self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
         self.btnMinimize.setObjectName("btnMinimize")
         self.label_15 = QtWidgets.QLabel(parent=self.frame)
@@ -362,9 +385,9 @@ class Ui_MainWindow(object):
         self.btnDark.setGeometry(QtCore.QRect(764, 10, 31, 31))
         self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnDark.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnDark.setIcon(icon7)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnDark.setIcon(icon8)
         self.btnDark.setIconSize(QtCore.QSize(20, 20))
         self.btnDark.setObjectName("btnDark")
         self.btnTime = QtWidgets.QPushButton(parent=self.frmHeader)
@@ -375,9 +398,9 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "}")
         self.btnTime.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnTime.setIcon(icon8)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnTime.setIcon(icon9)
         self.btnTime.setIconSize(QtCore.QSize(20, 20))
         self.btnTime.setObjectName("btnTime")
         self.label_3.raise_()
@@ -394,14 +417,15 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_5.setText(_translate("MainWindow", "ĐỔI MẬT KHẨU"))
-        self.label_6.setText(_translate("MainWindow", "Tài khoản"))
+        self.label_6.setText(_translate("MainWindow", "Email"))
         self.label_7.setText(_translate("MainWindow", "Mật khẩu cũ"))
         self.label_9.setText(_translate("MainWindow", "Nhập lại mật khẩu"))
         self.label_8.setText(_translate("MainWindow", "Mật khẩu mới"))
-        self.pushButton.setText(_translate("MainWindow", "Xác nhận"))
+        self.btnXacNhan.setText(_translate("MainWindow", "Xác nhận"))
         self.btnTrangChu.setText(_translate("MainWindow", "Trang chủ"))
         self.btnQuanLy.setText(_translate("MainWindow", "Quản lý"))
         self.btnNhanDien.setText(_translate("MainWindow", "Nhận diện"))
+        self.btnThongKe.setText(_translate("MainWindow", "Thống kê"))
         self.btnMatKhau.setText(_translate("MainWindow", "Mật khẩu"))
         self.btnLogout.setText(_translate("MainWindow", "Đăng xuất"))
         self.label_15.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
