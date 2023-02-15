@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'ui/home.ui'
+# Form implementation generated from reading ui file 'c:\Users\thuyn\Documents\GitHub\ProjectPython-FaceID\ui\home.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnDark.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnDark.setIcon(icon)
         self.btnDark.setIconSize(QtCore.QSize(20, 20))
         self.btnDark.setObjectName("btnDark")
@@ -92,7 +92,7 @@ class Ui_MainWindow(object):
 "}")
         self.btnTime.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTime.setIcon(icon1)
         self.btnTime.setIconSize(QtCore.QSize(20, 20))
         self.btnTime.setObjectName("btnTime")
@@ -156,7 +156,7 @@ class Ui_MainWindow(object):
 "    icon: url(\"image/icon/home_white_40px.png\")\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/home_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/home_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTrangChu.setIcon(icon2)
         self.btnTrangChu.setIconSize(QtCore.QSize(15, 15))
         self.btnTrangChu.setObjectName("btnTrangChu")
@@ -182,7 +182,7 @@ class Ui_MainWindow(object):
 "icon: url(\"image/icon/document_white_40px.png\")\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/document_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/document_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnQuanLy.setIcon(icon3)
         self.btnQuanLy.setIconSize(QtCore.QSize(15, 15))
         self.btnQuanLy.setAutoRepeatDelay(300)
@@ -209,7 +209,7 @@ class Ui_MainWindow(object):
 "icon: url(\"image/icon/client_management_white_40px.png\")\n"
 "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("ui\\../image/icon/client_management_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/client_management_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnNhanDien.setIcon(icon4)
         self.btnNhanDien.setIconSize(QtCore.QSize(20, 20))
         self.btnNhanDien.setObjectName("btnNhanDien")
@@ -235,7 +235,7 @@ class Ui_MainWindow(object):
 "icon: url(\"image/icon/graph_report_script_white_40px.png\")\n"
 "}")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("ui\\../image/icon/graph_report_script_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/graph_report_script_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnThongKe.setIcon(icon5)
         self.btnThongKe.setIconSize(QtCore.QSize(20, 20))
         self.btnThongKe.setObjectName("btnThongKe")
@@ -261,7 +261,7 @@ class Ui_MainWindow(object):
 "icon: url(\"image/icon/password_white_40px.png\")\n"
 "}")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("ui\\../image/icon/password_key_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon6.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/password_key_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnMatKhau.setIcon(icon6)
         self.btnMatKhau.setIconSize(QtCore.QSize(20, 20))
         self.btnMatKhau.setObjectName("btnMatKhau")
@@ -287,7 +287,7 @@ class Ui_MainWindow(object):
 "icon: url(\"image/icon/logout_white_40px.png\")\n"
 "}")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("ui\\../image/icon/logout_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon7.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/logout_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnLogout.setIcon(icon7)
         self.btnLogout.setIconSize(QtCore.QSize(20, 20))
         self.btnLogout.setObjectName("btnLogout")
@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
         self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnClose.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon8.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnClose.setIcon(icon8)
         self.btnClose.setIconSize(QtCore.QSize(20, 20))
         self.btnClose.setObjectName("btnClose")
@@ -312,7 +312,7 @@ class Ui_MainWindow(object):
         self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnMinimize.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon9.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnMinimize.setIcon(icon9)
         self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
         self.btnMinimize.setObjectName("btnMinimize")
@@ -377,7 +377,7 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "}")
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("ui\\../image/icon/student_center_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon10.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/student_center_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_6.setIcon(icon10)
         self.pushButton_6.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_6.setObjectName("pushButton_6")
@@ -459,7 +459,7 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "}")
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("ui\\../image/icon/google_classroom_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon11.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/google_classroom_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_7.setIcon(icon11)
         self.pushButton_7.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_7.setObjectName("pushButton_7")
@@ -520,7 +520,7 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "}")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("ui\\../image/icon/camera_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon12.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/camera_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton_8.setIcon(icon12)
         self.pushButton_8.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_8.setObjectName("pushButton_8")
@@ -605,7 +605,7 @@ class Ui_MainWindow(object):
 "\n"
 "")
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("ui\\../image/icon/Attendance_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon13.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/Attendance_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnDiemDanh.setIcon(icon13)
         self.btnDiemDanh.setIconSize(QtCore.QSize(26, 26))
         self.btnDiemDanh.setObjectName("btnDiemDanh")
@@ -636,7 +636,7 @@ class Ui_MainWindow(object):
 "\n"
 "")
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("ui\\../image/icon/teacher_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon14.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/teacher_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnGiangVien.setIcon(icon14)
         self.btnGiangVien.setIconSize(QtCore.QSize(26, 26))
         self.btnGiangVien.setObjectName("btnGiangVien")
@@ -862,13 +862,3 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "Nhập lại mật khẩu"))
         self.label_8.setText(_translate("MainWindow", "Mật khẩu mới"))
         self.btnXacNhan.setText(_translate("MainWindow", "Xác nhận"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())

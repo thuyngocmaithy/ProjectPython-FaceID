@@ -81,7 +81,7 @@ border-radius: 5px;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">#lineEdit_4
+       <string notr="true">#txtNhapLaiMatKhau
 {
 border-radius:3px;
 }</string>
@@ -105,7 +105,7 @@ border-radius:3px;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">#lineEdit_2
+       <string notr="true">#txtMatKhauCu
 {
 border-radius:3px;
 }</string>
@@ -153,13 +153,15 @@ background-color:transparent;
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">#label_6
 {
 background-color:transparent;
+font-weight:bold;
 }</string>
       </property>
       <property name="text">
@@ -184,7 +186,7 @@ background-color:transparent;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">#lineEdit
+       <string notr="true">#txtEmail
 {
 border-radius:3px;
 }</string>
@@ -201,13 +203,15 @@ border-radius:3px;
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">#label_7
 {
 background-color:transparent;
+font-weight:bold;
 }</string>
       </property>
       <property name="text">
@@ -225,14 +229,17 @@ background-color:transparent;
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">#label_9
 {
 background-color:transparent;
-}</string>
+font-weight:bold;
+}
+</string>
       </property>
       <property name="text">
        <string>Nhập lại mật khẩu</string>
@@ -256,7 +263,7 @@ background-color:transparent;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">#lineEdit_3
+       <string notr="true">#txtMatKhauMoi
 {
 border-radius:3px;
 }</string>
@@ -273,13 +280,15 @@ border-radius:3px;
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">#label_8
 {
 background-color:transparent;
+font-weight:bold;
 }</string>
       </property>
       <property name="text">
@@ -297,6 +306,7 @@ background-color:transparent;
       </property>
       <property name="font">
        <font>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>

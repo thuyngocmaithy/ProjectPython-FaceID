@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'ui/QuanLyDiemDanh.ui'
+# Form implementation generated from reading ui file 'c:\Users\thuyn\Documents\GitHub\ProjectPython-FaceID\ui\QuanLyDiemDanh.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -424,7 +424,7 @@ class Ui_MainWindow(object):
         self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnDark.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnDark.setIcon(icon)
         self.btnDark.setIconSize(QtCore.QSize(20, 20))
         self.btnDark.setObjectName("btnDark")
@@ -437,7 +437,7 @@ class Ui_MainWindow(object):
 "}")
         self.btnTime.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTime.setIcon(icon1)
         self.btnTime.setIconSize(QtCore.QSize(20, 20))
         self.btnTime.setObjectName("btnTime")
@@ -457,7 +457,7 @@ class Ui_MainWindow(object):
         self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnClose.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnClose.setIcon(icon2)
         self.btnClose.setIconSize(QtCore.QSize(20, 20))
         self.btnClose.setObjectName("btnClose")
@@ -466,7 +466,7 @@ class Ui_MainWindow(object):
         self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnMinimize.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\thuyn\\Documents\\GitHub\\ProjectPython-FaceID\\ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnMinimize.setIcon(icon3)
         self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
         self.btnMinimize.setObjectName("btnMinimize")
@@ -600,13 +600,3 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "09:15:00"))
         self.label_4.setText(_translate("MainWindow", "02/02/2022"))
         self.label_21.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>530</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -342,7 +342,7 @@ background-color: transparent;
       <x>20</x>
       <y>100</y>
       <width>761</width>
-      <height>411</height>
+      <height>471</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -375,7 +375,7 @@ background-color: transparent;
           <x>20</x>
           <y>10</y>
           <width>341</width>
-          <height>80</height>
+          <height>91</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -388,13 +388,14 @@ background-color: transparent;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>10</y>
+           <y>13</y>
            <width>131</width>
            <height>21</height>
           </rect>
          </property>
          <property name="font">
           <font>
+           <pointsize>10</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -413,7 +414,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>40</y>
+           <y>50</y>
            <width>91</width>
            <height>21</height>
           </rect>
@@ -440,7 +441,7 @@ vertical-align: bottom;
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>40</y>
+           <y>50</y>
            <width>121</width>
            <height>21</height>
           </rect>
@@ -460,7 +461,7 @@ vertical-align: bottom;
          <property name="geometry">
           <rect>
            <x>190</x>
-           <y>40</y>
+           <y>50</y>
            <width>91</width>
            <height>21</height>
           </rect>
@@ -481,7 +482,7 @@ vertical-align: bottom;
          <property name="geometry">
           <rect>
            <x>250</x>
-           <y>40</y>
+           <y>50</y>
            <width>81</width>
            <height>21</height>
           </rect>
@@ -502,9 +503,9 @@ vertical-align: bottom;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>100</y>
+          <y>110</y>
           <width>341</width>
-          <height>221</height>
+          <height>271</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -517,13 +518,14 @@ vertical-align: bottom;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>10</y>
-           <width>131</width>
+           <y>16</y>
+           <width>141</width>
            <height>21</height>
           </rect>
          </property>
          <property name="font">
           <font>
+           <pointsize>10</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -542,7 +544,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>40</y>
+           <y>50</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -563,7 +565,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>170</x>
-           <y>40</y>
+           <y>50</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -584,7 +586,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>40</y>
+           <y>50</y>
            <width>91</width>
            <height>21</height>
           </rect>
@@ -602,7 +604,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>230</x>
-           <y>40</y>
+           <y>50</y>
            <width>101</width>
            <height>21</height>
           </rect>
@@ -620,7 +622,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>80</y>
+           <y>100</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -641,7 +643,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>80</y>
+           <y>100</y>
            <width>91</width>
            <height>21</height>
           </rect>
@@ -661,7 +663,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>170</x>
-           <y>80</y>
+           <y>100</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -682,7 +684,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>230</x>
-           <y>80</y>
+           <y>100</y>
            <width>101</width>
            <height>21</height>
           </rect>
@@ -700,7 +702,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>120</y>
+           <y>150</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -721,7 +723,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>120</y>
+           <y>150</y>
            <width>91</width>
            <height>21</height>
           </rect>
@@ -741,7 +743,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>170</x>
-           <y>120</y>
+           <y>150</y>
            <width>61</width>
            <height>21</height>
           </rect>
@@ -762,7 +764,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>230</x>
-           <y>120</y>
+           <y>150</y>
            <width>101</width>
            <height>21</height>
           </rect>
@@ -777,7 +779,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>160</y>
+           <y>200</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -798,7 +800,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>160</y>
+           <y>200</y>
            <width>91</width>
            <height>21</height>
           </rect>
@@ -816,7 +818,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>170</x>
-           <y>160</y>
+           <y>200</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -837,7 +839,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>230</x>
-           <y>160</y>
+           <y>200</y>
            <width>101</width>
            <height>21</height>
           </rect>
@@ -855,9 +857,9 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>200</y>
+           <y>229</y>
            <width>71</width>
-           <height>16</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="font">
@@ -873,9 +875,9 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>90</x>
-           <y>200</y>
+           <y>229</y>
            <width>91</width>
-           <height>16</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="font">
@@ -892,9 +894,9 @@ font-weight: bold;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>330</y>
+          <y>390</y>
           <width>341</width>
-          <height>31</height>
+          <height>41</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -909,7 +911,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnThemSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -931,7 +933,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnSuaSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -953,7 +955,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnXoaSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -975,7 +977,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnLamMoiSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -992,7 +994,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>370</y>
+          <y>430</y>
           <width>341</width>
           <height>31</height>
          </rect>
@@ -1009,7 +1011,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnLayAnhSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -1031,7 +1033,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnXemAnhSV:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -1105,7 +1107,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              <x>10</x>
              <y>10</y>
              <width>361</width>
-             <height>61</height>
+             <height>71</height>
             </rect>
            </property>
            <property name="frameShape">
@@ -1118,7 +1120,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>10</y>
+              <y>14</y>
               <width>131</width>
               <height>21</height>
              </rect>
@@ -1136,7 +1138,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>30</y>
+              <y>40</y>
               <width>101</width>
               <height>21</height>
              </rect>
@@ -1157,7 +1159,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             <property name="geometry">
              <rect>
               <x>110</x>
-              <y>30</y>
+              <y>40</y>
               <width>81</width>
               <height>21</height>
              </rect>
@@ -1177,7 +1179,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
             <property name="geometry">
              <rect>
               <x>200</x>
-              <y>30</y>
+              <y>40</y>
               <width>151</width>
               <height>21</height>
              </rect>
@@ -1196,9 +1198,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>80</y>
+             <y>90</y>
              <width>361</width>
-             <height>111</height>
+             <height>131</height>
             </rect>
            </property>
            <row>
@@ -1442,7 +1444,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>90</y>
+             <y>116</y>
              <width>51</width>
              <height>21</height>
             </rect>
@@ -1463,7 +1465,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            <property name="geometry">
             <rect>
              <x>60</x>
-             <y>90</y>
+             <y>116</y>
              <width>111</width>
              <height>21</height>
             </rect>
@@ -1481,7 +1483,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>160</y>
+             <y>190</y>
              <width>151</width>
              <height>31</height>
             </rect>
@@ -1498,7 +1500,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnXoaLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -1520,7 +1522,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnLamMoiLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -1539,7 +1541,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
              <x>180</x>
              <y>90</y>
              <width>191</width>
-             <height>101</height>
+             <height>131</height>
             </rect>
            </property>
            <row>
@@ -1617,7 +1619,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>120</y>
+             <y>160</y>
              <width>151</width>
              <height>31</height>
             </rect>
@@ -1634,7 +1636,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnThemLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));
@@ -1656,7 +1658,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 color:white;
 font-weight:bold;
 border-radius:3px;
-padding: 3px;
+padding: 5px;
 }
 #btnSuaLop:hover{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));

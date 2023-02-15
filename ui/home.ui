@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>530</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@ background-color: rgb(255, 255, 255);
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">#frmHeader{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255))}</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -227,7 +227,7 @@ background-color: transparent;
       <x>19</x>
       <y>99</y>
       <width>151</width>
-      <height>411</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -236,10 +236,10 @@ background-color: transparent;
     <property name="styleSheet">
      <string notr="true">#frmMenu
 {
-	border-width: 2;
+	border-width: 0.1;
 	border-radius: 5;
      border-style: solid;
-      border-color: #457fca;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 92, 151, 255), stop:0.994318 rgba(54, 55, 149, 255));
 }</string>
     </property>
     <property name="frameShadow">
@@ -254,9 +254,22 @@ background-color: transparent;
      </property>
      <item alignment="Qt::AlignTop">
       <widget class="QFrame" name="verticalFrame">
+       <property name="styleSheet">
+        <string notr="true">#verticalFrame
+{
+background-color:transparent;
+}
+</string>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <property name="spacing">
-         <number>15</number>
+         <number>25</number>
+        </property>
+        <property name="rightMargin">
+         <number>6</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
         </property>
         <item>
          <widget class="QPushButton" name="btnTrangChu">
@@ -297,7 +310,15 @@ background-color: transparent;
           <property name="styleSheet">
            <string notr="true">#btnTrangChu
 {
-	font-weight:bold;
+font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnTrangChu:hover
+{
+	background-color:black;
+	color:white;
+	icon: url(&quot;image/icon/home_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -337,6 +358,14 @@ background-color: transparent;
            <string notr="true">#btnQuanLy
 {
 	font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnQuanLy:hover
+{
+background-color: black;
+color:white;
+icon: url(&quot;image/icon/document_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -351,6 +380,9 @@ background-color: transparent;
             <width>15</width>
             <height>15</height>
            </size>
+          </property>
+          <property name="autoRepeatDelay">
+           <number>300</number>
           </property>
          </widget>
         </item>
@@ -376,6 +408,14 @@ background-color: transparent;
            <string notr="true">#btnNhanDien
 {
 	font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnNhanDien:hover
+{
+background-color: black;
+color:white;
+icon: url(&quot;image/icon/client_management_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -415,6 +455,14 @@ background-color: transparent;
            <string notr="true">#btnThongKe
 {
 	font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnThongKe:hover
+{
+background-color: black;
+color:white;
+icon: url(&quot;image/icon/graph_report_script_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -454,6 +502,14 @@ background-color: transparent;
            <string notr="true">#btnMatKhau
 {
 	font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnMatKhau:hover
+{
+background-color: black;
+color:white;
+icon: url(&quot;image/icon/password_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -461,7 +517,7 @@ background-color: transparent;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/password_40px.png</normaloff>../image/icon/password_40px.png</iconset>
+            <normaloff>../image/icon/password_key_40px.png</normaloff>../image/icon/password_key_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -493,6 +549,14 @@ background-color: transparent;
            <string notr="true">#btnLogout
 {
 	font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnLogout:hover
+{
+background-color: black;
+color:white;
+icon: url(&quot;image/icon/logout_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -514,422 +578,6 @@ background-color: transparent;
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QFrame" name="frmMain">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>100</y>
-      <width>601</width>
-      <height>411</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#frmMain
-{
-	border-width: 2;
-	border-radius: 5;
-     border-style: solid;
-      border-color: #457fca;
-}</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="lineWidth">
-     <number>2</number>
-    </property>
-    <widget class="QFrame" name="frmHome1">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>241</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#frmHome1{
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
-border-radius: 10px;
-}
-
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#pushButton_6
-{
-border:none;
-font-weight:bold;
-background-color: transparent;
-}</string>
-      </property>
-      <property name="text">
-       <string> Số sinh viên quản lý</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../image/icon/student_center_50px.png</normaloff>../image/icon/student_center_50px.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>26</width>
-        <height>26</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblSV">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>90</y>
-        <width>241</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>25</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#lblSV
-{
-color:white;
-font-weight:bold;
-background-color: transparent;
-}</string>
-      </property>
-      <property name="text">
-       <string>20</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btnUpdateSV">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>61</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#btnUpdateSV
-{
-border-radius: 5px;
-background-color: white;
-font-weight: bold;
-color:black;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Cập nhật</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QFrame" name="frmHome2">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>40</y>
-       <width>241</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#frmHome2{
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
-border-radius: 10px;
-}
-
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="btnUpdateClass">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>61</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#btnUpdateClass
-{
- border-radius: 5px;
-background-color: white;
-font-weight:bold;
-color:black;
-}</string>
-      </property>
-      <property name="text">
-       <string>Cập nhật</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_7">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#pushButton_7
-{
-border:none;
-font-weight:bold;
-background-color: transparent;
-}</string>
-      </property>
-      <property name="text">
-       <string>Buổi học đang diễn ra</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../image/icon/google_classroom_50px.png</normaloff>../image/icon/google_classroom_50px.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>26</width>
-        <height>26</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblBuoiHoc">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>90</y>
-        <width>241</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>25</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#lblBuoiHoc
-{
-color:white;
-font-weight:bold;
-background-color: transparent;
-}</string>
-      </property>
-      <property name="text">
-       <string>10</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QFrame" name="frmHome3">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>230</y>
-       <width>241</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#frmHome3{
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
-border-radius: 10px;
-}
-
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="btnCloseCam">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>61</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#btnCloseCam
-{
- border-radius: 5px;
-background-color: white;
-font-weight:bold;
-color:black;
-}</string>
-      </property>
-      <property name="text">
-       <string>Đóng</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_8">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#pushButton_8
-{
-border:none;
-font-weight:bold;
-background-color: transparent;
-}</string>
-      </property>
-      <property name="text">
-       <string>Trạng thái nhận diện</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../image/icon/camera_50px.png</normaloff>../image/icon/camera_50px.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>26</width>
-        <height>26</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblStatusCam">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>90</y>
-        <width>241</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>25</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#lblStatusCam
-{
-color:white;
-font-weight:bold;
-background-color: transparent;
-}</string>
-      </property>
-      <property name="text">
-       <string>Mở</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </widget>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -1046,6 +694,1061 @@ background-color: transparent;
      <property name="textInteractionFlags">
       <set>Qt::LinksAccessibleByMouse</set>
      </property>
+    </widget>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>100</y>
+      <width>601</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="pageHome">
+     <widget class="QFrame" name="frmMain">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>591</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frmMain
+{
+	border-width: 2;
+	border-radius: 5;
+     border-style: solid;
+      border-color: #457fca;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <widget class="QFrame" name="frmHome1">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>241</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#frmHome1{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+}
+
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>241</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_6
+{
+border:none;
+font-weight:bold;
+background-color: transparent;
+}</string>
+        </property>
+        <property name="text">
+         <string> Số sinh viên quản lý</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../image/icon/student_center_50px.png</normaloff>../image/icon/student_center_50px.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>26</width>
+          <height>26</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblSV">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>241</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>25</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>20</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnUpdateSV">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#btnUpdateSV
+{
+border-radius: 5px;
+background-color: white;
+font-weight: bold;
+color:black;
+}
+#btnUpdateSV:hover
+{
+background-color: black;
+color:white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Cập nhật</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frmHome2">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>50</y>
+         <width>241</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#frmHome2{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+}
+
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="btnUpdateClass">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#btnUpdateClass
+{
+ border-radius: 5px;
+background-color: white;
+font-weight:bold;
+color:black;
+}
+#btnUpdateClass:hover
+{
+background-color: black;
+color:white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Cập nhật</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>241</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_7
+{
+border:none;
+font-weight:bold;
+background-color: transparent;
+}</string>
+        </property>
+        <property name="text">
+         <string>Buổi học đang diễn ra</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../image/icon/google_classroom_50px.png</normaloff>../image/icon/google_classroom_50px.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>26</width>
+          <height>26</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblBuoiHoc">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>241</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>25</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frmHome3">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>260</y>
+         <width>241</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#frmHome3{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+}
+
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="btnCloseCam">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#btnCloseCam
+{
+ border-radius: 5px;
+background-color: white;
+font-weight:bold;
+color:black;
+}
+#btnCloseCam:hover
+{
+background-color: black;
+color:white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Đóng</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>241</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_8
+{
+border:none;
+font-weight:bold;
+background-color: transparent;
+}</string>
+        </property>
+        <property name="text">
+         <string>Trạng thái nhận diện</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../image/icon/camera_50px.png</normaloff>../image/icon/camera_50px.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>26</width>
+          <height>26</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblStatusCam">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>241</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>25</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Mở</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageQL">
+     <widget class="QFrame" name="frmQL">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>591</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frmQL
+{
+	border-width: 2;
+	border-radius: 5;
+     border-style: solid;
+      border-color: #457fca;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <widget class="QPushButton" name="btnQLSV">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>60</y>
+         <width>211</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#btnQLSV{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+font-weight: bold;
+}
+#btnQLSV:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
+}</string>
+       </property>
+       <property name="text">
+        <string>SINH VIÊN</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../image/icon/student_center_50px.png</normaloff>../image/icon/student_center_50px.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>26</width>
+         <height>26</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnDiemDanh">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>60</y>
+         <width>211</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#btnDiemDanh{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+font-weight: bold;
+}
+#btnDiemDanh:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>ĐIỂM DANH</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../image/icon/Attendance_50px.png</normaloff>../image/icon/Attendance_50px.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>26</width>
+         <height>26</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnGiangVien">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>270</y>
+         <width>211</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#btnGiangVien{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+font-weight: bold;
+}
+#btnGiangVien:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>GIẢNG VIÊN</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../image/icon/teacher_50px.png</normaloff>../image/icon/teacher_50px.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>26</width>
+         <height>26</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnBuoiHoc">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>270</y>
+         <width>211</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#btnBuoiHoc
+{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+font-weight: bold;
+}
+#btnBuoiHoc:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
+}
+</string>
+       </property>
+       <property name="text">
+        <string>BUỔI HỌC</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../image/icon/google_classroom_50px.png</normaloff>../image/icon/google_classroom_50px.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>26</width>
+         <height>26</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageMK">
+     <widget class="QFrame" name="frmMK">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>591</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frmMK
+{
+	border-width: 2;
+	border-radius: 5;
+     border-style: solid;
+      border-color: #457fca;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <widget class="QFrame" name="frmChangePass">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>40</y>
+         <width>351</width>
+         <height>391</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#frmChangePass
+{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 5px;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLineEdit" name="txtNhapLaiMatKhau">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>280</y>
+          <width>191</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#txtNhapLaiMatKhau
+{
+border-radius:3px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtMatKhauCu">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>140</y>
+          <width>191</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#txtMatKhauCu
+{
+border-radius:3px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>341</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI Black</family>
+          <pointsize>16</pointsize>
+          <weight>10</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#label_5
+{
+	font-weight:bold;
+background-color:transparent;
+	color: white;
+	font: 87 16pt &quot;Segoe UI Black&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>ĐỔI MẬT KHẨU</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>50</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#label_6
+{
+background-color:transparent;
+font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtEmail">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>80</y>
+          <width>191</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#txtEmail
+{
+border-radius:3px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>110</y>
+          <width>191</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#label_7
+{
+background-color:transparent;
+font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Mật khẩu cũ</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>250</y>
+          <width>191</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#label_9
+{
+background-color:transparent;
+font-weight:bold;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Nhập lại mật khẩu</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtMatKhauMoi">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>210</y>
+          <width>191</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#txtMatKhauMoi
+{
+border-radius:3px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>180</y>
+          <width>191</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#label_8
+{
+background-color:transparent;
+font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Mật khẩu mới</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnXacNhan">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>330</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#btnXacNhan
+{
+font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Xác nhận</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>

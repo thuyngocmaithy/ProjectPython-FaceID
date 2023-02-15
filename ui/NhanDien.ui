@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>530</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -236,7 +236,7 @@ background-color: transparent;
       <x>20</x>
       <y>100</y>
       <width>441</width>
-      <height>361</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -336,7 +336,7 @@ background-color: transparent;
        <x>20</x>
        <y>80</y>
        <width>401</width>
-       <height>231</height>
+       <height>291</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -350,7 +350,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>320</y>
+       <y>380</y>
        <width>401</width>
        <height>31</height>
       </rect>
@@ -376,7 +376,7 @@ background-color: transparent;
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">#label_8
+       <string notr="true">#lblThongBao
 {
 color:red;
 }</string>
@@ -419,7 +419,7 @@ font-weight:bold;
       <x>480</x>
       <y>100</y>
       <width>301</width>
-      <height>261</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -469,7 +469,7 @@ font-weight:bold;
        <x>89</x>
        <y>40</y>
        <width>151</width>
-       <height>111</height>
+       <height>121</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -483,7 +483,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>160</y>
+       <y>180</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -501,7 +501,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>160</y>
+       <y>180</y>
        <width>141</width>
        <height>20</height>
       </rect>
@@ -511,7 +511,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>190</y>
+       <y>220</y>
        <width>141</width>
        <height>20</height>
       </rect>
@@ -524,8 +524,8 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>190</y>
-       <width>81</width>
+       <y>220</y>
+       <width>71</width>
        <height>21</height>
       </rect>
      </property>
@@ -542,7 +542,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>220</y>
+       <y>260</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -560,7 +560,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>220</y>
+       <y>260</y>
        <width>141</width>
        <height>22</height>
       </rect>
@@ -571,9 +571,9 @@ font-weight:bold;
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>380</y>
+      <y>420</y>
       <width>301</width>
-      <height>131</height>
+      <height>151</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -595,7 +595,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>10</y>
+       <y>20</y>
        <width>171</width>
        <height>21</height>
       </rect>
@@ -621,7 +621,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>70</y>
+       <y>80</y>
        <width>101</width>
        <height>16</height>
       </rect>
@@ -639,7 +639,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>100</y>
+       <y>110</y>
        <width>101</width>
        <height>16</height>
       </rect>
@@ -657,7 +657,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>40</y>
+       <y>50</y>
        <width>101</width>
        <height>16</height>
       </rect>
@@ -675,7 +675,7 @@ font-weight:bold;
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>40</y>
+       <y>50</y>
        <width>141</width>
        <height>16</height>
       </rect>
@@ -686,7 +686,7 @@ font-weight:bold;
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">#label_17
+      <string notr="true">#lblLop
 {
 color:red;
 }</string>
@@ -699,7 +699,7 @@ color:red;
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>70</y>
+       <y>80</y>
        <width>141</width>
        <height>16</height>
       </rect>
@@ -710,7 +710,7 @@ color:red;
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">#label_18{
+      <string notr="true">#lblIDBuoiHoc{
 color:red;
 }</string>
      </property>
@@ -722,7 +722,7 @@ color:red;
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>100</y>
+       <y>110</y>
        <width>141</width>
        <height>16</height>
       </rect>
@@ -733,7 +733,7 @@ color:red;
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">#label_19
+      <string notr="true">#lblThoiGian
 {
 color:red;
 }</string>
@@ -747,7 +747,7 @@ color:red;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>470</y>
+      <y>530</y>
       <width>441</width>
       <height>41</height>
      </rect>
