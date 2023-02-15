@@ -23,14 +23,14 @@ def listChangeStyleSheet_MD():
     ui.btnDark.setIcon(QtGui.QIcon("image/icon/moon_symbol_50px.png"))
     ui.btnTime.setIcon(QtGui.QIcon("image/icon/time_20px.png"))    
     app.setStyleSheet(Path(
-        r"C:\Users\thuyn\Documents\GitHub\ProjectPython-FaceID\GUI\qss\py_md_style.qss").read_text())
+        r"GUI\qss\py_md_style.qss").read_text())
 
 
 def listChangeStyleSheet_Dark():
     ui.btnDark.setIcon(QtGui.QIcon("image/icon/sun_50px.png"))
     ui.btnTime.setIcon(QtGui.QIcon("image/icon/time_white_20px.png"))
     app.setStyleSheet(Path(
-            r"C:\Users\thuyn\Documents\GitHub\ProjectPython-FaceID\GUI\qss\py_dark_style.qss").read_text())
+            r"GUI\qss\py_dark_style.qss").read_text())
  
 
 
