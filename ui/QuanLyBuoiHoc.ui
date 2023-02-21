@@ -272,50 +272,11 @@ background-color: transparent;
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>71</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>9</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>ID buổi học</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="txtIDBuoiHoc">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>60</y>
-       <width>121</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>9</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>110</y>
+       <y>70</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -336,7 +297,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>110</y>
+       <y>70</y>
        <width>121</width>
        <height>22</height>
       </rect>
@@ -346,7 +307,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>160</y>
+       <y>120</y>
        <width>71</width>
        <height>16</height>
       </rect>
@@ -367,7 +328,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>160</y>
+       <y>120</y>
        <width>121</width>
        <height>22</height>
       </rect>
@@ -377,7 +338,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>210</y>
+       <y>170</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -398,7 +359,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>210</y>
+       <y>170</y>
        <width>121</width>
        <height>22</height>
       </rect>
@@ -408,7 +369,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>260</y>
+       <y>220</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -429,7 +390,7 @@ background-color: transparent;
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>260</y>
+       <y>220</y>
        <width>121</width>
        <height>22</height>
       </rect>
@@ -557,6 +518,45 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QLabel" name="label_26">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>270</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Giảng viên</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtIDBuoiHoc_2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>270</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>abc</string>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frmInfoBuoiHoc">
@@ -723,6 +723,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      <column>
       <property name="text">
        <string>Lớp học</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Giảng viên</string>
       </property>
      </column>
      <item row="0" column="0">

@@ -42,7 +42,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>10</y>
+       <y>30</y>
        <width>211</width>
        <height>21</height>
       </rect>
@@ -67,50 +67,11 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>9</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Mã giảng viên</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="txtIDGiangVien">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>60</y>
-       <width>111</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>9</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>110</y>
+       <y>80</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -131,7 +92,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>160</y>
+       <y>130</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -152,7 +113,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>210</y>
+       <y>180</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -173,7 +134,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>260</y>
+       <y>230</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -194,7 +155,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>110</y>
+       <y>80</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -212,7 +173,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>160</y>
+       <y>130</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -230,7 +191,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>210</y>
+       <y>180</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -248,7 +209,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>260</y>
+       <y>230</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -266,7 +227,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>320</y>
+       <y>300</y>
        <width>171</width>
        <height>51</height>
       </rect>
@@ -325,7 +286,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>370</y>
+       <y>350</y>
        <width>171</width>
        <height>51</height>
       </rect>
@@ -499,6 +460,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </widget>
     </widget>
     <widget class="QTableWidget" name="tbwGiangVien">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -507,21 +471,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        <height>341</height>
       </rect>
      </property>
-     <row>
-      <property name="text">
-       <string/>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string/>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string/>
-      </property>
-     </row>
+     <property name="showGrid">
+      <bool>true</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
      <column>
       <property name="text">
        <string>ID giảng viên</string>
@@ -547,81 +502,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        <string>Mật khẩu</string>
       </property>
      </column>
-     <item row="0" column="0">
-      <property name="text">
-       <string>1</string>
-      </property>
-     </item>
-     <item row="0" column="1">
-      <property name="text">
-       <string>abc</string>
-      </property>
-     </item>
-     <item row="0" column="2">
-      <property name="text">
-       <string>090090900</string>
-      </property>
-     </item>
-     <item row="0" column="3">
-      <property name="text">
-       <string>a@gmail.com</string>
-      </property>
-     </item>
-     <item row="0" column="4">
-      <property name="text">
-       <string>*******</string>
-      </property>
-     </item>
-     <item row="1" column="0">
-      <property name="text">
-       <string>2</string>
-      </property>
-     </item>
-     <item row="1" column="1">
-      <property name="text">
-       <string>abd</string>
-      </property>
-     </item>
-     <item row="1" column="2">
-      <property name="text">
-       <string>090090901</string>
-      </property>
-     </item>
-     <item row="1" column="3">
-      <property name="text">
-       <string>b@gmail.com</string>
-      </property>
-     </item>
-     <item row="1" column="4">
-      <property name="text">
-       <string>*******</string>
-      </property>
-     </item>
-     <item row="2" column="0">
-      <property name="text">
-       <string>3</string>
-      </property>
-     </item>
-     <item row="2" column="1">
-      <property name="text">
-       <string>abe</string>
-      </property>
-     </item>
-     <item row="2" column="2">
-      <property name="text">
-       <string>090090902</string>
-      </property>
-     </item>
-     <item row="2" column="3">
-      <property name="text">
-       <string>c@gmail.com</string>
-      </property>
-     </item>
-     <item row="2" column="4">
-      <property name="text">
-       <string>*******</string>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QFrame" name="frame">

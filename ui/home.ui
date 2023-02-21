@@ -706,7 +706,7 @@ icon: url(&quot;image/icon/logout_white_40px.png&quot;)
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="pageHome">
      <widget class="QFrame" name="frmMain">

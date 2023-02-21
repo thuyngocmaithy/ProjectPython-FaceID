@@ -277,7 +277,11 @@ font-weight:bold;
 {
 border: 2px solid rgb(0, 0, 127);
 border-radius: 5px;
+padding:3px;
 }</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
      </widget>
      <widget class="QLabel" name="label_3">
@@ -325,7 +329,11 @@ font-weight:bold;
 {
 border: 2px solid rgb(0, 0, 127);
 border-radius: 5px;
+padding:3px;
 }</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
      </widget>
      <widget class="QPushButton" name="btnDangNhap">
