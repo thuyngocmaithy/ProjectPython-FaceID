@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>590</height>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -719,9 +719,37 @@ background-color:transparent;
             <height>21</height>
            </rect>
           </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
           <item>
            <property name="text">
             <string>Mã SV</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Họ tên</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lớp</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ngày</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ID buổi học</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Trạng thái</string>
            </property>
           </item>
          </widget>
@@ -900,6 +928,31 @@ background-color:transparent;
             <string>Mã SV</string>
            </property>
           </item>
+          <item>
+           <property name="text">
+            <string>Họ tên</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lớp </string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ngày</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ID buổi học</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Trạng thái</string>
+           </property>
+          </item>
          </widget>
          <widget class="QPushButton" name="btnExportVang">
           <property name="geometry">
@@ -1068,6 +1121,31 @@ background-color:transparent;
           <string>Mã SV</string>
          </property>
         </item>
+        <item>
+         <property name="text">
+          <string>Họ tên</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Lớp</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ngày</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ID buổi học</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Trạng thái</string>
+         </property>
+        </item>
        </widget>
        <widget class="QPushButton" name="btnExportKhongDD">
         <property name="geometry">
@@ -1101,7 +1179,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
+          <y>50</y>
           <width>351</width>
           <height>281</height>
          </rect>

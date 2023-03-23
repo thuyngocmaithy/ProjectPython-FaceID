@@ -19,17 +19,17 @@ class mainGUI:
     DarkMode = True
     
     def listChangeStyleSheet_MD(self):
-        self.ui.btnDark.setIcon(QtGui.QIcon("image/moon_symbol_50px.png"))
-        self.ui.btnTime.setIcon(QtGui.QIcon("image/time_20px.png"))    
+        self.ui.btnDark.setIcon(QtGui.QIcon("..\image/moon_symbol_50px.png"))
+        self.ui.btnTime.setIcon(QtGui.QIcon("..\image/time_20px.png"))
         self.app.setStyleSheet(Path(
-            r"qss\py_md_style.qss").read_text())
+            r"..\qss\py_md_style.qss").read_text())
 
 
     def listChangeStyleSheet_Dark(self):
         self.ui.btnDark.setIcon(QtGui.QIcon("image/sun_50px.png"))
         self.ui.btnTime.setIcon(QtGui.QIcon("image/time_white_20px.png"))
         self.app.setStyleSheet(Path(
-                r"qss\py_dark_style.qss").read_text())
+                r"..\qss\py_dark_style.qss").read_text())
     
 
 
