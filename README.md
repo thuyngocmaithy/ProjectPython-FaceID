@@ -27,8 +27,8 @@ Phần mềm điểm danh bằng nhận diện khuôn mặt
 
   **Openpyxl**
 
-  pip install openpyxl
+    pip install openpyxl
 
   **PyWin32**
 
-  python -m pip install pywin32
+    python -m pip install pywin32
