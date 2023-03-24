@@ -1,0 +1,21 @@
+#lblSV {
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#lblBuoiHoc {
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#lblStatusCam {
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#frmHeader {
+    background-color: qlineargradient(spread: pad, x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 rgba(69, 127, 202, 255), stop: 1 rgba(86, 145, 200, 255));
+}

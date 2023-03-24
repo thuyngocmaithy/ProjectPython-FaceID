@@ -14,7 +14,6 @@ import cv2
 import shutil
 import csv
 import numpy as np
-from PIL import Image, ImageTk
 import pandas as pd
 import datetime
 import time
