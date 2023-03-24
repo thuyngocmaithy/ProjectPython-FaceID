@@ -7,6 +7,17 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtWidgets import QMessageBox
+import os
+import sys
+import datetime
+import time 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+from BUS.BuoiHocBUS import BuoiHocBUS
+from DAL.BuoiHoc import BuoiHoc
+from BUS.LopBUS import LopBUS
+from BUS.GiangVienBUS import GiangVienBUS
 
 
 class UI_QuanLyBuoiHoc(object):
@@ -127,7 +138,9 @@ class UI_QuanLyBuoiHoc(object):
         self.label_11.setObjectName("label_11")
         self.timeGioBD = QtWidgets.QTimeEdit(parent=self.frmChangeBuoiHoc)
         self.timeGioBD.setGeometry(QtCore.QRect(90, 70, 121, 22))
+        self.timeGioBD.setDisplayFormat("HH:mm:ss")
         self.timeGioBD.setObjectName("timeGioBD")
+        self.timeGioBD.setTime(QtCore.QTime(7, 00, 00))
         self.label_12 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
         self.label_12.setGeometry(QtCore.QRect(20, 120, 71, 16))
         font = QtGui.QFont()
@@ -137,7 +150,9 @@ class UI_QuanLyBuoiHoc(object):
         self.label_12.setObjectName("label_12")
         self.timeGioKT = QtWidgets.QTimeEdit(parent=self.frmChangeBuoiHoc)
         self.timeGioKT.setGeometry(QtCore.QRect(90, 120, 121, 22))
+        self.timeGioKT.setDisplayFormat("HH:mm:ss")
         self.timeGioKT.setObjectName("timeGioKT")
+        self.timeGioKT.setTime(QtCore.QTime(17, 30, 00))
         self.label_13 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
         self.label_13.setGeometry(QtCore.QRect(20, 170, 71, 21))
         font = QtGui.QFont()
@@ -147,7 +162,9 @@ class UI_QuanLyBuoiHoc(object):
         self.label_13.setObjectName("label_13")
         self.dateNgay = QtWidgets.QDateEdit(parent=self.frmChangeBuoiHoc)
         self.dateNgay.setGeometry(QtCore.QRect(90, 170, 121, 22))
+        self.dateNgay.setDisplayFormat("yyyy-MM-dd")
         self.dateNgay.setObjectName("dateNgay")
+        self.dateNgay.setDate(QtCore.QDate.currentDate())
         self.label_14 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
         self.label_14.setGeometry(QtCore.QRect(20, 220, 71, 21))
         font = QtGui.QFont()
@@ -158,7 +175,6 @@ class UI_QuanLyBuoiHoc(object):
         self.cmbLop = QtWidgets.QComboBox(parent=self.frmChangeBuoiHoc)
         self.cmbLop.setGeometry(QtCore.QRect(90, 220, 121, 22))
         self.cmbLop.setObjectName("cmbLop")
-        self.cmbLop.addItem("")
         self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.frmChangeBuoiHoc)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(30, 320, 171, 51))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -180,6 +196,7 @@ class UI_QuanLyBuoiHoc(object):
 "}")
         self.btnThem.setObjectName("btnThem")
         self.horizontalLayout.addWidget(self.btnThem)
+        self.btnThem.clicked.connect(self.add)
         self.btnSua = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
         self.btnSua.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnSua.setStyleSheet("#btnSua{\n"
@@ -194,6 +211,7 @@ class UI_QuanLyBuoiHoc(object):
 "}")
         self.btnSua.setObjectName("btnSua")
         self.horizontalLayout.addWidget(self.btnSua)
+        self.btnSua.clicked.connect(self.update)
         self.horizontalLayoutWidget_2 = QtWidgets.QWidget(parent=self.frmChangeBuoiHoc)
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(30, 370, 171, 51))
         self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
@@ -215,6 +233,7 @@ class UI_QuanLyBuoiHoc(object):
 "}")
         self.btnXoa.setObjectName("btnXoa")
         self.horizontalLayout_2.addWidget(self.btnXoa)
+        self.btnXoa.clicked.connect(self.delete)
         self.btnLamMoi = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
         self.btnLamMoi.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnLamMoi.setStyleSheet("#btnLamMoi{\n"
@@ -229,6 +248,7 @@ class UI_QuanLyBuoiHoc(object):
 "}")
         self.btnLamMoi.setObjectName("btnLamMoi")
         self.horizontalLayout_2.addWidget(self.btnLamMoi)
+        self.btnLamMoi.clicked.connect(self.clear)
         self.label_26 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
         self.label_26.setGeometry(QtCore.QRect(20, 270, 71, 21))
         font = QtGui.QFont()
@@ -236,12 +256,9 @@ class UI_QuanLyBuoiHoc(object):
         self.label_26.setFont(font)
         self.label_26.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
         self.label_26.setObjectName("label_26")
-        self.txtIDBuoiHoc_2 = QtWidgets.QLineEdit(parent=self.frmChangeBuoiHoc)
-        self.txtIDBuoiHoc_2.setGeometry(QtCore.QRect(90, 270, 121, 21))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        self.txtIDBuoiHoc_2.setFont(font)
-        self.txtIDBuoiHoc_2.setObjectName("txtIDBuoiHoc_2")
+        self.cmbGv = QtWidgets.QComboBox(parent=self.frmChangeBuoiHoc)
+        self.cmbGv.setGeometry(QtCore.QRect(90, 270, 121, 21))
+        self.cmbGv.setObjectName("magv")
         self.frmInfoBuoiHoc = QtWidgets.QFrame(parent=self.centralwidget)
         self.frmInfoBuoiHoc.setGeometry(QtCore.QRect(271, 101, 511, 471))
         self.frmInfoBuoiHoc.setStyleSheet("#frmInfoBuoiHoc\n"
@@ -278,7 +295,13 @@ class UI_QuanLyBuoiHoc(object):
         font.setPointSize(9)
         self.cmbOptionFind.setFont(font)
         self.cmbOptionFind.setObjectName("cmbOptionFind")
-        self.cmbOptionFind.addItem("")
+        self.cmbOptionFind.addItem("ID buổi học", "mabuoihoc")
+        self.cmbOptionFind.addItem("Giờ bắt đầu", "giobatdau")
+        self.cmbOptionFind.addItem("Giờ kết thúc", "gioketthuc")
+        self.cmbOptionFind.addItem("Ngày", "ngay")
+        self.cmbOptionFind.addItem("ID Lớp học", "malop")
+        self.cmbOptionFind.addItem("ID Giảng viên", "magiangvien")
+        self.cmbOptionFind.currentIndexChanged.connect(self.find)
         self.txtFind = QtWidgets.QLineEdit(parent=self.frame_3)
         self.txtFind.setGeometry(QtCore.QRect(220, 40, 231, 21))
         font = QtGui.QFont()
@@ -286,17 +309,12 @@ class UI_QuanLyBuoiHoc(object):
         self.txtFind.setFont(font)
         self.txtFind.setText("")
         self.txtFind.setObjectName("txtFind")
+        self.txtFind.textChanged.connect(self.find)
         self.tbwBuoiHoc = QtWidgets.QTableWidget(parent=self.frmInfoBuoiHoc)
         self.tbwBuoiHoc.setGeometry(QtCore.QRect(20, 100, 471, 351))
         self.tbwBuoiHoc.setObjectName("tbwBuoiHoc")
         self.tbwBuoiHoc.setColumnCount(6)
-        self.tbwBuoiHoc.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setVerticalHeaderItem(2, item)
+        self.tbwBuoiHoc.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tbwBuoiHoc.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -309,38 +327,14 @@ class UI_QuanLyBuoiHoc(object):
         self.tbwBuoiHoc.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tbwBuoiHoc.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(0, 4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(1, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(1, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(1, 4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(2, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(2, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(2, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbwBuoiHoc.setItem(2, 4, item)
+        # self.frame = QtWidgets.QFrame(parent=self.centralwidget)
+        # self.frame.setGeometry(QtCore.QRect(0, 0, 801, 31))
+        # self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        # self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.tbwBuoiHoc.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
+        self.tbwBuoiHoc.itemClicked.connect(self.getDataRow)
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 801, 31))
+        self.frame.setGeometry(QtCore.QRect(0, 30, 851, 51))
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
@@ -380,7 +374,9 @@ class UI_QuanLyBuoiHoc(object):
         self.label_15.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_15.setObjectName("label_15")
         MainWindow.setCentralWidget(self.centralwidget)
-
+        self.loadDataQTable()
+        self.loadDataCmbLop()
+        self.loadDataCmbGv()
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -396,13 +392,11 @@ class UI_QuanLyBuoiHoc(object):
         self.label_12.setText(_translate("MainWindow", "Giờ kết thúc"))
         self.label_13.setText(_translate("MainWindow", "Ngày"))
         self.label_14.setText(_translate("MainWindow", "Lớp học"))
-        self.cmbLop.setItemText(0, _translate("MainWindow", "DCT1205"))
         self.btnThem.setText(_translate("MainWindow", "Thêm"))
         self.btnSua.setText(_translate("MainWindow", "Sửa"))
         self.btnXoa.setText(_translate("MainWindow", "Xóa"))
         self.btnLamMoi.setText(_translate("MainWindow", "Làm mới"))
         self.label_26.setText(_translate("MainWindow", "Giảng viên"))
-        self.txtIDBuoiHoc_2.setText(_translate("MainWindow", "abc"))
         self.label_17.setText(_translate("MainWindow", "Hệ thống tìm kiếm:"))
         self.label_18.setText(_translate("MainWindow", "Tìm kiếm theo:"))
         self.cmbOptionFind.setItemText(0, _translate("MainWindow", "ID buổi học"))
@@ -418,41 +412,132 @@ class UI_QuanLyBuoiHoc(object):
         item.setText(_translate("MainWindow", "Lớp học"))
         item = self.tbwBuoiHoc.horizontalHeaderItem(5)
         item.setText(_translate("MainWindow", "Giảng viên"))
-        __sortingEnabled = self.tbwBuoiHoc.isSortingEnabled()
-        self.tbwBuoiHoc.setSortingEnabled(False)
-        item = self.tbwBuoiHoc.item(0, 0)
-        item.setText(_translate("MainWindow", "1"))
-        item = self.tbwBuoiHoc.item(0, 1)
-        item.setText(_translate("MainWindow", "7:00:00"))
-        item = self.tbwBuoiHoc.item(0, 2)
-        item.setText(_translate("MainWindow", "12:00:00"))
-        item = self.tbwBuoiHoc.item(0, 3)
-        item.setText(_translate("MainWindow", "1/1/2022"))
-        item = self.tbwBuoiHoc.item(0, 4)
-        item.setText(_translate("MainWindow", "DCT1200"))
-        item = self.tbwBuoiHoc.item(1, 0)
-        item.setText(_translate("MainWindow", "2"))
-        item = self.tbwBuoiHoc.item(1, 1)
-        item.setText(_translate("MainWindow", "8:00:00"))
-        item = self.tbwBuoiHoc.item(1, 2)
-        item.setText(_translate("MainWindow", "11:00:00"))
-        item = self.tbwBuoiHoc.item(1, 3)
-        item.setText(_translate("MainWindow", "2/2/2022"))
-        item = self.tbwBuoiHoc.item(1, 4)
-        item.setText(_translate("MainWindow", "DCT1201"))
-        item = self.tbwBuoiHoc.item(2, 0)
-        item.setText(_translate("MainWindow", "3"))
-        item = self.tbwBuoiHoc.item(2, 1)
-        item.setText(_translate("MainWindow", "13:00:00"))
-        item = self.tbwBuoiHoc.item(2, 2)
-        item.setText(_translate("MainWindow", "17:00:00"))
-        item = self.tbwBuoiHoc.item(2, 3)
-        item.setText(_translate("MainWindow", "3/2/2022"))
-        item = self.tbwBuoiHoc.item(2, 4)
-        item.setText(_translate("MainWindow", "DCT1203"))
-        self.tbwBuoiHoc.setSortingEnabled(__sortingEnabled)
         self.label_15.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
 
+
+    def loadDataQTable(self):
+
+        dd = BuoiHocBUS()
+        list = dd.get()
+        tablerow=0
+        self.tbwBuoiHoc.setRowCount(list.__len__())
+             
+        if list is not None:
+                for row in list:
+                        self.tbwBuoiHoc.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tbwBuoiHoc.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
+                        self.tbwBuoiHoc.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+                        self.tbwBuoiHoc.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tbwBuoiHoc.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tbwBuoiHoc.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        tablerow+=1
+
+    def loadDataCmbLop(self):
+
+        bh = BuoiHocBUS()
+        list = bh.getCmbLop();
+        self.cmbLop.addItem("Chọn ID Lớp")
+        if list is not None:
+                for row in list:
+                        self.cmbLop.addItem(row[0]);
+    
+    def loadDataCmbGv(self):
+
+        bh = BuoiHocBUS()
+        list = bh.getCmbGv();
+        self.cmbGv.addItem("Chọn ID Giảng Viên")
+        if list is not None:
+                for row in list:
+                        self.cmbGv.addItem(row[0]);
+        
+
+    def getDataRow(self):                
+        cr = self.tbwBuoiHoc.currentRow()     
+        self.ma = self.tbwBuoiHoc.item(cr,0).text()     
+        time_str_GioBD = self.tbwBuoiHoc.item(cr,1).text()
+        time_str_GioKT = self.tbwBuoiHoc.item(cr,2).text()
+        date_str = self.tbwBuoiHoc.item(cr,3).text()
+        time_format =  "%H:%M:%S"
+        date_format = "%Y-%m-%d"
+        timeGioBD = datetime.datetime.strptime(time_str_GioBD,time_format).time()
+        timeGioKT = datetime.datetime.strptime(time_str_GioKT,time_format).time()
+        date = datetime.datetime.strptime(date_str,date_format).date()
+        self.ma = self.tbwBuoiHoc.item(cr,0).text()
+        self.timeGioBD.setTime(timeGioBD)
+        self.timeGioKT.setTime(timeGioKT)
+        self.dateNgay.setDate(date)
+        self.cmbLop.setCurrentText(self.tbwBuoiHoc.item(cr,4).text())
+        self.cmbGv.setCurrentText(self.tbwBuoiHoc.item(cr,5).text())
+
+
+    def update(self):
+        bhBUS = BuoiHocBUS()
+        mabuoihoc = self.ma
+        giobatdau = self.timeGioBD.text()
+        gioketthuc = self.timeGioKT.text()
+        ngay = self.dateNgay.text()
+        malop = self.cmbLop.currentText()
+        magiangvien = self.cmbGv.currentText()
+
+        bh = BuoiHoc(mabuoihoc, giobatdau, gioketthuc, ngay, malop, magiangvien)
+        if(bhBUS.update(bh)):
+                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
+                self.loadDataQTable()
+        else:
+                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
+
+    def clear(self):
+        self.timeGioBD.setTime(QtCore.QTime(7, 00, 00))
+        self.timeGioKT.setTime(QtCore.QTime(17, 30, 00))
+        self.dateNgay.setDate(QtCore.QDate.currentDate())
+        self.cmbLop.clear()
+        self.loadDataCmbLop()
+        self.cmbGv.clear()
+        self.loadDataCmbGv()
+
+    def add(self):
+        bhBUS = BuoiHocBUS()
+        mabuoihoc = bhBUS.generateID()
+        giobatdau = self.timeGioBD.text()
+        gioketthuc = self.timeGioKT.text()
+        ngay = self.dateNgay.text()
+        malop = self.cmbLop.currentText()
+        magiangvien = self.cmbGv.currentText()
+                
+        bh = BuoiHoc(mabuoihoc, giobatdau, gioketthuc, ngay, malop, magiangvien)
+        if(bhBUS.add(bh)):
+                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
+                self.loadDataQTable()
+                self.clear()
+        else:
+                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
+
+    def delete(self):
+        bhBUS = BuoiHocBUS()
+        if(bhBUS.delete(self.ma)):
+                QMessageBox.information(self.centralwidget,"Thông báo","Xóa thành công")
+                self.loadDataQTable()
+                self.clear()
+        else:
+                QMessageBox.information(self.centralwidget,"Thông báo","Xóa thất bại")
+
+    def find(self):
+        bh = BuoiHocBUS()
+        key =  self.cmbOptionFind.currentData()
+        value = self.txtFind.text()
+        list = bh.find(key, value)
+        tablerow=0
+        self.tbwBuoiHoc.setRowCount(list.__len__())
+             
+        if list is not None:
+                for row in list:
+                        self.tbwBuoiHoc.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tbwBuoiHoc.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
+                        self.tbwBuoiHoc.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+                        self.tbwBuoiHoc.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tbwBuoiHoc.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tbwBuoiHoc.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        tablerow+=1
 
 if __name__ == "__main__":
     import sys

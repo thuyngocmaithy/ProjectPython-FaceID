@@ -8,3 +8,17 @@ from DAL.BuoiHoc import BuoiHoc
 class BuoiHocBUS:
     def get(self):
         return BuoiHocDAL.get()
+    def getCmbLop(self):
+        return BuoiHocDAL.getCmbLop()
+    def getCmbGv(self):
+        return BuoiHocDAL.getCmbGv()
+    def generateID(self):
+        return BuoiHocDAL.generateID()
+    def add(self, bh:BuoiHoc):
+        return BuoiHocDAL.add(bh)
+    def update(self,bh:BuoiHoc):
+        return BuoiHocDAL.update(bh)
+    def delete(self, id):
+        return BuoiHocDAL.delete(id)
+    def find(self, key, value):
+        return BuoiHocDAL.find(key, value)

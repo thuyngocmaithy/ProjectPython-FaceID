@@ -20,3 +20,6 @@ class GiangVienBUS:
         return GiangVienDAL.find(key, value)
     def checkLogin(self,email, password):
         return GiangVienDAL.checkLogin(email,password)
+    def updatepass(self,email, password):
+        return GiangVienDAL.checkLogin(email,password)
+

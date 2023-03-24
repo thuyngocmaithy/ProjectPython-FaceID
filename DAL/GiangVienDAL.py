@@ -175,4 +175,26 @@ class GiangVienDAL:
             cursor.close()
             conn.close()
         return False
+    def updatepass(email,password):
+        global cursor
+        query = 'SELECT * FROM `giangvien` WHERE `email` = %s and `matkhau` = %s'
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            vals = (email, password)        
+            cursor.execute(query, vals)
+            user = cursor.fetchone()
+            if user is not None:
+                return True
+        except Exception as ex:
+            print(ex)
+    
+        finally:
+            # Đóng kết nối
+            
+            cursor.close()
+            conn.close()
+        return False
 

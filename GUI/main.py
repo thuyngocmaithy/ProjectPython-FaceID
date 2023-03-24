@@ -1,7 +1,7 @@
 from PyQt6 import QtGui, QtWidgets, QtCore
 from pathlib import Path, PurePath
 import sys
-import Home
+import home
 import QuanLySinhVien
 import QuanLyBuoiHoc
 import NhanDien
@@ -50,7 +50,7 @@ class mainGUI:
 
 
     def mainUi(self, MainWindow ,page):
-        self.ui = Home.UI_Home()
+        self.ui = home.UI_Home()
         self.MainWindow = MainWindow
         self.ui.setupUi(MainWindow)
     
