@@ -174,7 +174,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/moon_symbol_50px.png</normaloff>../image/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -206,7 +206,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/time_50px.png</normaloff>../image/icon/time_50px.png</iconset>
+       <normaloff>../image/time_50px.png</normaloff>../image/time_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -318,7 +318,7 @@ padding-bottom:7px;
 {
 	background-color:black;
 	color:white;
-	icon: url(&quot;image/icon/home_white_40px.png&quot;)
+	icon: url(&quot;image/home_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -326,7 +326,7 @@ padding-bottom:7px;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/home_40px.png</normaloff>../image/icon/home_40px.png</iconset>
+            <normaloff>../image/home_40px.png</normaloff>../image/home_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -365,7 +365,7 @@ padding-bottom:7px;
 {
 background-color: black;
 color:white;
-icon: url(&quot;image/icon/document_white_40px.png&quot;)
+icon: url(&quot;image/document_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -373,7 +373,7 @@ icon: url(&quot;image/icon/document_white_40px.png&quot;)
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/document_40px.png</normaloff>../image/icon/document_40px.png</iconset>
+            <normaloff>../image/document_40px.png</normaloff>../image/document_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -415,7 +415,7 @@ padding-bottom:7px;
 {
 background-color: black;
 color:white;
-icon: url(&quot;image/icon/client_management_white_40px.png&quot;)
+icon: url(&quot;image/client_management_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -423,7 +423,7 @@ icon: url(&quot;image/icon/client_management_white_40px.png&quot;)
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/client_management_40px.png</normaloff>../image/icon/client_management_40px.png</iconset>
+            <normaloff>../image/client_management_40px.png</normaloff>../image/client_management_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -462,7 +462,7 @@ padding-bottom:7px;
 {
 background-color: black;
 color:white;
-icon: url(&quot;image/icon/graph_report_script_white_40px.png&quot;)
+icon: url(&quot;image/graph_report_script_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -470,7 +470,54 @@ icon: url(&quot;image/icon/graph_report_script_white_40px.png&quot;)
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/graph_report_script_50px.png</normaloff>../image/icon/graph_report_script_50px.png</iconset>
+            <normaloff>../image/graph_report_script_50px.png</normaloff>../image/graph_report_script_50px.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnTaiKhoan">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#btnTaiKhoan
+{
+	font-weight:bold;
+padding-top:7px;
+padding-bottom:7px;
+}
+#btnTaiKhoan:hover
+{
+background-color: black;
+color:white;
+icon: url(&quot;image/user_settings_white_40px.png&quot;)
+}</string>
+          </property>
+          <property name="text">
+           <string>Tài khoản</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../image/user_settings_40px.png</normaloff>../image/user_settings_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -509,7 +556,7 @@ padding-bottom:7px;
 {
 background-color: black;
 color:white;
-icon: url(&quot;image/icon/password_white_40px.png&quot;)
+icon: url(&quot;image/password_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -517,7 +564,7 @@ icon: url(&quot;image/icon/password_white_40px.png&quot;)
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/password_key_40px.png</normaloff>../image/icon/password_key_40px.png</iconset>
+            <normaloff>../image/password_key_40px.png</normaloff>../image/password_key_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -556,7 +603,7 @@ padding-bottom:7px;
 {
 background-color: black;
 color:white;
-icon: url(&quot;image/icon/logout_white_40px.png&quot;)
+icon: url(&quot;image/logout_white_40px.png&quot;)
 }</string>
           </property>
           <property name="text">
@@ -564,7 +611,7 @@ icon: url(&quot;image/icon/logout_white_40px.png&quot;)
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../image/icon/logout_40px.png</normaloff>../image/icon/logout_40px.png</iconset>
+            <normaloff>../image/logout_40px.png</normaloff>../image/logout_40px.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -611,7 +658,7 @@ icon: url(&quot;image/icon/logout_white_40px.png&quot;)
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
+       <normaloff>../image/close_50px.png</normaloff>../image/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -637,7 +684,7 @@ icon: url(&quot;image/icon/logout_white_40px.png&quot;)
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/subtract_50px.png</normaloff>../image/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -706,7 +753,7 @@ icon: url(&quot;image/icon/logout_white_40px.png&quot;)
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="pageHome">
      <widget class="QFrame" name="frmMain">
@@ -791,7 +838,7 @@ background-color: transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/student_center_50px.png</normaloff>../image/icon/student_center_50px.png</iconset>
+          <normaloff>../image/student_center_50px.png</normaloff>../image/student_center_50px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -956,7 +1003,7 @@ background-color: transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/google_classroom_50px.png</normaloff>../image/icon/google_classroom_50px.png</iconset>
+          <normaloff>../image/google_classroom_50px.png</normaloff>../image/google_classroom_50px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -1084,7 +1131,7 @@ background-color: transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/camera_50px.png</normaloff>../image/icon/camera_50px.png</iconset>
+          <normaloff>../image/camera_50px.png</normaloff>../image/camera_50px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -1153,51 +1200,65 @@ background-color: transparent;
       <property name="lineWidth">
        <number>2</number>
       </property>
-      <widget class="QPushButton" name="btnQLSV">
+      <widget class="QWidget" name="verticalLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>60</y>
-         <width>211</width>
-         <height>141</height>
+         <x>1</x>
+         <y>-1</y>
+         <width>591</width>
+         <height>471</height>
         </rect>
        </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="sizeIncrement">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#btnQLSV{
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>50</number>
+          </property>
+          <property name="leftMargin">
+           <number>50</number>
+          </property>
+          <property name="rightMargin">
+           <number>50</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnQLSV">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#btnQLSV{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 border-radius: 10px;
 font-weight: bold;
@@ -1205,66 +1266,60 @@ font-weight: bold;
 #btnQLSV:hover{
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
 }</string>
-       </property>
-       <property name="text">
-        <string>SINH VIÊN</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../image/icon/student_center_50px.png</normaloff>../image/icon/student_center_50px.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>26</width>
-         <height>26</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnDiemDanh">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>60</y>
-         <width>211</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="sizeIncrement">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#btnDiemDanh{
+            </property>
+            <property name="text">
+             <string>SINH VIÊN</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../image/student_center_50px.png</normaloff>../image/student_center_50px.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>26</width>
+              <height>26</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDiemDanh">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#btnDiemDanh{
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 border-radius: 10px;
 font-weight: bold;
@@ -1274,135 +1329,73 @@ font-weight: bold;
 }
 
 </string>
-       </property>
-       <property name="text">
-        <string>ĐIỂM DANH</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../image/icon/Attendance_50px.png</normaloff>../image/icon/Attendance_50px.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>26</width>
-         <height>26</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnGiangVien">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>270</y>
-         <width>211</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="sizeIncrement">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#btnGiangVien{
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
-border-radius: 10px;
-font-weight: bold;
-}
-#btnGiangVien:hover{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
-}
-
-</string>
-       </property>
-       <property name="text">
-        <string>GIẢNG VIÊN</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../image/icon/teacher_50px.png</normaloff>../image/icon/teacher_50px.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>26</width>
-         <height>26</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnBuoiHoc">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>270</y>
-         <width>211</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="sizeIncrement">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#btnBuoiHoc
+            </property>
+            <property name="text">
+             <string>ĐIỂM DANH</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../image/Attendance_50px.png</normaloff>../image/Attendance_50px.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>26</width>
+              <height>26</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>50</number>
+          </property>
+          <property name="leftMargin">
+           <number>50</number>
+          </property>
+          <property name="rightMargin">
+           <number>50</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnBuoiHoc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#btnBuoiHoc
 {
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
 border-radius: 10px;
@@ -1412,20 +1405,88 @@ font-weight: bold;
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
 }
 </string>
-       </property>
-       <property name="text">
-        <string>BUỔI HỌC</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../image/icon/google_classroom_50px.png</normaloff>../image/icon/google_classroom_50px.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>26</width>
-         <height>26</height>
-        </size>
-       </property>
+            </property>
+            <property name="text">
+             <string>BUỔI HỌC</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../image/google_classroom_50px.png</normaloff>../image/google_classroom_50px.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>26</width>
+              <height>26</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnGiangVien">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#btnGiangVien{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));
+border-radius: 10px;
+font-weight: bold;
+}
+#btnGiangVien:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));
+}
+
+</string>
+            </property>
+            <property name="text">
+             <string>GIẢNG VIÊN</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../image/teacher_50px.png</normaloff>../image/teacher_50px.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>26</width>
+              <height>26</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>

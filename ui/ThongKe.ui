@@ -171,7 +171,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/moon_symbol_50px.png</normaloff>../image/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -203,7 +203,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/time_50px.png</normaloff>../image/icon/time_50px.png</iconset>
+       <normaloff>../image/time_50px.png</normaloff>../image/time_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -268,7 +268,7 @@ background-color:transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/Student Male_70px.png</normaloff>../image/icon/Student Male_70px.png</iconset>
+          <normaloff>../image/Student Male_70px.png</normaloff>../image/Student Male_70px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -375,7 +375,7 @@ background-color:transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/document_70px.png</normaloff>../image/icon/document_70px.png</iconset>
+          <normaloff>../image/document_70px.png</normaloff>../image/document_70px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -542,7 +542,7 @@ background-color:transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/hurry_70px.png</normaloff>../image/icon/hurry_70px.png</iconset>
+          <normaloff>../image/hurry_70px.png</normaloff>../image/hurry_70px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -589,7 +589,7 @@ background-color:transparent;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../image/icon/high_priority_message_70px.png</normaloff>../image/icon/high_priority_message_70px.png</iconset>
+          <normaloff>../image/high_priority_message_70px.png</normaloff>../image/high_priority_message_70px.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -1208,7 +1208,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
+       <normaloff>../image/close_50px.png</normaloff>../image/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1234,7 +1234,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/subtract_50px.png</normaloff>../image/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>

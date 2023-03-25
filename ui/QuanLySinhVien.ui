@@ -171,7 +171,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/moon_symbol_50px.png</normaloff>../image/icon/moon_symbol_50px.png</iconset>
+       <normaloff>../image/moon_symbol_50px.png</normaloff>../image/moon_symbol_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -203,7 +203,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>image/icon/time_50px.png</normaloff>image/icon/time_50px.png</iconset>
+       <normaloff>../image/time_50px.png</normaloff>../image/time_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -251,7 +251,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/close_50px.png</normaloff>../image/icon/close_50px.png</iconset>
+       <normaloff>../image/close_50px.png</normaloff>../image/close_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -277,7 +277,7 @@ background-color: transparent;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/icon/subtract_50px.png</normaloff>../image/icon/subtract_50px.png</iconset>
+       <normaloff>../image/subtract_50px.png</normaloff>../image/subtract_50px.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -505,7 +505,7 @@ vertical-align: bottom;
           <x>20</x>
           <y>110</y>
           <width>341</width>
-          <height>271</height>
+          <height>251</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -540,31 +540,10 @@ font-weight: bold;
           <string>Thông tin sinh viên:</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_9">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>50</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Mã SV:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-         </property>
-        </widget>
         <widget class="QLabel" name="label_10">
          <property name="geometry">
           <rect>
-           <x>170</x>
+           <x>10</x>
            <y>50</y>
            <width>51</width>
            <height>21</height>
@@ -582,30 +561,12 @@ font-weight: bold;
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
         </widget>
-        <widget class="QLineEdit" name="txtMaSV">
+        <widget class="QLineEdit" name="txtHoTen">
          <property name="geometry">
           <rect>
            <x>60</x>
            <y>50</y>
            <width>91</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>3120410521</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="txtHoTen">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>50</y>
-           <width>101</width>
            <height>21</height>
           </rect>
          </property>
@@ -621,8 +582,8 @@ font-weight: bold;
         <widget class="QLabel" name="label_11">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>100</y>
+           <x>180</x>
+           <y>50</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -642,9 +603,9 @@ font-weight: bold;
         <widget class="QComboBox" name="cmbLop">
          <property name="geometry">
           <rect>
-           <x>60</x>
-           <y>100</y>
-           <width>91</width>
+           <x>230</x>
+           <y>50</y>
+           <width>101</width>
            <height>21</height>
           </rect>
          </property>
@@ -742,8 +703,8 @@ font-weight: bold;
         <widget class="QLabel" name="label_14">
          <property name="geometry">
           <rect>
-           <x>170</x>
-           <y>150</y>
+           <x>10</x>
+           <y>100</y>
            <width>61</width>
            <height>21</height>
           </rect>
@@ -763,9 +724,9 @@ font-weight: bold;
         <widget class="QDateEdit" name="dateNgaySinh">
          <property name="geometry">
           <rect>
-           <x>230</x>
-           <y>150</y>
-           <width>101</width>
+           <x>60</x>
+           <y>100</y>
+           <width>91</width>
            <height>21</height>
           </rect>
          </property>
@@ -818,7 +779,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>170</x>
-           <y>200</y>
+           <y>150</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -839,7 +800,7 @@ font-weight: bold;
          <property name="geometry">
           <rect>
            <x>230</x>
-           <y>200</y>
+           <y>150</y>
            <width>101</width>
            <height>21</height>
           </rect>
@@ -856,10 +817,10 @@ font-weight: bold;
         <widget class="QRadioButton" name="rdoCoAnh">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>229</y>
+           <x>170</x>
+           <y>190</y>
            <width>71</width>
-           <height>31</height>
+           <height>41</height>
           </rect>
          </property>
          <property name="font">
@@ -874,10 +835,10 @@ font-weight: bold;
         <widget class="QRadioButton" name="sdoKhongAnh">
          <property name="geometry">
           <rect>
-           <x>90</x>
-           <y>229</y>
+           <x>250</x>
+           <y>190</y>
            <width>91</width>
-           <height>31</height>
+           <height>41</height>
           </rect>
          </property>
          <property name="font">
@@ -894,9 +855,9 @@ font-weight: bold;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>390</y>
+          <y>370</y>
           <width>341</width>
-          <height>41</height>
+          <height>51</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -994,9 +955,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>430</y>
+          <y>420</y>
           <width>341</width>
-          <height>31</height>
+          <height>41</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">

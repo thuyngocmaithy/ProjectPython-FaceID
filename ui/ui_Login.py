@@ -120,7 +120,9 @@ class Ui_MainWindow(object):
 "{\n"
 "border: 2px solid rgb(0, 0, 127);\n"
 "border-radius: 5px;\n"
+"padding:3px;\n"
 "}")
+        self.txtEmail.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.txtEmail.setObjectName("txtEmail")
         self.label_3 = QtWidgets.QLabel(parent=self.frame_4)
         self.label_3.setGeometry(QtCore.QRect(60, 220, 91, 21))
@@ -143,7 +145,9 @@ class Ui_MainWindow(object):
 "{\n"
 "border: 2px solid rgb(0, 0, 127);\n"
 "border-radius: 5px;\n"
+"padding:3px;\n"
 "}")
+        self.txtPassword.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.txtPassword.setObjectName("txtPassword")
         self.btnDangNhap = QtWidgets.QPushButton(parent=self.frame_4)
         self.btnDangNhap.setGeometry(QtCore.QRect(90, 350, 91, 41))

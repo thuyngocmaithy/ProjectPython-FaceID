@@ -9,7 +9,7 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class UI_Home(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 590)
@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnDark.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("ui\\../image/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnDark.setIcon(icon)
         self.btnDark.setIconSize(QtCore.QSize(20, 20))
         self.btnDark.setObjectName("btnDark")
@@ -92,7 +92,7 @@ class Ui_MainWindow(object):
 "}")
         self.btnTime.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("ui\\../image/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTime.setIcon(icon1)
         self.btnTime.setIconSize(QtCore.QSize(20, 20))
         self.btnTime.setObjectName("btnTime")
@@ -153,10 +153,10 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color:black;\n"
 "    color:white;\n"
-"    icon: url(\"image/icon/home_white_40px.png\")\n"
+"    icon: url(\"image/home_white_40px.png\")\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/home_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("ui\\../image/home_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnTrangChu.setIcon(icon2)
         self.btnTrangChu.setIconSize(QtCore.QSize(15, 15))
         self.btnTrangChu.setObjectName("btnTrangChu")
@@ -179,10 +179,10 @@ class Ui_MainWindow(object):
 "{\n"
 "background-color: black;\n"
 "color:white;\n"
-"icon: url(\"image/icon/document_white_40px.png\")\n"
+"icon: url(\"image/document_white_40px.png\")\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/document_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("ui\\../image/document_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnQuanLy.setIcon(icon3)
         self.btnQuanLy.setIconSize(QtCore.QSize(15, 15))
         self.btnQuanLy.setAutoRepeatDelay(300)
@@ -206,10 +206,10 @@ class Ui_MainWindow(object):
 "{\n"
 "background-color: black;\n"
 "color:white;\n"
-"icon: url(\"image/icon/client_management_white_40px.png\")\n"
+"icon: url(\"image/client_management_white_40px.png\")\n"
 "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("ui\\../image/icon/client_management_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap("ui\\../image/client_management_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnNhanDien.setIcon(icon4)
         self.btnNhanDien.setIconSize(QtCore.QSize(20, 20))
         self.btnNhanDien.setObjectName("btnNhanDien")
@@ -232,14 +232,40 @@ class Ui_MainWindow(object):
 "{\n"
 "background-color: black;\n"
 "color:white;\n"
-"icon: url(\"image/icon/graph_report_script_white_40px.png\")\n"
+"icon: url(\"image/graph_report_script_white_40px.png\")\n"
 "}")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("ui\\../image/icon/graph_report_script_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon5.addPixmap(QtGui.QPixmap("ui\\../image/graph_report_script_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnThongKe.setIcon(icon5)
         self.btnThongKe.setIconSize(QtCore.QSize(20, 20))
         self.btnThongKe.setObjectName("btnThongKe")
         self.verticalLayout_2.addWidget(self.btnThongKe)
+        self.btnTaiKhoan = QtWidgets.QPushButton(parent=self.verticalFrame)
+        self.btnTaiKhoan.setMinimumSize(QtCore.QSize(0, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnTaiKhoan.setFont(font)
+        self.btnTaiKhoan.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnTaiKhoan.setStyleSheet("#btnTaiKhoan\n"
+"{\n"
+"    font-weight:bold;\n"
+"padding-top:7px;\n"
+"padding-bottom:7px;\n"
+"}\n"
+"#btnTaiKhoan:hover\n"
+"{\n"
+"background-color: black;\n"
+"color:white;\n"
+"icon: url(\"image/user_settings_white_40px.png\")\n"
+"}")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("ui\\../image/user_settings_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnTaiKhoan.setIcon(icon6)
+        self.btnTaiKhoan.setIconSize(QtCore.QSize(20, 20))
+        self.btnTaiKhoan.setObjectName("btnTaiKhoan")
+        self.verticalLayout_2.addWidget(self.btnTaiKhoan)
         self.btnMatKhau = QtWidgets.QPushButton(parent=self.verticalFrame)
         self.btnMatKhau.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
@@ -258,11 +284,11 @@ class Ui_MainWindow(object):
 "{\n"
 "background-color: black;\n"
 "color:white;\n"
-"icon: url(\"image/icon/password_white_40px.png\")\n"
+"icon: url(\"image/password_white_40px.png\")\n"
 "}")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("ui\\../image/icon/password_key_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnMatKhau.setIcon(icon6)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("ui\\../image/password_key_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnMatKhau.setIcon(icon7)
         self.btnMatKhau.setIconSize(QtCore.QSize(20, 20))
         self.btnMatKhau.setObjectName("btnMatKhau")
         self.verticalLayout_2.addWidget(self.btnMatKhau)
@@ -284,11 +310,11 @@ class Ui_MainWindow(object):
 "{\n"
 "background-color: black;\n"
 "color:white;\n"
-"icon: url(\"image/icon/logout_white_40px.png\")\n"
+"icon: url(\"image/logout_white_40px.png\")\n"
 "}")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("ui\\../image/icon/logout_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnLogout.setIcon(icon7)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("ui\\../image/logout_40px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnLogout.setIcon(icon8)
         self.btnLogout.setIconSize(QtCore.QSize(20, 20))
         self.btnLogout.setObjectName("btnLogout")
         self.verticalLayout_2.addWidget(self.btnLogout)
@@ -302,18 +328,18 @@ class Ui_MainWindow(object):
         self.btnClose.setGeometry(QtCore.QRect(777, 4, 24, 24))
         self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnClose.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnClose.setIcon(icon8)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("ui\\../image/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnClose.setIcon(icon9)
         self.btnClose.setIconSize(QtCore.QSize(20, 20))
         self.btnClose.setObjectName("btnClose")
         self.btnMinimize = QtWidgets.QPushButton(parent=self.frame)
         self.btnMinimize.setGeometry(QtCore.QRect(752, 4, 24, 24))
         self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btnMinimize.setText("")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnMinimize.setIcon(icon9)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("ui\\../image/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnMinimize.setIcon(icon10)
         self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
         self.btnMinimize.setObjectName("btnMinimize")
         self.label_15 = QtWidgets.QLabel(parent=self.frame)
@@ -376,9 +402,9 @@ class Ui_MainWindow(object):
 "font-weight:bold;\n"
 "background-color: transparent;\n"
 "}")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("ui\\../image/icon/student_center_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_6.setIcon(icon10)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap("ui\\../image/student_center_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_6.setIcon(icon11)
         self.pushButton_6.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_6.setObjectName("pushButton_6")
         self.lblSV = QtWidgets.QLabel(parent=self.frmHome1)
@@ -458,9 +484,9 @@ class Ui_MainWindow(object):
 "font-weight:bold;\n"
 "background-color: transparent;\n"
 "}")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("ui\\../image/icon/google_classroom_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_7.setIcon(icon11)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap("ui\\../image/google_classroom_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_7.setIcon(icon12)
         self.pushButton_7.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_7.setObjectName("pushButton_7")
         self.lblBuoiHoc = QtWidgets.QLabel(parent=self.frmHome2)
@@ -519,9 +545,9 @@ class Ui_MainWindow(object):
 "font-weight:bold;\n"
 "background-color: transparent;\n"
 "}")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("ui\\../image/icon/camera_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton_8.setIcon(icon12)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap("ui\\../image/camera_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.pushButton_8.setIcon(icon13)
         self.pushButton_8.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_8.setObjectName("pushButton_8")
         self.lblStatusCam = QtWidgets.QLabel(parent=self.frmHome3)
@@ -551,14 +577,23 @@ class Ui_MainWindow(object):
         self.frmQL.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
         self.frmQL.setLineWidth(2)
         self.frmQL.setObjectName("frmQL")
-        self.btnQLSV = QtWidgets.QPushButton(parent=self.frmQL)
-        self.btnQLSV.setGeometry(QtCore.QRect(40, 60, 211, 141))
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.frmQL)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(1, -1, 591, 471))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setContentsMargins(50, -1, 50, -1)
+        self.horizontalLayout.setSpacing(50)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.btnQLSV = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnQLSV.sizePolicy().hasHeightForWidth())
         self.btnQLSV.setSizePolicy(sizePolicy)
-        self.btnQLSV.setMinimumSize(QtCore.QSize(0, 30))
+        self.btnQLSV.setMinimumSize(QtCore.QSize(0, 150))
         self.btnQLSV.setSizeIncrement(QtCore.QSize(0, 0))
         self.btnQLSV.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -575,17 +610,17 @@ class Ui_MainWindow(object):
 "#btnQLSV:hover{\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));\n"
 "}")
-        self.btnQLSV.setIcon(icon10)
+        self.btnQLSV.setIcon(icon11)
         self.btnQLSV.setIconSize(QtCore.QSize(26, 26))
         self.btnQLSV.setObjectName("btnQLSV")
-        self.btnDiemDanh = QtWidgets.QPushButton(parent=self.frmQL)
-        self.btnDiemDanh.setGeometry(QtCore.QRect(340, 60, 211, 141))
+        self.horizontalLayout.addWidget(self.btnQLSV)
+        self.btnDiemDanh = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnDiemDanh.sizePolicy().hasHeightForWidth())
         self.btnDiemDanh.setSizePolicy(sizePolicy)
-        self.btnDiemDanh.setMinimumSize(QtCore.QSize(0, 30))
+        self.btnDiemDanh.setMinimumSize(QtCore.QSize(0, 150))
         self.btnDiemDanh.setSizeIncrement(QtCore.QSize(0, 0))
         self.btnDiemDanh.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -604,50 +639,24 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("ui\\../image/icon/Attendance_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnDiemDanh.setIcon(icon13)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap("ui\\../image/Attendance_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnDiemDanh.setIcon(icon14)
         self.btnDiemDanh.setIconSize(QtCore.QSize(26, 26))
         self.btnDiemDanh.setObjectName("btnDiemDanh")
-        self.btnGiangVien = QtWidgets.QPushButton(parent=self.frmQL)
-        self.btnGiangVien.setGeometry(QtCore.QRect(40, 270, 211, 141))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btnGiangVien.sizePolicy().hasHeightForWidth())
-        self.btnGiangVien.setSizePolicy(sizePolicy)
-        self.btnGiangVien.setMinimumSize(QtCore.QSize(0, 30))
-        self.btnGiangVien.setSizeIncrement(QtCore.QSize(0, 0))
-        self.btnGiangVien.setBaseSize(QtCore.QSize(0, 0))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btnGiangVien.setFont(font)
-        self.btnGiangVien.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.btnGiangVien.setStyleSheet("#btnGiangVien{\n"
-"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));\n"
-"border-radius: 10px;\n"
-"font-weight: bold;\n"
-"}\n"
-"#btnGiangVien:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));\n"
-"}\n"
-"\n"
-"")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("ui\\../image/icon/teacher_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnGiangVien.setIcon(icon14)
-        self.btnGiangVien.setIconSize(QtCore.QSize(26, 26))
-        self.btnGiangVien.setObjectName("btnGiangVien")
-        self.btnBuoiHoc = QtWidgets.QPushButton(parent=self.frmQL)
-        self.btnBuoiHoc.setGeometry(QtCore.QRect(340, 270, 211, 141))
+        self.horizontalLayout.addWidget(self.btnDiemDanh)
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setContentsMargins(50, -1, 50, -1)
+        self.horizontalLayout_2.setSpacing(50)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.btnBuoiHoc = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnBuoiHoc.sizePolicy().hasHeightForWidth())
         self.btnBuoiHoc.setSizePolicy(sizePolicy)
-        self.btnBuoiHoc.setMinimumSize(QtCore.QSize(0, 30))
+        self.btnBuoiHoc.setMinimumSize(QtCore.QSize(0, 150))
         self.btnBuoiHoc.setSizeIncrement(QtCore.QSize(0, 0))
         self.btnBuoiHoc.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -666,9 +675,42 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));\n"
 "}\n"
 "")
-        self.btnBuoiHoc.setIcon(icon11)
+        self.btnBuoiHoc.setIcon(icon12)
         self.btnBuoiHoc.setIconSize(QtCore.QSize(26, 26))
         self.btnBuoiHoc.setObjectName("btnBuoiHoc")
+        self.horizontalLayout_2.addWidget(self.btnBuoiHoc)
+        self.btnGiangVien = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnGiangVien.sizePolicy().hasHeightForWidth())
+        self.btnGiangVien.setSizePolicy(sizePolicy)
+        self.btnGiangVien.setMinimumSize(QtCore.QSize(0, 150))
+        self.btnGiangVien.setSizeIncrement(QtCore.QSize(0, 0))
+        self.btnGiangVien.setBaseSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnGiangVien.setFont(font)
+        self.btnGiangVien.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.btnGiangVien.setStyleSheet("#btnGiangVien{\n"
+"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255));\n"
+"border-radius: 10px;\n"
+"font-weight: bold;\n"
+"}\n"
+"#btnGiangVien:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(5, 91, 202, 255), stop:0.994318 rgba(98, 154, 204, 255));\n"
+"}\n"
+"\n"
+"")
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap("ui\\../image/teacher_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btnGiangVien.setIcon(icon15)
+        self.btnGiangVien.setIconSize(QtCore.QSize(26, 26))
+        self.btnGiangVien.setObjectName("btnGiangVien")
+        self.horizontalLayout_2.addWidget(self.btnGiangVien)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
         self.stackedWidget.addWidget(self.pageQL)
         self.pageMK = QtWidgets.QWidget()
         self.pageMK.setObjectName("pageMK")
@@ -827,7 +869,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -840,6 +882,7 @@ class Ui_MainWindow(object):
         self.btnQuanLy.setText(_translate("MainWindow", "Quản lý"))
         self.btnNhanDien.setText(_translate("MainWindow", "Nhận diện"))
         self.btnThongKe.setText(_translate("MainWindow", "Thống kê"))
+        self.btnTaiKhoan.setText(_translate("MainWindow", "Tài khoản"))
         self.btnMatKhau.setText(_translate("MainWindow", "Mật khẩu"))
         self.btnLogout.setText(_translate("MainWindow", "Đăng xuất"))
         self.label_15.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
@@ -854,8 +897,8 @@ class Ui_MainWindow(object):
         self.lblStatusCam.setText(_translate("MainWindow", "Mở"))
         self.btnQLSV.setText(_translate("MainWindow", "SINH VIÊN"))
         self.btnDiemDanh.setText(_translate("MainWindow", "ĐIỂM DANH"))
-        self.btnGiangVien.setText(_translate("MainWindow", "GIẢNG VIÊN"))
         self.btnBuoiHoc.setText(_translate("MainWindow", "BUỔI HỌC"))
+        self.btnGiangVien.setText(_translate("MainWindow", "GIẢNG VIÊN"))
         self.label_5.setText(_translate("MainWindow", "ĐỔI MẬT KHẨU"))
         self.label_6.setText(_translate("MainWindow", "Email"))
         self.label_7.setText(_translate("MainWindow", "Mật khẩu cũ"))
@@ -868,7 +911,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = UI_Home()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
