@@ -974,7 +974,7 @@ QLabel {
     background-color: #19232D;
     border: 0px solid #455364;
     /* padding: 2px;
-  margin: 0px; */
+margin: 0px; */
     color: #E0E1E3;
 }
 
@@ -1415,13 +1415,13 @@ QComboBox::indicator:alternate {
 QComboBox::item {
     /* Remove to fix #282, #285 and MR #288*/
     /*&:checked {
-            font-weight: bold;
-        }
+          font-weight: bold;
+      }
 
-        &:selected {
-            border: 0px solid transparent;
-        }
-        */
+      &:selected {
+          border: 0px solid transparent;
+      }
+      */
 }
 
 QComboBox::item:alternate {
