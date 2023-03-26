@@ -24,4 +24,11 @@ Phần mềm điểm danh bằng nhận diện khuôn mặt
   **QDarkStyle**
 
     pip install QDarkStyle
-  
+
+  **Openpyxl**
+
+    pip install openpyxl
+
+  **PyWin32**
+
+    python -m pip install pywin32
