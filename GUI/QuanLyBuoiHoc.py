@@ -11,13 +11,10 @@ from PyQt6.QtWidgets import QMessageBox
 import os
 import sys
 import datetime
-import time 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from BUS.BuoiHocBUS import BuoiHocBUS
 from DAL.BuoiHoc import BuoiHoc
-from BUS.LopBUS import LopBUS
-from BUS.GiangVienBUS import GiangVienBUS
 
 
 class UI_QuanLyBuoiHoc(object):
