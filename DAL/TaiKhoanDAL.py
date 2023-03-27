@@ -161,7 +161,7 @@ class TaiKhoanDAL:
             cursor.execute(query, vals)
             user = cursor.fetchone()
             if user is not None:                
-                return user[3]
+                return user[1], user[2], user[3]
         except Exception as ex:
             print(ex)
     
@@ -172,3 +172,30 @@ class TaiKhoanDAL:
             conn.close()
         return False
 
+    def changePassword(email, mkmoi):
+        # Câu lệnh update dữ liệu
+        query = """ UPDATE taikhoan
+                    SET matkhau = %s
+                    WHERE email = %s """
+
+        data = (mkmoi, email)
+        
+        try:
+            # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query, data)
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False

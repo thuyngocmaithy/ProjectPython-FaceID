@@ -4,10 +4,12 @@
 # back to the client (it does *not* use asynch io talking to the remote
 # server!)
 
-from isapi import isapicon, threaded_extension
 import sys
-import traceback
-import urllib.request, urllib.parse, urllib.error
+import urllib.error
+import urllib.parse
+import urllib.request
+
+from isapi import isapicon, threaded_extension
 
 # sys.isapidllhandle will exist when we are loaded by the IIS framework.
 # In this case we redirect our output to the win32traceutil collector.
@@ -19,6 +21,7 @@ proxy = "http://www.python.org"
 
 # We synchronously read chunks of this size then asynchronously write them.
 CHUNK_SIZE = 8192
+
 
 # The callback made when IIS completes the asynch write.
 def io_callback(ecb, fp, cbIO, errcode):

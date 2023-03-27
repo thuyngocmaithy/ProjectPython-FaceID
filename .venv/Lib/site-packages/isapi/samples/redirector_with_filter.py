@@ -32,11 +32,13 @@
 # This sample is very small - it avoid most error handling, etc.  It is for
 # demonstration purposes only.
 
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+
 from isapi import isapicon, threaded_extension
 from isapi.simple import SimpleFilter
-import sys
-import traceback
-import urllib.request, urllib.parse, urllib.error
 
 # sys.isapidllhandle will exist when we are loaded by the IIS framework.
 # In this case we redirect our output to the win32traceutil collector.
@@ -51,6 +53,7 @@ virtualdir = "/python"
 # The key feature of this redirector over the simple redirector is that it
 # can choose to ignore certain responses by having the filter not rewrite them
 # to our virtual dir. For this sample, we just exclude the IIS help directory.
+
 
 # The ISAPI extension - handles requests in our virtual dir, and sends the
 # response to the client.

@@ -27,13 +27,14 @@
 # win32gui (ie, the Pack* functions) - but doesn't make as much sense for
 # the Unpack* functions, where the aim is user convenience.
 
-import sys
-import win32gui
-import win32con
-import struct
 import array
+import struct
+import sys
+
 import commctrl
 import pywintypes
+import win32con
+import win32gui
 
 is64bit = "64 bit" in sys.version
 
@@ -420,6 +421,8 @@ def EmptyMENUINFO(mask=None):
 # XXX - intend checking them later - but having them is better than not at all!
 
 _tvitem_fmt = "iPiiPiiiiP"
+
+
 # Helpers for the ugly win32 structure packing/unpacking
 # XXX - Note that functions using _GetMaskAndVal run 3x faster if they are
 # 'inlined' into the function - see PackLVITEM.  If the profiler points at
@@ -891,6 +894,7 @@ def PackHDITEM(
 
 
 # Device notification stuff
+
 
 # Generic function for packing a DEV_BROADCAST_* structure - generally used
 # by the other PackDEV_BROADCAST_* functions in this module.

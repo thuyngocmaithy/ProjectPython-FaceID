@@ -46,17 +46,23 @@
 # a field sep just 'cos we can (and 'cos it can't possibly conflict with the
 # string content)
 
-import sys, os
 import _thread
+import os
 import pyclbr
-import pythoncom
-import win32gui, win32gui_struct, win32api, win32con, winerror
+import sys
+
 import commctrl
-from win32com.shell import shell, shellcon
-from win32com.server.util import wrap, NewEnum
-from win32com.server.exception import COMException
-from win32com.util import IIDToInterfaceName
+import pythoncom
+import win32api
+import win32con
+import win32gui
+import win32gui_struct
+import winerror
 from pywin.scintilla import scintillacon
+from win32com.server.exception import COMException
+from win32com.server.util import NewEnum, wrap
+from win32com.shell import shell, shellcon
+from win32com.util import IIDToInterfaceName
 
 # Set this to 1 to cause debug version to be registered and used.  A debug
 # version will spew output to win32traceutil.
@@ -67,6 +73,7 @@ if debug:
 # markh is toying with an implementation that allows auto reload of a module
 # if this attribute exists.
 com_auto_reload = True
+
 
 # Helper function to get a system IShellFolder interface, and the PIDL within
 # that folder for an existing file/directory.
@@ -100,6 +107,7 @@ def get_clbr_for_file(path):
 
 
 # Our COM interfaces.
+
 
 # Base class for a shell folder.
 # All child classes use a simple PIDL of the form:
@@ -380,6 +388,7 @@ class ShellFolderRoot(ShellFolderFileSystem):
 
 
 # Simple shell view implementations
+
 
 # Uses a builtin listview control to display simple lists of directories
 # or filenames.

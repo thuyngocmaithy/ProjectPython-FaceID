@@ -21,8 +21,8 @@ class BuoiHocDAL:
         try:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM buoihoc")            
+            cursor = conn.cursor()  
+            cursor.execute("SELECT * FROM buoihoc")      
             for row in BuoiHocDAL.iter_row(cursor, 10):
                 list.append(row)
         except Exception as e:
@@ -35,6 +35,146 @@ class BuoiHocDAL:
     def find(key, value):
         list = []
         query = "SELECT * FROM buoihoc WHERE {} = '{}'".format(key, value)
+ 
+    def getCmbLop():
+        list = []
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute("SELECT malop FROM lop")            
+            for row in BuoiHocDAL.iter_row(cursor, 10):
+                list.append(row)
+        except Exception as e:
+            print(e)
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+    
+    def getCmbGv():
+        list = []
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute("SELECT magiangvien FROM giangvien")            
+            for row in BuoiHocDAL.iter_row(cursor, 10):
+                list.append(row)
+        except Exception as e:
+            print(e)
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+    
+    def generateID():
+        ma = ""
+        stt = ""
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = "SELECT `mabuoihoc` "\
+                    + "FROM `buoihoc` "\
+                    + "ORDER BY `mabuoihoc` DESC "\
+                    + "LIMIT 1"
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is not None and cursor.rowcount == 0):
+                stt = "0"
+            else:
+                stt = row[0]
+        except:
+            print("Lỗi tăng id")
+        stt = (int)(re.sub("[^0-9]", "",stt))+1
+        ma = "BH{0:03}".format(stt)
+        return ma
+
+
+    def add( bh: BuoiHoc):
+        query = "INSERT INTO buoihoc (mabuoihoc, giobatdau, gioketthuc, ngay, malop, magiangvien)"\
+                "VALUES(%s, %s, %s, %s, %s, %s)"
+        data = (bh._mabuoihoc, bh._giobatdau,
+                bh._gioketthuc, bh._ngay, bh._malop, bh._magiangvien)              
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query, data)         
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False
+
+    def update( bh: BuoiHoc):
+       # Câu lệnh update dữ liệu
+        query = """ UPDATE buoihoc
+                    SET giobatdau = %s,
+                    gioketthuc = %s,
+                    ngay = %s,
+                    malop = %s,
+                    magiangvien = %s
+                    WHERE mabuoihoc = %s """
+
+        data = (bh._giobatdau, bh._gioketthuc, bh._ngay,
+                bh._malop, bh._magiangvien, bh._mabuoihoc)
+
+        try:
+            # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query, data)
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False
+
+    def delete(id):
+        query = "DELETE FROM buoihoc WHERE mabuoihoc = '{}'".format(id)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False
+    def find(key, value):
+        list = []
+        query = "SELECT * FROM buoihoc WHERE {} LIKE '%{}%'".format(key, value)
         try:
              # Kết nối database
             connDb = ConnectDatabase()
@@ -51,3 +191,4 @@ class BuoiHocDAL:
             cursor.close()
             conn.close()
         return list
+

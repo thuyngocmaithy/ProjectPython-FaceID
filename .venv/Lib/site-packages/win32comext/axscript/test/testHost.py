@@ -1,15 +1,15 @@
 import sys
+import unittest
+
 import pythoncom
-from win32com.axscript.server.error import Exception
+import win32com.server.policy
+import win32com.test.util
 from win32com.axscript import axscript
 from win32com.axscript.server import axsite
-from win32com.server import util, connect
-import win32com.server.policy
+from win32com.axscript.server.error import Exception
 from win32com.client.dynamic import Dispatch
+from win32com.server import connect, util
 from win32com.server.exception import COMException
-
-import unittest
-import win32com.test.util
 
 verbose = "-v" in sys.argv
 
@@ -79,6 +79,7 @@ IID_ITestEvents = pythoncom.MakeIID("{8EB72F90-0D44-11d1-9C4B-00AA00125A98}")
 
 class TestConnectServer(connect.ConnectableServer):
     _connect_interfaces_ = [IID_ITestEvents]
+
     # The single public method that the client can call on us
     # (ie, as a normal COM server, this exposes just this single method.
     def __init__(self, object):

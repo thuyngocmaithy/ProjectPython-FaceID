@@ -1,18 +1,20 @@
 # intpyapp.py  - Interactive Python application class
 #
-import win32con
-import win32api
-import win32ui
-import __main__
-import sys
 import os
-from . import app
+import sys
 import traceback
-from pywin.mfc import afxres, dialog
+
+import __main__
 import commctrl
-from . import dbgcommands
+import win32api
+import win32con
+import win32ui
+from pywin.mfc import afxres, dialog
+
+from . import app, dbgcommands
 
 lastLocateFileName = ".py"  # used in the "File/Locate" dialog...
+
 
 # todo - _SetupSharedMenu should be moved to a framework class.
 def _SetupSharedMenu_(self):
@@ -288,7 +290,7 @@ class InteractivePythonApp(app.CApp):
                 ).lower()
                 i -= 1  #  arg is /edit's parameter
             par = i < len(args) and args[i] or "MISSING"
-            if argType in ["/nodde", "/new", "-nodde", "-new"]:
+            if argType in ("/nodde", "/new", "-nodde", "-new"):
                 # Already handled
                 pass
             elif argType.startswith("/goto:"):

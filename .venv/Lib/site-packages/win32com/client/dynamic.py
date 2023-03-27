@@ -15,17 +15,15 @@ Example
  >>> xl.Visible = 1 # The Excel window becomes visible.
 
 """
-import sys
 import traceback
 import types
 
-import pythoncom
+import pythoncom  # Needed as code we eval() references it.
+import win32com.client
 import winerror
-from . import build
-
 from pywintypes import IIDType
 
-import win32com.client  # Needed as code we eval() references it.
+from . import build
 
 debugging = 0  # General debugging
 debugging_attr = 0  # Debugging dynamic attribute lookups.
@@ -561,6 +559,7 @@ class CDispatch:
                 )
             except pythoncom.com_error:
                 raise AttributeError("This object can not function as an iterator")
+
             # We must return a callable object.
             class Factory:
                 def __init__(self, ob):

@@ -1,14 +1,14 @@
 """ Management of documents for AXDebugging.
 """
 
-import axdebug, gateways
+
 import pythoncom
-from .util import _wrap, _wrap_remove, RaiseNotImpl, trace
-from win32com.server.util import unwrap
-from . import codecontainer
-from . import contexts
+import win32api
 from win32com.server.exception import Exception
-import win32api, winerror, os, string, sys
+from win32com.server.util import unwrap
+
+from . import axdebug, codecontainer, contexts, gateways
+from .util import RaiseNotImpl, _wrap, _wrap_remove, trace
 
 # def trace(*args):
 #       pass
@@ -47,6 +47,7 @@ class DebugDocumentText(
         + gateways.DebugDocumentText._public_methods_
         + gateways.DebugDocument._public_methods_
     )
+
     # A class which implements a DebugDocumentText, using the functionality
     # provided by a codeContainer
     def __init__(self, codeContainer):

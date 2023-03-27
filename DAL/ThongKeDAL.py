@@ -60,16 +60,17 @@ class ThongKeDAL:
             conn = connDb.Connect()
             cursor = conn.cursor()
             absent = """
-            SELECT COUNT(sv.masinhvien) 
-            FROM sinhvien sv, sinhvien_buoihoc svbh, buoihoc bh
-            WHERE sv.masinhvien = svbh.masinhvien 
-            AND svbh.mabuoihoc = bh.mabuoihoc
-            AND sv.masinhvien IN
-            (SELECT sb.masinhvien
-            FROM sinhvien_buoihoc sb left join diemdanh dd 
-            ON sb.mabuoihoc = dd.mabuoihoc
-            AND sb.masinhvien = dd.masinhvien
-            WHERE dd.madiemdanh is NULL)
+            SELECT COUNT(a.masinhvien) 
+            FROM 
+            (SELECT sv.masinhvien, bh.mabuoihoc
+            FROM sinhvien sv, lop l, buoihoc bh
+            WHERE sv.malop = l.malop
+            AND l.malop = bh.malop
+            ) as a
+            LEFT JOIN diemdanh dd
+            on a.mabuoihoc = dd.mabuoihoc
+            and a.masinhvien = dd.masinhvien
+            WHERE dd.madiemdanh is NULL
             """
             cursor.execute(absent)
             row = cursor.fetchone()
@@ -121,16 +122,18 @@ class ThongKeDAL:
             conndb = ConnectDatabase()
             conn = conndb.Connect()
             cursor = conn.cursor()
-            svVang = """ SELECT sv.masinhvien, sv.hoten, sv.malop, bh.ngay, bh.mabuoihoc
-            FROM sinhvien sv, sinhvien_buoihoc svbh, buoihoc bh
-            WHERE sv.masinhvien = svbh.masinhvien 
-            AND svbh.mabuoihoc = bh.mabuoihoc
-            AND sv.masinhvien IN
-            (SELECT sb.masinhvien
-            FROM sinhvien_buoihoc sb left join diemdanh dd 
-            ON sb.mabuoihoc = dd.mabuoihoc
-            AND sb.masinhvien = dd.masinhvien
-            WHERE dd.madiemdanh is NULL) """
+            svVang = """ SELECT a.masinhvien, a.hoten, a.malop, a.ngay, a.mabuoihoc
+                    FROM 
+                    (SELECT sv.masinhvien, sv.hoten, sv.malop, bh.ngay, bh.mabuoihoc
+                    FROM sinhvien sv, lop l, buoihoc bh
+                    WHERE sv.malop = l.malop
+                    AND l.malop = bh.malop
+                    ) as a
+                    LEFT JOIN diemdanh dd
+                    on a.mabuoihoc = dd.mabuoihoc
+                    and a.masinhvien = dd.masinhvien
+                    WHERE dd.madiemdanh is NULL
+                    """
             cursor.execute(svVang)
             row = cursor.fetchall()
 

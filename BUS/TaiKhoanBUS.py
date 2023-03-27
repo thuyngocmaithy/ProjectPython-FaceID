@@ -20,3 +20,5 @@ class TaiKhoanBUS:
         return TaiKhoanDAL.find(key, value)
     def checkLogin(self,email, password):
         return TaiKhoanDAL.checkLogin(email,password)
+    def changePassword(self, email, mkmoi):
+        return TaiKhoanDAL.changePassword(email,mkmoi)

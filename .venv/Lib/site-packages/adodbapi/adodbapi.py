@@ -31,15 +31,13 @@ or, after running through 2to3.py, CPython 3.4 or later.
 __version__ = "2.6.2.0"
 version = "adodbapi v" + __version__
 
-import sys
 import copy
 import decimal
 import os
+import sys
 import weakref
 
-from . import process_connect_string
-from . import ado_consts as adc
-from . import apibase as api
+from . import ado_consts as adc, apibase as api, process_connect_string
 
 try:
     verbose = int(os.environ["ADODBAPI_VERBOSE"])
@@ -51,9 +49,16 @@ if verbose:
 # --- define objects to smooth out IronPython <-> CPython differences
 onWin32 = False  # assume the worst
 if api.onIronPython:
-    from System import Activator, Type, DBNull, DateTime, Array, Byte
-    from System import Decimal as SystemDecimal
     from clr import Reference
+    from System import (
+        Activator,
+        Array,
+        Byte,
+        DateTime,
+        DBNull,
+        Decimal as SystemDecimal,
+        Type,
+    )
 
     def Dispatch(dispatch):
         type = Type.GetTypeFromProgID(dispatch)
@@ -64,9 +69,9 @@ if api.onIronPython:
 
 else:  # try pywin32
     try:
-        import win32com.client
         import pythoncom
         import pywintypes
+        import win32com.client
 
         onWin32 = True
 
@@ -91,6 +96,7 @@ unicodeType = str
 longType = int
 StringTypes = str
 maxint = sys.maxsize
+
 
 # -----------------  The .connect method -----------------
 def make_COM_connecter():
@@ -121,7 +127,7 @@ def connect(*args, **kwargs):  # --> a db-api connection object
     try:  # connect to the database, using the connection information in kwargs
         co.connect(kwargs)
         return co
-    except (Exception) as e:
+    except Exception as e:
         message = 'Error opening connection to "%s"' % co.connection_string
         raise api.OperationalError(e, message)
 
@@ -288,7 +294,7 @@ class Connection(object):
             self.connection_string = (
                 kwargs["connection_string"] % kwargs
             )  # insert keyword arguments
-        except (Exception) as e:
+        except Exception as e:
             self._raiseConnectionError(
                 KeyError, "Python string format error in connection string->"
             )
@@ -373,7 +379,7 @@ class Connection(object):
         self.messages = []
         try:
             self._closeAdoConnection()  # v2.1 Rose
-        except (Exception) as e:
+        except Exception as e:
             self._raiseConnectionError(sys.exc_info()[0], sys.exc_info()[1])
 
         self.connector = None  # v2.4.2.2 fix subtle timeout bug
@@ -791,7 +797,7 @@ class Cursor(object):
             else:  # pywin32
                 recordset, count = self.cmd.Execute()
             # ----- ------------------------------- ---
-        except (Exception) as e:
+        except Exception as e:
             _message = ""
             if hasattr(e, "args"):
                 _message += str(e.args) + "\n"
@@ -923,7 +929,7 @@ class Cursor(object):
                             _configure_parameter(
                                 p, parameters[pm_name], p.Type, parameters_known
                             )
-                        except (Exception) as e:
+                        except Exception as e:
                             _message = (
                                 "Error Converting Parameter %s: %s, %s <- %s\n"
                                 % (

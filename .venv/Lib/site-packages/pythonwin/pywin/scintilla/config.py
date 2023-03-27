@@ -8,19 +8,19 @@
 # .py file, and put the config info in a docstring.  Then
 # pass a CStringIO file (rather than a filename) to the
 # config manager.
-import sys
-import string
-from . import keycodes
-import marshal
-import stat
-import os
-import types
-import traceback
-import pywin
 import glob
 import importlib.util
+import marshal
+import os
+import stat
+import sys
+import traceback
+import types
 
+import pywin
 import win32api
+
+from . import keycodes
 
 debugging = 0
 if debugging:
@@ -82,6 +82,7 @@ class ConfigManager:
         self.filename = "unknown"
         self.last_error = None
         self.key_to_events = {}
+        b_close = False
         if hasattr(f, "readline"):
             fp = f
             self.filename = "<config string>"
@@ -121,6 +122,7 @@ class ConfigManager:
             except (os.error, IOError, EOFError):
                 pass
             fp = open(f)
+            b_close = True
         self.cache = {}
         lineno = 1
         line = fp.readline()
@@ -150,6 +152,8 @@ class ConfigManager:
                 )
                 line = fp.readline()
                 lineno = lineno + 1
+        if b_close:
+            fp.close()
         # Check critical data.
         if not self.cache.get("keys"):
             self.report_error("No keyboard definitions were loaded")

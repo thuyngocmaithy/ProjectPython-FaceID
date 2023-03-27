@@ -753,7 +753,7 @@ icon: url(&quot;image/logout_white_40px.png&quot;)
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="pageHome">
      <widget class="QFrame" name="frmMain">
@@ -1544,14 +1544,14 @@ border-radius: 5px;
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>280</y>
+          <y>270</y>
           <width>191</width>
-          <height>23</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="autoFillBackground">
@@ -1568,14 +1568,14 @@ border-radius:3px;
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>140</y>
+          <y>100</y>
           <width>191</width>
-          <height>23</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="autoFillBackground">
@@ -1592,8 +1592,8 @@ border-radius:3px;
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
-          <width>341</width>
+          <y>20</y>
+          <width>351</width>
           <height>51</height>
          </rect>
         </property>
@@ -1622,69 +1622,18 @@ background-color:transparent;
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label_6">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>50</y>
-          <width>101</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#label_6
-{
-background-color:transparent;
-font-weight:bold;
-}</string>
-        </property>
-        <property name="text">
-         <string>Email</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txtEmail">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>80</y>
-          <width>191</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#txtEmail
-{
-border-radius:3px;
-}</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>110</y>
+          <y>70</y>
           <width>191</width>
           <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>11</pointsize>
+          <pointsize>13</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -1704,14 +1653,14 @@ font-weight:bold;
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>250</y>
+          <y>240</y>
           <width>191</width>
           <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>11</pointsize>
+          <pointsize>13</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -1732,14 +1681,14 @@ font-weight:bold;
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>210</y>
+          <y>190</y>
           <width>191</width>
-          <height>23</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="autoFillBackground">
@@ -1756,14 +1705,14 @@ border-radius:3px;
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>180</y>
+          <y>160</y>
           <width>191</width>
           <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>11</pointsize>
+          <pointsize>13</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -1790,7 +1739,7 @@ font-weight:bold;
         </property>
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>

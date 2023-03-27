@@ -16,9 +16,10 @@ The makepy command line etc handling is also getting large enough in its own rig
 import os
 import sys
 import time
-import win32com
 
 import pythoncom
+import win32com
+
 from . import build
 
 error = "makepy.error"
@@ -50,6 +51,7 @@ mapVTToTypeString = {
     pythoncom.VT_DATE: "pythoncom.PyTimeType",
     pythoncom.VT_UINT: "types.IntType",
 }
+
 
 # Given a propget function's arg desc, return the default parameters for all
 # params bar the first.  Eg, then Python does a:

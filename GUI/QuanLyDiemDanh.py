@@ -10,7 +10,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QMessageBox
 import os
 import sys
-import datetime
+import time
 import pandas as pd
 import win32com.client as win32
 import openpyxl
@@ -666,8 +666,11 @@ class UI_QuanLyDiemDanh(object):
                 for row in range(self.tbwDiemDanh.rowCount()):
                         for col in range(self.tbwDiemDanh.columnCount()):
                                 df.at[row, columnHeaders[col]] = self.tbwDiemDanh.item(row, col).text()
-                               
-                df.to_excel("FileExcel\DiemDanh.xlsx", index=False)
+
+                t = time.localtime()
+                current_time = time.strftime("%H%M%S", t)       
+                tenfile =  "FileExcel\DiemDanh\DiemDanh{}.xlsx".format(current_time)
+                df.to_excel(tenfile, index=False)
 
                 if(columnHeaders != ""):
                         QMessageBox.information(self.centralwidget,"Thông báo","Export thành công")
@@ -676,7 +679,7 @@ class UI_QuanLyDiemDanh(object):
                         dir_path = os.getcwd()
                         ## Kiểm tra có phải excel ko, khởi động excel
                         excel = win32.gencache.EnsureDispatch('Excel.Application')
-                        excel.Workbooks.Open(os.path.join(dir_path,"FileExcel\DiemDanh.xlsx"))
+                        excel.Workbooks.Open(os.path.join(dir_path,tenfile))
                         excel.Visible = True
                         print('Excel file exported')
                 else:

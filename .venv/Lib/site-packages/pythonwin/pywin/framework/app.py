@@ -4,16 +4,16 @@
 #
 # We also grab the FileOpen command, to invoke our Python editor
 " The PythonWin application code. Manages most aspects of MDI, etc "
-import win32con
-import win32api
-import win32ui
-import sys
-import string
 import os
-from pywin.mfc import window, dialog, afxres
-from pywin.mfc.thread import WinApp
+import sys
 import traceback
+
 import regutil
+import win32api
+import win32con
+import win32ui
+from pywin.mfc import afxres, dialog, window
+from pywin.mfc.thread import WinApp
 
 from . import scriptutils
 
@@ -24,6 +24,7 @@ from . import scriptutils
 # These are "legacy"
 AppBuilder = None
 App = None  # default - if used, must end up a CApp derived class.
+
 
 # Helpers that should one day be removed!
 def AddIdleHandler(handler):
@@ -355,6 +356,8 @@ def _GetRegistryValue(key, val, default=None):
 scintilla = "Scintilla is Copyright 1998-2008 Neil Hodgson (http://www.scintilla.org)"
 idle = "This program uses IDLE extensions by Guido van Rossum, Tim Peters and others."
 contributors = "Thanks to the following people for making significant contributions: Roger Upole, Sidnei da Silva, Sam Rushing, Curt Hagenlocher, Dave Brennan, Roger Burnham, Gordon McMillan, Neil Hodgson, Laramie Leavitt. (let me know if I have forgotten you!)"
+
+
 # The About Box
 class AboutBox(dialog.Dialog):
     def __init__(self, idd=win32ui.IDD_ABOUTBOX):

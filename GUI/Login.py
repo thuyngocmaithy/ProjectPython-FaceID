@@ -12,7 +12,6 @@ import os
 import sys
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-from DAL.ConnectDatabase import ConnectDatabase
 from BUS.TaiKhoanBUS import TaiKhoanBUS
 import main
 from PyQt6.QtWidgets import QMessageBox
@@ -204,7 +203,7 @@ class Ui_MainWindow(object):
                 if resultLogin != False:        
                         # QtWidgets.QApplication.closeAllWindows()          
                         self.window = QtWidgets.QMainWindow()
-                        self.ui = main.mainGUI(resultLogin)                        
+                        self.ui = main.mainGUI(resultLogin[0], resultLogin[1], resultLogin[2])                        
                         self.ui.mainUi(self.window,"home")
                         MainWindow.hide()
                         self.window.show()

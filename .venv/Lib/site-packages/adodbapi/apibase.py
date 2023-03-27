@@ -5,11 +5,11 @@ Copyright (C) 2002 Henrik Ekelund, version 2.1 by Vernon Cole
 * http://sourceforge.net/projects/adodbapi
 """
 
-import sys
-import time
 import datetime
 import decimal
 import numbers
+import sys
+import time
 
 # noinspection PyUnresolvedReferences
 from . import ado_consts as adc
@@ -19,7 +19,7 @@ verbose = False  # debugging flag
 onIronPython = sys.platform == "cli"
 if onIronPython:  # we need type definitions for odd data we may need to convert
     # noinspection PyUnresolvedReferences
-    from System import DBNull, DateTime
+    from System import DateTime, DBNull
 
     NullTypes = (type(None), DBNull)
 else:
@@ -38,6 +38,7 @@ try:  # jdhardy -- handle bytes under IronPython & Py3
     bytes
 except NameError:
     bytes = str  # define it for old Pythons
+
 
 # ------- Error handlers ------
 def standardErrorHandler(connection, cursor, errorclass, errorvalue):
@@ -130,6 +131,7 @@ class FetchFailedError(OperationalError):
 # SQL NULL values are represented by the Python None singleton on input and output.
 
 # Note: Usage of Unix ticks for database interfacing can cause troubles because of the limited date range they cover.
+
 
 # def Date(year,month,day):
 #     "This function constructs an object holding a date value. "
@@ -390,6 +392,7 @@ adoRemainingTypes = (
     adc.adGUID,
 )
 
+
 # this class is a trick to determine whether a type is a member of a related group of types. see PEP notes
 class DBAPITypeObject(object):
     def __init__(self, valuesTuple):
@@ -521,9 +524,9 @@ def cvtUnusual(variant):
     if verbose > 1:
         sys.stderr.write("Conversion called for Unusual data=%s\n" % repr(variant))
     if isinstance(variant, DateTime):  # COMdate or System.Date
-        from .adodbapi import (
+        from .adodbapi import (  # this will only be called when adodbapi is in use, and very rarely
             dateconverter,
-        )  # this will only be called when adodbapi is in use, and very rarely
+        )
 
         return dateconverter.DateObjectFromCOMDate(variant)
     return variant  # cannot find conversion function -- just give the data to the user

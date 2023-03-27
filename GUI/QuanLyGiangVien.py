@@ -156,6 +156,7 @@ class UI_QuanLyGiangVien(object):
                 self.cmbTaiKhoan = QtWidgets.QComboBox(parent=self.frmChangeBuoiHoc)
                 self.cmbTaiKhoan.setGeometry(QtCore.QRect(100, 181, 111, 21))
                 self.cmbTaiKhoan.setObjectName("cmbTaiKhoan")
+                self.cmbTaiKhoan.addItem("","")
                 self.frmInfoBuoiHoc = QtWidgets.QFrame(parent=self.centralwidget)
                 self.frmInfoBuoiHoc.setGeometry(QtCore.QRect(270, 100, 511, 471))
                 self.frmInfoBuoiHoc.setStyleSheet("#frmInfoBuoiHoc\n"
@@ -221,6 +222,7 @@ class UI_QuanLyGiangVien(object):
                 self.tbwGiangVien.setHorizontalHeaderItem(2, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwGiangVien.setHorizontalHeaderItem(3, item)
+                self.tbwGiangVien.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.tbwGiangVien.itemClicked.connect(self.getDataRow) 
                 self.frame = QtWidgets.QFrame(parent=self.centralwidget)
                 self.frame.setGeometry(QtCore.QRect(-1, -1, 801, 31))
@@ -266,8 +268,6 @@ class UI_QuanLyGiangVien(object):
                 self.frmHeader.setGeometry(QtCore.QRect(0, 30, 851, 51))
                 self.frmHeader.setAccessibleName("")
                 self.frmHeader.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-                self.frmHeader.setStyleSheet("#frmHeader{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255))}\n"
-        "")
                 self.frmHeader.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
                 self.frmHeader.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
                 self.frmHeader.setLineWidth(1)

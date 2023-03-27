@@ -1,0 +1,34 @@
+
+import os
+import sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+from .Lop import Lop
+from .ConnectDatabase import ConnectDatabase
+import re
+
+class LopDAL:
+
+    def iter_row(cursor, size=10):
+        while True:
+            rows = cursor.fetchmany(size)
+            if not rows:
+                break
+            for row in rows:
+                yield row
+    def get():
+        list = []
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM Lop")            
+            for row in LopDAL.iter_row(cursor, 10):
+                list.append(row)
+        except Exception as e:
+            print(e)
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list

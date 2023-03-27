@@ -26,8 +26,6 @@ class UI_ThongKe(object):
                 self.frmHeader.setGeometry(QtCore.QRect(0, 30, 851, 51))
                 self.frmHeader.setAccessibleName("")
                 self.frmHeader.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-                self.frmHeader.setStyleSheet("#frmHeader{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255))}\n"
-        "")
                 self.frmHeader.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
                 self.frmHeader.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
                 self.frmHeader.setLineWidth(1)
@@ -394,7 +392,7 @@ class UI_ThongKe(object):
                 self.tbwDiMuon.setHorizontalHeaderItem(4, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwDiMuon.setHorizontalHeaderItem(5, item)
-
+                self.tbwDiMuon.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.showDiMuon()
 
                 self.verticalLayout.addWidget(self.frame_7)
@@ -465,7 +463,7 @@ class UI_ThongKe(object):
                 self.tbwVang.setHorizontalHeaderItem(4, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwVang.setHorizontalHeaderItem(5, item)
-
+                self.tbwVang.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.showVang()
 
                 self.verticalLayout.addWidget(self.frame_6)
@@ -537,7 +535,7 @@ class UI_ThongKe(object):
                 self.tbwKhongDD.setHorizontalHeaderItem(4, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwKhongDD.setHorizontalHeaderItem(5, item)
-
+                self.tbwKhongDD.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.showKDD()
 
                 self.horizontalLayout_2.addWidget(self.frame_5)
@@ -835,8 +833,12 @@ class UI_ThongKe(object):
                         x.get('Ngày').append(sv[3])
                         x.get('ID buổi học').append(sv[4])
                         x.get('Trạng thái').append(sv[5])
+
+                t = time.localtime()
+                current_time = time.strftime("%H%M%S", t) 
+
                 df = pd.DataFrame(x)
-                df.to_excel("Danhsach_SVDiMuon.xlsx", engine='xlsxwriter', index=False )
+                df.to_excel("Danhsach_SVDiMuon{}.xlsx".format(current_time), engine='xlsxwriter', index=False )
                 print("Tạo file Danhsach_SVDiMuon.xlsx thành công")
 
         def filevang(self):
@@ -848,8 +850,12 @@ class UI_ThongKe(object):
                         x.get('Ngày').append(sv[3])
                         x.get('ID buổi học').append(sv[4])
                         x.get('Trạng thái').append(sv[5])
+
+                t = time.localtime()
+                current_time = time.strftime("%H%M%S", t) 
+
                 df = pd.DataFrame(x)
-                df.to_excel("Danhsach_SVVang.xlsx", engine='xlsxwriter', index=False)
+                df.to_excel("Danhsach_SVVang{}.xlsx".format(current_time), engine='xlsxwriter', index=False)
                 print("Tạo file Danhsach_SVVang.xlsx thành công")
 
 
@@ -862,8 +868,11 @@ class UI_ThongKe(object):
                         x.get('Ngày').append(sv[3])
                         x.get('ID buổi học').append(sv[4])
                         x.get('Trạng thái').append(sv[5])
+                t = time.localtime()
+                current_time = time.strftime("%H%M%S", t) 
+
                 df = pd.DataFrame(x)
-                df.to_excel("Danhsach_SVKhongDiemDanh.xlsx", engine='xlsxwriter', index=False)
+                df.to_excel("FileExcel\ThongKe\Danhsach_SVKhongDiemDanh{}.xlsx".format(current_time), engine='xlsxwriter', index=False)
                 print("Tạo file Danhsach_SVKhongDiemDanh.xlsx thành công")
 
 

@@ -74,8 +74,6 @@ class UI_QuanLyTaiKhoan(object):
                 self.frmHeader.setGeometry(QtCore.QRect(0, 30, 851, 51))
                 self.frmHeader.setAccessibleName("")
                 self.frmHeader.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-                self.frmHeader.setStyleSheet("#frmHeader{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255))}\n"
-        "")
                 self.frmHeader.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
                 self.frmHeader.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
                 self.frmHeader.setLineWidth(1)
@@ -244,6 +242,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.tbwTaiKhoan.setHorizontalHeaderItem(1, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwTaiKhoan.setHorizontalHeaderItem(2, item)
+                self.tbwTaiKhoan.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.tbwTaiKhoan.itemClicked.connect(self.getDataRowTaiKhoan)  
                 self.label_14 = QtWidgets.QLabel(parent=self.frmChangeSV)
                 self.label_14.setGeometry(QtCore.QRect(20, 80, 51, 21))
@@ -357,6 +356,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.tbwQuyen.setHorizontalHeaderItem(0, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwQuyen.setHorizontalHeaderItem(1, item)
+                self.tbwQuyen.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.tbwQuyen.itemClicked.connect(self.getDataRowQuyen)   
                 self.frame_7 = QtWidgets.QFrame(parent=self.frmInfoSV)
                 self.frame_7.setGeometry(QtCore.QRect(10, 40, 361, 41))
@@ -388,7 +388,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.txtFindQuyen.setObjectName("txtFindQuyen")
                 self.txtFindQuyen.textChanged.connect(self.findQuyen)
                 self.label_26 = QtWidgets.QLabel(parent=self.frmInfoSV)
-                self.label_26.setGeometry(QtCore.QRect(110, 0, 181, 41))
+                self.label_26.setGeometry(QtCore.QRect(110, 5, 181, 30))
                 font = QtGui.QFont()
                 font.setPointSize(14)
                 font.setBold(True)
@@ -515,7 +515,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.frmClass.setLineWidth(2)
                 self.frmClass.setObjectName("frmClass")
                 self.label_19 = QtWidgets.QLabel(parent=self.frmClass)
-                self.label_19.setGeometry(QtCore.QRect(110, 0, 181, 41))
+                self.label_19.setGeometry(QtCore.QRect(110, 5, 181, 30))
                 font = QtGui.QFont()
                 font.setPointSize(14)
                 font.setBold(True)
@@ -615,6 +615,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.tbwChucNang.setHorizontalHeaderItem(0, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwChucNang.setHorizontalHeaderItem(1, item)
+                self.tbwChucNang.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.tbwChucNang.itemClicked.connect(self.getDataRowChucNang)   
                 self.horizontalLayoutWidget_5 = QtWidgets.QWidget(parent=self.frmClass)
                 self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(20, 160, 151, 31))
@@ -880,13 +881,17 @@ class UI_QuanLyTaiKhoan(object):
                 matkhau = '12345678'
                 quyen = self.cmbQuyen.currentData()
                 
-                tk = TaiKhoan(mataikhoan, email, matkhau,quyen)
-                if(tkBUS.add(tk)):
-                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
-                        self.loadDataQTableTaiKhoan()
-                        self.clearTaiKhoan()
+                ktraEmail = tkBUS.find('email', email)
+                if ktraEmail is None:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Email đã tồn tại")
                 else:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
+                        tk = TaiKhoan(mataikhoan, email, matkhau,quyen)
+                        if(tkBUS.add(tk)):
+                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
+                                self.loadDataQTableTaiKhoan()
+                                self.clearTaiKhoan()
+                        else:
+                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
 
         def updateTaiKhoan(self):
                 tkBUS = TaiKhoanBUS()

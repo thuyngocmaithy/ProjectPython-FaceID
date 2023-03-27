@@ -1,9 +1,9 @@
 # The property page to define generic IDE options for Pythonwin
 
-from pywin.mfc import dialog
-from pywin.framework import interact
-import win32ui
 import win32con
+import win32ui
+from pywin.framework import interact
+from pywin.mfc import dialog
 
 buttonControlMap = {
     win32ui.IDC_BUTTON1: win32ui.IDC_EDIT1,
@@ -20,7 +20,6 @@ class OptionsPropPage(dialog.PropertyPage):
         self.AddDDX(win32ui.IDC_EDIT4, "MRUSize", "i")
 
     def OnInitDialog(self):
-
         edit = self.GetDlgItem(win32ui.IDC_EDIT1)
         format = eval(
             win32ui.GetProfileVal(

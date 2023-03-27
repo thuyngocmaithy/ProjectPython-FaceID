@@ -1,13 +1,12 @@
-from pywin.mfc import dialog
 import win32api
 import win32con
 import win32ui
-import copy
-import string
-from . import scintillacon
+from pywin.mfc import dialog
 
 # Used to indicate that style should use default color
 from win32con import CLR_INVALID
+
+from . import scintillacon
 
 ######################################################
 # Property Page for syntax formatting options
@@ -82,7 +81,7 @@ class ScintillaFormatPropertyPage(dialog.PropertyPage):
                 self.cbo.AddString(c[0])
 
             self.cboBoldItalic = self.GetDlgItem(win32ui.IDC_COMBO2)
-            for item in ["Bold Italic", "Bold", "Italic", "Regular"]:
+            for item in ("Bold Italic", "Bold", "Italic", "Regular"):
                 self.cboBoldItalic.InsertString(0, item)
 
             self.butIsDefault = self.GetDlgItem(win32ui.IDC_CHECK1)

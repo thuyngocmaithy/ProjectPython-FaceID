@@ -38,11 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
 VIRTUAL_ENV="C:\Users\thuyn\Documents\GitHub\ProjectPython-FaceID\.venv"
-=======
-VIRTUAL_ENV="C:\Users\Duyen\OneDrive\Documents\github\ProjectPython-FaceID\.venv"
->>>>>>> origin/MyDuyen
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

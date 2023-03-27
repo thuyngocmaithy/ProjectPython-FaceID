@@ -8,23 +8,23 @@
 # >>> import pywin.debugger
 # >>> pywin.debugger.GetDebugger().run("command")
 
-import pdb
 import bdb
-import sys
-import string
 import os
+import pdb
+import string
+import sys
+import traceback
 import types
 
-import win32ui
+import commctrl
+import pywin.docking.DockingBar
 import win32api
 import win32con
-import pywin.docking.DockingBar
-from pywin.mfc import dialog, object, afxres, window
-from pywin.framework import app, interact, editor, scriptutils
-from pywin.framework.editor.color.coloreditor import MARKER_CURRENT, MARKER_BREAKPOINT
+import win32ui
+from pywin.framework import app, editor, interact, scriptutils
+from pywin.framework.editor.color.coloreditor import MARKER_BREAKPOINT, MARKER_CURRENT
+from pywin.mfc import afxres, dialog, object, window
 from pywin.tools import browser, hierlist
-import commctrl
-import traceback
 
 # import win32traceutil
 if win32ui.UNICODE:
@@ -192,9 +192,9 @@ class DebuggerWindow(window.Wnd):
 
     def OnKeyDown(self, msg):
         key = msg[2]
-        if key in [13, 27, 32]:
+        if key in (13, 27, 32):
             return 1
-        if key in [46, 8]:  # delete/BS key
+        if key in (46, 8):  # delete/BS key
             self.DeleteSelected()
             return 0
         view = scriptutils.GetActiveView()
@@ -502,6 +502,7 @@ DebuggerDialogInfos = (
     (0xE811, DebuggerBreakpointsWindow, (10, 10)),
     (0xE812, DebuggerWatchWindow, None),
 )
+
 
 # Prepare all the "control bars" for this package.
 # If control bars are not all loaded when the toolbar-state functions are

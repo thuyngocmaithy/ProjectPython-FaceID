@@ -3,10 +3,11 @@
   A collection of helpers for server side connection points.
 """
 import pythoncom
-from .exception import Exception
+import win32com.server.util
 import winerror
 from win32com import olectl
-import win32com.server.util
+
+from .exception import Exception
 
 # Methods implemented by the interfaces.
 IConnectionPointContainer_methods = ["EnumConnectionPoints", "FindConnectionPoint"]
@@ -25,6 +26,7 @@ class ConnectableServer:
         pythoncom.IID_IConnectionPoint,
         pythoncom.IID_IConnectionPointContainer,
     ]
+
     # Clients must set _connect_interfaces_ = [...]
     def __init__(self):
         self.cookieNo = 0

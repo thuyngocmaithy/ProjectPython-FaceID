@@ -1,10 +1,13 @@
 # Tests for the win32security module.
-import sys, os
 import unittest
-import winerror
-from pywin32_testutil import testmain, TestSkipped, ob2memory
 
-import win32api, win32con, win32security, ntsecuritycon, pywintypes
+import ntsecuritycon
+import pywintypes
+import win32api
+import win32con
+import win32security
+import winerror
+from pywin32_testutil import TestSkipped, ob2memory, testmain
 
 
 class SecurityTests(unittest.TestCase):
@@ -110,10 +113,10 @@ class TestDS(DomainTests):
     def testDsListServerInfo(self):
         # again, not checking much, just exercising the code.
         h = win32security.DsBind()
-        for (status, ignore, site) in win32security.DsListSites(h):
-            for (status, ignore, server) in win32security.DsListServersInSite(h, site):
+        for status, ignore, site in win32security.DsListSites(h):
+            for status, ignore, server in win32security.DsListServersInSite(h, site):
                 info = win32security.DsListInfoForServer(h, server)
-            for (status, ignore, domain) in win32security.DsListDomainsInSite(h, site):
+            for status, ignore, domain in win32security.DsListDomainsInSite(h, site):
                 pass
 
     def testDsCrackNames(self):

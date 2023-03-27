@@ -3,6 +3,8 @@
 
 import QtQuick
 import QtQuick.Templates as T
+import QtQuick.Controls.Fusion
+import QtQuick.Controls.Fusion.impl
 
 T.HorizontalHeaderView {
     id: control
@@ -16,20 +18,19 @@ T.HorizontalHeaderView {
 
         implicitWidth: text.implicitWidth + (cellPadding * 2)
         implicitHeight: Math.max(control.height, text.implicitHeight + (cellPadding * 2))
-        border.color: "#cacaca"
 
         gradient: Gradient {
             GradientStop {
                 position: 0
-                color: "#fbfbfb"
+                color: Fusion.gradientStart(control.palette.button)
             }
             GradientStop {
                 position: 1
-                color: "#e0dfe0"
+                color: Fusion.gradientStop(control.palette.button)
             }
         }
 
-        Text {
+        Label {
             id: text
             text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole]
                                         : model[control.textRole])
@@ -38,7 +39,6 @@ T.HorizontalHeaderView {
             height: parent.height
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            color: "#ff26282a"
         }
     }
 }

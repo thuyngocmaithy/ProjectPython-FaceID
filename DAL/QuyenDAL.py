@@ -53,7 +53,7 @@ class QuyenDAL:
         except:
             print("Lỗi tăng id")
         stt = (int)(re.sub("[^0-9]", "",stt))+1
-        ma = "GV{0:03}".format(stt)
+        ma = "Q{0:03}".format(stt)
         return ma
 
 

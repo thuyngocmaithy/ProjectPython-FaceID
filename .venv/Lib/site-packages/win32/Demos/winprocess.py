@@ -14,9 +14,15 @@ This code is free for any purpose, with no warranty of any kind.
 -- John B. Dell'Aquila <jbd@alum.mit.edu>
 """
 
-import win32api, win32process, win32security
-import win32event, win32con, msvcrt, win32gui
+import msvcrt
 import os
+
+import win32api
+import win32con
+import win32event
+import win32gui
+import win32process
+import win32security
 
 
 def logonUser(loginString):
@@ -178,7 +184,6 @@ def run(cmd, mSec=None, stdin=None, stdout=None, stderr=None, **kw):
 
 
 if __name__ == "__main__":
-
     # Pipe commands to a shell and display the output in notepad
     print("Testing winprocess.py...")
 

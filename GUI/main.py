@@ -14,12 +14,16 @@ import qdarkstyle
 from BUS.Quyen_ChucNangBUS import Quyen_ChucNangBUS
 from PyQt6.QtCore import QCoreApplication
 maquyen = ''
+email = ''
+password = ''
 class mainGUI():
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()    
     ui = ''
     DarkMode = True
-    def __init__(self, maquyen):
+    def __init__(self, email, password, maquyen):
+        self.email = email
+        self.password = password
         self.maquyen = maquyen
         
         
@@ -52,11 +56,8 @@ class mainGUI():
         else:
             self.listChangeStyleSheet_MD()       
             self.DarkMode = True
-
-    
-
     def mainUi(self, MainWindow ,page):
-        self.ui = Home.UI_Home()
+        self.ui = Home.UI_Home(self.email, self.password)
         self.MainWindow = MainWindow
         MainWindow.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
         self.ui.setupUi(MainWindow)
@@ -71,7 +72,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trang chủ
         self.ui.btnTrangChu.clicked.connect(self.Home_UI)
         # Chọn quản lý
@@ -127,7 +128,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"ql"))
         # Dark-Light Mode
@@ -143,7 +144,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"ql"))
         # Dark-Light Mode
@@ -159,7 +160,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"ql"))
         # Dark-Light Mode
@@ -175,7 +176,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"ql"))
         # Dark-Light Mode
@@ -201,7 +202,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"home"))
         # Dark-Light Mode
@@ -219,7 +220,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"home"))
         # Dark-Light Mode
@@ -233,7 +234,7 @@ class mainGUI():
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
-        self.ui.btnClose.clicked.connect(QCoreApplication.instance().quit)
+        self.ui.btnClose.clicked.connect(lambda: sys.exit(self.app.exit()))
         # Chọn trở về
         self.ui.btnBack.clicked.connect(lambda: self.mainUi(MainWindow,"home"))
         # Dark-Light Mode
@@ -281,7 +282,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     MainWindow.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
-    ui = mainGUI('Q001')
+    ui = mainGUI('a','2','Q001')
     ui.mainUi(MainWindow, "home")
     MainWindow.show()
     sys.exit(app.exec())

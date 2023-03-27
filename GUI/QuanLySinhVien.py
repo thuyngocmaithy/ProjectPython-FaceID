@@ -19,8 +19,6 @@ class UI_QuanLySinhVien(object):
         self.frmHeader.setGeometry(QtCore.QRect(0, 30, 851, 51))
         self.frmHeader.setAccessibleName("")
         self.frmHeader.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.frmHeader.setStyleSheet("#frmHeader{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255))}\n"
-"")
         self.frmHeader.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frmHeader.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frmHeader.setLineWidth(1)
@@ -532,6 +530,7 @@ class UI_QuanLySinhVien(object):
         self.tbwSV.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tbwSV.setItem(1, 1, item)
+        self.tbwSV.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
         self.verticalLayout.addWidget(self.frmInfoSV)
         self.frmClass = QtWidgets.QFrame(parent=self.frmMain_2)
         self.frmClass.setStyleSheet("#frmClass\n"
@@ -665,6 +664,7 @@ class UI_QuanLySinhVien(object):
         self.tbwLop.setItem(3, 0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tbwLop.setItem(3, 1, item)
+        self.tbwLop.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
         self.horizontalLayoutWidget_5 = QtWidgets.QWidget(parent=self.frmClass)
         self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(20, 160, 151, 31))
         self.horizontalLayoutWidget_5.setObjectName("horizontalLayoutWidget_5")

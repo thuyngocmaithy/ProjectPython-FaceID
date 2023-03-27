@@ -1,7 +1,9 @@
 import sys
-import string, tokenize
-from . import PyParse
+import tokenize
+
 from pywin import default_scintilla_encoding
+
+from . import PyParse
 
 if sys.version_info < (3,):
     # in py2k, tokenize() takes a 'token eater' callback, while
@@ -15,7 +17,6 @@ else:
 
 
 class AutoIndent:
-
     menudefs = [
         (
             "edit",
@@ -494,7 +495,6 @@ def classifyws(s, tabwidth):
 
 
 class IndentSearcher:
-
     # .run() chews over the Text widget, looking for a block opener
     # and the stmt following it.  Returns a pair,
     #     (line containing block opener, line containing stmt)
@@ -531,7 +531,7 @@ class IndentSearcher:
         tokenize.tabsize = self.tabwidth
         try:
             try:
-                for (typ, token, start, end, line) in token_generator(self.readline):
+                for typ, token, start, end, line in token_generator(self.readline):
                     if typ == NAME and token in OPENERS:
                         self.blkopenline = line
                     elif typ == INDENT and self.blkopenline:

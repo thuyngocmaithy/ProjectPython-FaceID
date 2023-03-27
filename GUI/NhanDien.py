@@ -30,8 +30,6 @@ class UI_NhanDien(object):
                 self.frmHeader.setGeometry(QtCore.QRect(0, 30, 851, 51))
                 self.frmHeader.setAccessibleName("")
                 self.frmHeader.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-                self.frmHeader.setStyleSheet("#frmHeader{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(69, 127, 202, 255), stop:1 rgba(86, 145, 200, 255))}\n"
-        "")
                 self.frmHeader.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
                 self.frmHeader.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
                 self.frmHeader.setLineWidth(1)

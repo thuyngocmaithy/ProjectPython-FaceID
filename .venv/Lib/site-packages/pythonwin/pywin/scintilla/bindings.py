@@ -1,11 +1,10 @@
-from . import IDLEenvironment
-import string
-import win32ui
+import traceback
+
 import win32api
 import win32con
-from . import keycodes
-import sys
-import traceback
+import win32ui
+
+from . import IDLEenvironment, keycodes
 
 HANDLER_ARGS_GUESS = 0
 HANDLER_ARGS_NATIVE = 1
@@ -147,7 +146,7 @@ class BindingsManager:
             rc = binding.handler(*args)
             if handler_args_type == HANDLER_ARGS_IDLE:
                 # Convert to our return code.
-                if rc in [None, "break"]:
+                if rc in (None, "break"):
                     rc = 0
                 else:
                     rc = 1

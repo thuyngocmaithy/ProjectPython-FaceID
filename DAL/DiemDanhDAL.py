@@ -94,7 +94,7 @@ class DiemDanhDAL:
         except:
             print("Lỗi tăng id")
         stt = (int)(re.sub("[^0-9]", "",stt))+1
-        ma = "ĐD{0:03}".format(stt)
+        ma = "DD{0:03}".format(stt)
         return ma
 
     def update( dd: DiemDanh):
@@ -199,25 +199,3 @@ class DiemDanhDAL:
             conn.close()
         return False
 
-    # def checkLogin(email,password):
-    #     global cursor
-    #     query = 'SELECT * FROM `giangvien` WHERE `email` = %s and `matkhau` = %s'
-    #     try:
-    #          # Kết nối database
-    #         connDb = ConnectDatabase()
-    #         conn = connDb.Connect()
-    #         cursor = conn.cursor()
-    #         vals = (email, password)        
-    #         cursor.execute(query, vals)
-    #         user = cursor.fetchone()
-    #         if user is not None:
-    #             return True
-    #     except Exception as ex:
-    #         print(ex)
-    
-    #     finally:
-    #         # Đóng kết nối
-            
-    #         cursor.close()
-    #         conn.close()
-    #     return False

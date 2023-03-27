@@ -5,28 +5,30 @@
 # than our own.
 # XXX - sadly, it doesn't work quite like the original sample.  Oh well,
 # another day...
-import sys
 import os
 import pickle
 import random
-import win32api
-import winxpgui as win32gui  # the needs vista, let alone xp!
-import win32con
-import winerror
+import sys
+
 import commctrl
 import pythoncom
-from win32com.util import IIDToInterfaceName
-from win32com.server.exception import COMException
-from win32com.server.util import wrap as _wrap
-from win32com.server.util import NewEnum as _NewEnum
-from win32com.shell import shell, shellcon
+import win32api
+import win32con
+import winerror
+import winxpgui as win32gui  # the needs vista, let alone xp!
 from win32com.axcontrol import axcontrol  # IObjectWithSite
 from win32com.propsys import propsys
+from win32com.server.exception import COMException
+from win32com.server.util import NewEnum as _NewEnum, wrap as _wrap
+from win32com.shell import shell, shellcon
+from win32com.util import IIDToInterfaceName
 
 GUID = pythoncom.MakeIID
 
 # If set, output spews to the win32traceutil collector...
 debug = 0
+
+
 # wrap a python object in a COM pointer
 def wrap(ob, iid=None):
     return _wrap(ob, iid, useDispatcher=(debug > 0))
@@ -118,6 +120,7 @@ PKEY_Sample_NumberOfSides = ("{d6f5e342-c65c-11dc-ba21-005056c00008}", PID_SOMET
 # Col 4, name="Sample.DirectoryLevel"
 PKEY_Sample_DirectoryLevel = ("{d6f5e343-c65c-11dc-ba21-005056c00008}", PID_SOMETHING)
 
+
 # We construct a PIDL from a pickle of a dict - turn it back into a
 # dict (we should *never* be called with a PIDL that the last elt is not
 # ours, so it is safe to assume we created it (assume->"ass" = "u" + "me" :)
@@ -167,6 +170,7 @@ def DisplayItem(shell_item_array, hwnd_parent=0):
 
 
 # end of Utils.cpp port
+
 
 # start of sample's FVCommands.cpp port
 class Command:
@@ -287,6 +291,7 @@ class ExplorerCommand:
 
 
 # end of sample's FVCommands.cpp port
+
 
 # start of sample's Category.cpp port
 class FolderViewCategorizer:
