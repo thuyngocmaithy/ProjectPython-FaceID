@@ -1,0 +1,272 @@
+Metadata-Version: 2.1
+Name: iconify
+Version: 0.0.103
+Summary: An icon and image library for Qt that lets you use svg's from common packs like FontAwesome, MateriallDesign etc.
+Home-page: https://github.com/jasongilholme/iconify
+Author: Jason Gilholme
+Author-email: jasongilholme@gmail.com
+License: GPLv3
+Keywords: Qt,icons,svg,PySide,PyQt
+Platform: OS-independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: User Interfaces
+Description-Content-Type: text/markdown
+Requires-Dist: kids.cache (==0.0.7)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: typing (==3.7.4)
+Requires-Dist: enum34 (==1.1.9) ; python_version <= "3.3"
+
+# Iconify
+
+![](https://github.com/jasongilholme/iconify/workflows/linux/badge.svg)
+![](https://github.com/jasongilholme/iconify/workflows/macos/badge.svg)
+![](https://github.com/jasongilholme/iconify/workflows/windows/badge.svg)
+
+![](https://github.com/jasongilholme/iconify/workflows/mypy/badge.svg)
+![](https://github.com/jasongilholme/iconify/workflows/lint/badge.svg)
+![](coverage.svg)
+
+Iconify allows you to create `QIcon`s and `QPixmap`s from svg files with 
+different color and animation.  It provides a way of fetching popular image
+packs such as Font Awesome, Material Design etc and installing them on the 
+path that's used for finding images.
+
+## Quickstart
+
+To get started with iconify, use the following commands:
+
+```shell script
+# Install iconify
+pip install iconify
+
+# Fetch the icon libraries - Font Awesome, Material Design etc.
+iconify-fetch
+
+# Start the icon browser to find the icon you want
+iconify-browser
+```
+
+![alt text](images/browser.png)
+
+Once you have the icon browser open, search for the type of icon you want and
+copy the name to the clipboard. Then you can jump into python:
+
+```python
+import iconify as ico
+
+icon = ico.Icon('google-emojis:face-with-symbols-on-mouth')
+myQtButton.setIcon(icon)
+```
+
+## Configuration
+
+Iconify will search paths identified by the `ICONIFY_PATH` environment variable.
+You can also set this at runtime with the following code:
+
+```python
+import iconify as ico
+
+ico.path.addIconDirectory('/path/to/icon/dir')
+```
+
+You will also require a Qt python binding such as `PySide2`. Iconify will use the 
+binding identified by the `ICONIFY_QTLIB` environment variable.  Set this variable
+to the name required to import the python binding e.g. `PySide2` or `PyQt5`. 
+Iconify expects Qt5 interfaces so if you'd like to use this library with Qt4
+you should consider using a shim such as `Qt.py` or `QtPy`.
+
+
+## Examples
+
+### Simple
+
+The following code will find the first occurrence of a `delete.svg` file on the
+`ICONIFY_PATH` environment variable and use it as is.
+
+```python
+import iconify as ico
+
+icon = ico.Icon('delete')
+button.setIcon(icon)
+```
+
+### Changing Color
+
+To set the color of the icon, provide a `QColor` object via the `color` kwarg:
+
+```python
+import iconify as ico
+from iconify.qt import QtGui, QtWidgets
+
+icon = ico.Icon('filters', color=QtGui.QColor('salmon'))
+
+button = QtWidgets.QPushButton()
+button.setIcon(icon)
+```
+
+### Animation
+
+For animation, instantiate an animation object and pass it in via the `anim` kwarg:
+
+```python
+import iconify as ico
+from iconify.qt import QtGui, QtWidgets
+
+anim = ico.anim.Spin()
+icon = ico.Icon(
+    # The ':' here denotes a directory and provides cross platform support.
+    'spinners:simple',  
+    color=QtGui.QColor('lightblue'),
+    anim=anim,
+)
+
+# `icon.setAsButtonIcon` is used here so that the animation
+# used by the icon will update the widget when it plays.
+button = QtWidgets.QPushButton()
+icon.setAsButtonIcon(button)
+
+# Start the animation
+anim.start()
+```
+
+### Multi State Icons
+
+To create a multi state icon, call `addState` with the appropriate `mode` and `state`
+kwargs to set the values you want.
+
+```python
+import iconify as ico
+from iconify.qt import QtGui, QtWidgets
+
+onHoverAnimation = ico.anim.Spin()
+
+icon = ico.Icon('filters', color=QtGui.QColor('salmon'))
+# When the button has focus, make it green and spinning.
+icon.addState(
+    'filters',
+    color=QtGui.QColor('seagreen'),
+    anim=onHoverAnimation,
+    mode=QtGui.QIcon.Active,
+)
+# Make it gray when it's disabled.
+icon.addState(
+    'filters',
+    color=QtGui.QColor('gray'),
+    mode=QtGui.QIcon.Disabled,
+)
+
+button = QtWidgets.QPushButton()
+button.setIcon(icon)
+
+# Connect directly to the animation here to
+# ensure that the button animates on hover.
+onHoverAnimation.tick.connect(button.update)
+```
+
+### Advanced Animation
+
+The same animation object can be used with multiple icons, and the same icon can be applied
+to multiple buttons.  This is useful when you want numerous widgets to update when 
+an event happens e.g. loading something:
+
+```python
+import iconify as ico
+from iconify.qt import QtGui, QtWidgets
+
+# Animations can be added together using the + operator.
+loadingAnim = ico.anim.Spin() + ico.anim.Breathe()
+
+# Instantiate two icons with the same animation
+simpleIcon = ico.Icon(
+    'spinners:simple',
+    color=QtGui.QColor('lightblue'),
+    anim=loadingAnim,
+)
+detailedIcon = ico.Icon(
+    'spinners:detailed',
+    color=QtGui.QColor('grey'),
+    anim=loadingAnim,
+)
+
+# Use those icons on multiple buttons
+smallButtonOne = QtWidgets.QPushButton()
+simpleIcon.setAsButtonIcon(smallButtonOne)
+
+smallButtonTwo = QtWidgets.QPushButton()
+simpleIcon.setAsButtonIcon(smallButtonTwo)
+
+largeButtonOne = QtWidgets.QPushButton()
+detailedIcon.setAsButtonIcon(largeButtonOne)
+
+largeButtonTwo = QtWidgets.QPushButton()
+detailedIcon.setAsButtonIcon(largeButtonTwo)
+
+
+def loadData():
+    # Start the animation.  All buttons using the two icons
+    # from above should start to animate.
+    loadingAnim.start()
+
+    # Do a long running process here, preferably in a separate
+    # thread to keep the user interface refreshing nicely.
+
+    # Stop the animation now that the work has been done.
+    loadingAnim.stop()
+```
+
+### Pixmaps
+
+It's also possible to use iconify to create pixmaps.  The following code is a 
+custom `QLabel` subclass which using iconify to draw a `QPixmap` in the center of
+the label:
+
+```python
+import iconify as ico
+from iconify.qt import QtCore, QtGui, QtWidgets
+
+
+class IconifyLabel(QtWidgets.QLabel):
+
+    def __init__(self, pixmapGenerator):
+        super(IconifyLabel, self).__init__()
+        self._pixmapGenerator = pixmapGenerator
+
+        # Ensure this label updates when the animation ticks.
+        self._pixmapGenerator.anim().tick.connect(self.update)
+
+    def paintEvent(self, event):
+        super(IconifyLabel, self).paintEvent(event)
+
+        rect = event.rect()
+
+        if rect.width() > rect.height():
+            size = QtCore.QSize(rect.height(), rect.height())
+        else:
+            size = QtCore.QSize(rect.width(), rect.width())
+
+        pixmap = self._pixmapGenerator.pixmap(size)
+
+        painter = QtGui.QPainter(self)
+        halfSize  = size / 2
+        point = rect.center() - QtCore.QPoint(halfSize.width(), halfSize.height())
+        painter.drawPixmap(point, pixmap)
+        painter.end()
+
+
+anim = ico.anim.Spin()
+pixmapGenerator = ico.PixmapGenerator(
+    'loading',
+    color=QtGui.QColor('orange'),
+    anim=anim,
+)
+label = IconifyLabel(pixmapGenerator)
+anim.start()
+```
+
+

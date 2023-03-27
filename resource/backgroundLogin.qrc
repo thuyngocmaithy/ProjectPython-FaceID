@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="imageLogin">
+    <file>../image/icon/boxShadow.png</file>
+    <file>../image/icon/faceidDesign.png</file>
+  </qresource>
+</RCC>
