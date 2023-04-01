@@ -15,7 +15,7 @@
 
 QLabel#lblSV,
 QLabel#lblBuoiHoc,
-QLabel#lblStatusCam {
+QLabel#lblLop {
     color: white;
     font-weight: bold;
     background-color: transparent;

@@ -46,7 +46,7 @@ class ChucNangDAL:
                     + "LIMIT 1"
             cursor.execute(query)
             row = cursor.fetchone()
-            if (row is not None and cursor.rowcount == 0):
+            if (row is None and cursor.rowcount == -1):
                 stt = "0"
             else:
                 stt = row[0]

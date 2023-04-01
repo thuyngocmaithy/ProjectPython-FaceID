@@ -61,7 +61,7 @@ class GiangVienDAL:
                     + "LIMIT 1"
             cursor.execute(query)
             row = cursor.fetchone()
-            if (row is not None and cursor.rowcount == 0):
+            if (row is None and cursor.rowcount == -1):
                 stt = "0"
             else:
                 stt = row[0]
@@ -74,9 +74,9 @@ class GiangVienDAL:
 
     def add( gv: GiangVien):
         query = "INSERT INTO giangvien "\
-                "VALUES(%s, %s, %s, %s, %s)"
+                "VALUES(%s, %s, %s, %s)"
         data = (gv._magiangvien, gv._hoten,
-                gv._sodienthoai, gv._mataikhoan)              
+                (int)(gv._sodienthoai), gv._mataikhoan)              
         try:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
@@ -104,7 +104,7 @@ class GiangVienDAL:
                     mataikhoan = %s
                     WHERE magiangvien = %s """
 
-        data = (gv._hoten, gv._sodienthoai, gv._mataikhoan, gv._magiangvien)
+        data = (gv._hoten, (int)(gv._sodienthoai), gv._mataikhoan, gv._magiangvien)
 
         try:
             # Kết nối database
@@ -166,5 +166,17 @@ class GiangVienDAL:
             conn.close()
         return list
 
-    
+    def checkExistTaiKhoan(magiangvien):
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = "SELECT * FROM giangvien WHERE mataikhoan = '{}'".format(magiangvien)
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is None and cursor.rowcount == -1):
+                return True
+        except Exception as ex:
+            print(ex)
+        return False
 

@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
                 self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnClose.setText("")
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap("ui\\../image/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnClose.setIcon(icon)
                 self.btnClose.setIconSize(QtCore.QSize(20, 20))
                 self.btnClose.setObjectName("btnClose")
@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
                 self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnMinimize.setText("")
                 icon1 = QtGui.QIcon()
-                icon1.addPixmap(QtGui.QPixmap("ui\\../image/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnMinimize.setIcon(icon1)
                 self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
                 self.btnMinimize.setObjectName("btnMinimize")
@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
                 font = QtGui.QFont()
                 font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferDefault)
                 self.frame_2.setFont(font)
-                self.frame_2.setStyleSheet("background-image: url(./image/faceidDesign.png);")
+                self.frame_2.setStyleSheet("background-image: url(./image/icon/faceidDesign.png);")
                 self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
                 self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
                 self.frame_2.setObjectName("frame_2")
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
                 self.frame_4 = QtWidgets.QFrame(parent=self.frame_3)
                 self.frame_4.setGeometry(QtCore.QRect(30, 60, 271, 461))
                 self.frame_4.setStyleSheet("#frame_4\n"
-        "{background-image: url(./image/boxShadow.png);\n"
+        "{background-image: url(./image/icon/boxShadow.png);\n"
         "}")
                 self.frame_4.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
                 self.frame_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)

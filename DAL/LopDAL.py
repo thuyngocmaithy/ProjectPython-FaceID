@@ -22,7 +22,7 @@ class LopDAL:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM Lop")            
+            cursor.execute("SELECT * FROM lop")            
             for row in LopDAL.iter_row(cursor, 10):
                 list.append(row)
         except Exception as e:
@@ -32,3 +32,137 @@ class LopDAL:
             cursor.close()
             conn.close()
         return list
+
+    def countAll():
+        count = 0
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM lop")   
+            row = cursor.fetchone()         
+            if row is not None:
+                count = row[0]
+        except Exception as e:
+            print(e)
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return count
+    
+    def generateID():
+        ma = ""
+        stt = ""
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = "SELECT `malop` "\
+                    + "FROM `lop` "\
+                    + "ORDER BY `malop` DESC "\
+                    + "LIMIT 1"
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is None and cursor.rowcount == -1):
+                stt = "0"
+            else:
+                stt = row[0]
+        except:
+            print("Lỗi tăng id")
+        stt = (int)(re.sub("[^0-9]", "",stt))+1
+        ma = "L{0:03}".format(stt)
+        return ma
+
+
+    def add( lop : Lop):
+        query = "INSERT INTO lop "\
+                "VALUES(%s, %s)"
+        data = (lop._malop , lop._tenlop)              
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query, data)         
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False
+
+    def update( lop: Lop):
+       # Câu lệnh update dữ liệu
+        query = """ UPDATE lop
+                    SET tenlop = %s
+                    WHERE malop = %s """
+
+        data = (lop._tenlop, lop._malop )
+
+        try:
+            # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query, data)
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False
+    def delete(id):
+        query = "DELETE FROM lop WHERE malop = '{}'".format(id)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            if cursor.rowcount>0:
+                conn.commit()
+                return True
+            
+        except Exception as ex:
+            print(ex)
+            return False
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return False
+    def find(key, value):
+        list = []
+        query = "SELECT * FROM lop WHERE {} LIKE '%{}%'".format(key, value)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            for row in LopDAL.iter_row(cursor, 10):
+                list.append(row)            
+        except Exception as ex:
+            print(ex)
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+

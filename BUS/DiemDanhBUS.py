@@ -9,23 +9,19 @@ from DAL.SinhVien import SinhVien
 class DiemDanhBUS:
     def get(self):
         return DiemDanhDAL.get()
-    def getCmbLop(self):
-        return DiemDanhDAL.getCmbLop()
-    def getCmbIdBH(self):
-        return DiemDanhDAL.getCmbIdBH()
     def generateID(self):
         return DiemDanhDAL.generateID()
-    def add(self, dd:DiemDanh):
-        return DiemDanhDAL.add(dd)
     def update(self, dd:DiemDanh):
         return DiemDanhDAL.update(dd)
-    # def update(self, dd:DiemDanh, sv:SinhVien):
-    #     return DiemDanhDAL.update(dd, sv)
+    def deleteAll(self):
+        return DiemDanhDAL.deleteAll()
     def delete(self, id):
         return DiemDanhDAL.delete(id)
     def find(self, key, value):
         return DiemDanhDAL.find(key, value)
+    def findMaDiemDanh(self, value):
+        return DiemDanhDAL.findMaDiemDanh(value)
     def add(self, dd:DiemDanh):
         return DiemDanhDAL.add(dd)
-    # def checkLogin(self,email, password):
-    #     return DiemDanhDAL.checkLogin(email,password)
+    def updateGioRa(self, masinhvien, mabuoihoc, giora):
+        return DiemDanhDAL.updateGioRa(masinhvien, mabuoihoc, giora)

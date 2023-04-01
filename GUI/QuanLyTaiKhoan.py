@@ -8,6 +8,8 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QMessageBox
+from datetime import datetime
+from check_error import check_error
 import os
 import sys
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -40,7 +42,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnClose.setText("")
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap("ui\\../image/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnClose.setIcon(icon)
                 self.btnClose.setIconSize(QtCore.QSize(20, 20))
                 self.btnClose.setObjectName("btnClose")
@@ -49,7 +51,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnMinimize.setText("")
                 icon1 = QtGui.QIcon()
-                icon1.addPixmap(QtGui.QPixmap("ui\\../image/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnMinimize.setIcon(icon1)
                 self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
                 self.btnMinimize.setObjectName("btnMinimize")
@@ -123,7 +125,7 @@ class UI_QuanLyTaiKhoan(object):
                 self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnDark.setText("")
                 icon2 = QtGui.QIcon()
-                icon2.addPixmap(QtGui.QPixmap("ui\\../image/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnDark.setIcon(icon2)
                 self.btnDark.setIconSize(QtCore.QSize(20, 20))
                 self.btnDark.setObjectName("btnDark")
@@ -136,7 +138,7 @@ class UI_QuanLyTaiKhoan(object):
         "}")
                 self.btnTime.setText("")
                 icon3 = QtGui.QIcon()
-                icon3.addPixmap(QtGui.QPixmap("ui\\../image/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnTime.setIcon(icon3)
                 self.btnTime.setIconSize(QtCore.QSize(20, 20))
                 self.btnTime.setObjectName("btnTime")
@@ -661,6 +663,12 @@ class UI_QuanLyTaiKhoan(object):
                 self.loadDataQTableChucNang()
                 self.loadDataQTableQuyen()
                 self.retranslateUi(MainWindow)
+                # tạo timer
+                self.timer = QtCore.QTimer()
+                self.timer.timeout.connect(self.clock_number)
+                # start and update every second
+                self.timer.start(1000)
+                self.clock_number()
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         def retranslateUi(self, MainWindow):
@@ -669,8 +677,6 @@ class UI_QuanLyTaiKhoan(object):
                 self.label_20.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
                 self.label_3.setText(_translate("MainWindow", "Quản lý tài khoản"))
                 self.btnBack.setText(_translate("MainWindow", "Trở về"))
-                self.label_2.setText(_translate("MainWindow", "09:15:00"))
-                self.label_4.setText(_translate("MainWindow", "02/02/2022"))
                 self.btnThemTaiKhoan.setText(_translate("MainWindow", "Thêm"))
                 self.btnSuaTaiKhoan.setText(_translate("MainWindow", "Sửa"))
                 self.btnXoaTaiKhoan.setText(_translate("MainWindow", "Xóa"))
@@ -734,23 +740,25 @@ class UI_QuanLyTaiKhoan(object):
                 tenchucnang = self.txtTenChucNang.text()
                 
                 cn = ChucNang(machucnang, tenchucnang)
-                if(cnBUS.add(cn)):
-                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
-                        self.loadDataQTableChucNang()
-                        self.clearChucNang()
-                else:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
+                if self.validateCN(cn):
+                        if(cnBUS.add(cn)):
+                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
+                                self.loadDataQTableChucNang()
+                                self.clearChucNang()
+                        else:
+                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
         def updateChucNang(self):
                 cnBUS = ChucNangBUS()
                 machucnang = self.macn
                 tenchucnang = self.txtTenChucNang.text()
                 
                 cn = ChucNang(machucnang, tenchucnang)
-                if(cnBUS.update(cn)):
-                        QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
-                        self.loadDataQTableChucNang()
-                else:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
+                if self.validateCN(cn):
+                        if(cnBUS.update(cn)):
+                                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
+                                self.loadDataQTableChucNang()
+                        else:
+                                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
         def deleteChucNang(self):
                 cnBUS = ChucNangBUS()
                 if(cnBUS.delete(self.macn)):
@@ -798,12 +806,13 @@ class UI_QuanLyTaiKhoan(object):
                 tenquyen = self.txtTenQuyen.text()
                 
                 q = Quyen(maquyen, tenquyen)
-                if(qBUS.add(q)):
-                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
-                        self.loadDataQTableQuyen()
-                        self.clearQuyen()
-                else:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
+                if self.validateQuyen(q):
+                        if(qBUS.add(q)):
+                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
+                                self.loadDataQTableQuyen()
+                                self.clearQuyen()
+                        else:
+                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
 
         def updateQuyen(self):
                 qBUS = QuyenBUS()
@@ -811,11 +820,12 @@ class UI_QuanLyTaiKhoan(object):
                 tenquyen = self.txtTenQuyen.text()
                 
                 q = Quyen(maquyen, tenquyen)
-                if(qBUS.update(q)):
-                        QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
-                        self.loadDataQTableQuyen()
-                else:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
+                if self.validateQuyen(q):
+                        if(qBUS.update(q)):
+                                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
+                                self.loadDataQTableQuyen()
+                        else:
+                                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
         def deleteQuyen(self):
                 qBUS = QuyenBUS()
                 if(qBUS.delete(self.maquyen)):
@@ -886,12 +896,13 @@ class UI_QuanLyTaiKhoan(object):
                         QMessageBox.information(self.centralwidget,"Thông báo","Email đã tồn tại")
                 else:
                         tk = TaiKhoan(mataikhoan, email, matkhau,quyen)
-                        if(tkBUS.add(tk)):
-                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
-                                self.loadDataQTableTaiKhoan()
-                                self.clearTaiKhoan()
-                        else:
-                                QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
+                        if self.validateTK(tk):
+                                if(tkBUS.add(tk)):
+                                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
+                                        self.loadDataQTableTaiKhoan()
+                                        self.clearTaiKhoan()
+                                else:
+                                        QMessageBox.information(self.centralwidget,"Thông báo","Thêm thất bại")
 
         def updateTaiKhoan(self):
                 tkBUS = TaiKhoanBUS()
@@ -901,11 +912,12 @@ class UI_QuanLyTaiKhoan(object):
                 quyen = self.cmbQuyen.currentData()
                 
                 tk = TaiKhoan(mataikhoan, email, matkhau, quyen)
-                if(tkBUS.update(tk)):
-                        QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
-                        self.loadDataQTableTaiKhoan()
-                else:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
+                if self.validateTK(tk):
+                        if(tkBUS.update(tk)):
+                                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
+                                self.loadDataQTableTaiKhoan()
+                        else:
+                                QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thất bại")
         def deleteTaiKhoan(self):
                 tkBUS = TaiKhoanBUS()
                 if(tkBUS.delete(self.mataikhoan)):
@@ -951,15 +963,39 @@ class UI_QuanLyTaiKhoan(object):
         def openDialogListChucNang(self, maquyen):                   
                 self.Dialog = QtWidgets.QDialog()
                 self.ui = DialogListChucNang.Ui_Dialog(maquyen)   
-                self.ui.setupUi(self.Dialog)
-                            
+                self.ui.setupUi(self.Dialog)                            
                 self.Dialog.show()
 
                 rsp = self.Dialog.exec()
                 if rsp == 1:
                         self.updateNewChucNangForQuyen()
+        def validateTK(self, tk: TaiKhoan):        
+                if tk._email == '':
+                        QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
+                        return False
+                if check_error.check_email(self, input=tk._email) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập email đúng định dạng")
+                        return False
+                return True
+        def validateQuyen(self, q: Quyen):        
+                if q._tenquyen == '':
+                        QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
+                        return False
+                return True
+        def validateCN(self, cn: ChucNang):        
+                if cn._tenchucnang == '':
+                        QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
+                        return False
+                return True
+        
+        def clock_number(self):
+                time = datetime.now()
+                format_time = time.strftime("%H:%M:%S")
+                self.label_2.setText(format_time)
 
-               
+                format_date = time.strftime("%d/%m/%Y")
+                self.label_4.setText(format_date)
+        
 
 if __name__ == "__main__":
     import sys

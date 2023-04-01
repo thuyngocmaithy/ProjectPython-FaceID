@@ -2448,7 +2448,7 @@ PlotWidget {
 
 QLabel#lblSV,
 QLabel#lblBuoiHoc,
-QLabel#lblStatusCam {
+QLabel#lblLop {
     color: black;
     font-weight: bold;
     background-color: transparent;

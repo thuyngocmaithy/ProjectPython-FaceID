@@ -1,5 +1,4 @@
 class Lop:
-    def __init__(self, malop, tenlop, makhoa):
+    def __init__(self, malop, tenlop):
         self._malop = malop
         self._tenlop = tenlop
-        self._makhoa= makhoa

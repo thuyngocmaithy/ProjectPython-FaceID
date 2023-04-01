@@ -7,10 +7,9 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import QThread, pyqtSignal, Qt
+from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
-import time
-import datetime 
+from datetime import datetime
 import os
 import cv2
 import sys
@@ -19,8 +18,16 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from BUS.face_recognition import face_recognition
 from BUS.BuoiHocBUS import BuoiHocBUS
 from BUS.GiangVienBUS import GiangVienBUS
-
+from BUS.SinhVienBUS import SinhVienBUS
+from BUS.HinhAnhSVBUS import HinhAnhSVBUS
+from BUS.DiemDanhBUS import DiemDanhBUS
+from DAL.DiemDanh import DiemDanh
 class UI_NhanDien(object):
+        masinhvien = ''
+        hinhanh = ''
+        arr_masinhvien = []
+        flagSetInfoSV = False
+        
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(800, 590)
@@ -86,7 +93,7 @@ class UI_NhanDien(object):
                 self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnDark.setText("")
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap("ui\\../image/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnDark.setIcon(icon)
                 self.btnDark.setIconSize(QtCore.QSize(20, 20))
                 self.btnDark.setObjectName("btnDark")
@@ -99,7 +106,7 @@ class UI_NhanDien(object):
         "}")
                 self.btnTime.setText("")
                 icon1 = QtGui.QIcon()
-                icon1.addPixmap(QtGui.QPixmap("ui\\../image/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnTime.setIcon(icon1)
                 self.btnTime.setIconSize(QtCore.QSize(20, 20))
                 self.btnTime.setObjectName("btnTime")
@@ -134,6 +141,7 @@ class UI_NhanDien(object):
                 self.cmbBuoiHoc.setFont(font)
                 self.cmbBuoiHoc.setObjectName("cmbBuoiHoc")
                 self.cmbBuoiHoc.currentIndexChanged.connect(self.ChangeBuoiHoc)
+                self.cmbBuoiHoc.setStyleSheet("#cmbBuoiHoc{color:black}")
                 self.label_7 = QtWidgets.QLabel(parent=self.frame)
                 self.label_7.setGeometry(QtCore.QRect(260, 40, 131, 24))
                 font = QtGui.QFont()
@@ -149,13 +157,14 @@ class UI_NhanDien(object):
                 self.cmbLoaiDiemDanh.addItem("")
                 self.cmbLoaiDiemDanh.addItem("Vào")
                 self.cmbLoaiDiemDanh.addItem("Ra")
+                self.cmbLoaiDiemDanh.setStyleSheet("#cmbLoaiDiemDanh{color:black}")
                 self.frame_5 = QtWidgets.QFrame(parent=self.frame)
                 self.frame_5.setGeometry(QtCore.QRect(10, 380, 451, 31))
                 self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.Box)
                 self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
                 self.frame_5.setObjectName("frame_5")
                 self.lblThongBao = QtWidgets.QLabel(parent=self.frame_5)
-                self.lblThongBao.setGeometry(QtCore.QRect(10, 5, 381, 23))
+                self.lblThongBao.setGeometry(QtCore.QRect(10, 5, 420, 23))
                 font = QtGui.QFont()
                 font.setPointSize(10)
                 self.lblThongBao.setFont(font)
@@ -236,6 +245,7 @@ class UI_NhanDien(object):
                 self.timeThoiGian = QtWidgets.QTimeEdit(parent=self.frame_2)
                 self.timeThoiGian.setGeometry(QtCore.QRect(110, 250, 141, 22))
                 self.timeThoiGian.setObjectName("timeThoiGian")
+                self.timeThoiGian.setDisplayFormat("HH:mm:ss")
                 self.imageNhanDien = QtWidgets.QLabel(parent=self.frame_2)
                 self.imageNhanDien.setGeometry(QtCore.QRect(81, 40, 131, 131))
                 self.imageNhanDien.setStyleSheet("#imageNhanDien\n"
@@ -287,7 +297,7 @@ class UI_NhanDien(object):
                 self.label_16.setFont(font)
                 self.label_16.setObjectName("label_16")
                 self.lblIDBuoiHoc = QtWidgets.QLabel(parent=self.frame_3)
-                self.lblIDBuoiHoc.setGeometry(QtCore.QRect(130, 40, 141, 16))
+                self.lblIDBuoiHoc.setGeometry(QtCore.QRect(130, 40, 138, 16))
                 font = QtGui.QFont()
                 font.setPointSize(10)
                 self.lblIDBuoiHoc.setFont(font)
@@ -297,7 +307,7 @@ class UI_NhanDien(object):
         "}")
                 self.lblIDBuoiHoc.setObjectName("lblIDBuoiHoc")
                 self.lblNgay = QtWidgets.QLabel(parent=self.frame_3)
-                self.lblNgay.setGeometry(QtCore.QRect(130, 70, 141, 16))
+                self.lblNgay.setGeometry(QtCore.QRect(130, 70, 138, 16))
                 font = QtGui.QFont()
                 font.setPointSize(10)
                 self.lblNgay.setFont(font)
@@ -306,7 +316,7 @@ class UI_NhanDien(object):
         "}")
                 self.lblNgay.setObjectName("lblNgay")
                 self.lblThoiGian = QtWidgets.QLabel(parent=self.frame_3)
-                self.lblThoiGian.setGeometry(QtCore.QRect(130, 100, 141, 16))
+                self.lblThoiGian.setGeometry(QtCore.QRect(130, 100, 138, 16))
                 font = QtGui.QFont()
                 font.setPointSize(10)
                 self.lblThoiGian.setFont(font)
@@ -316,7 +326,7 @@ class UI_NhanDien(object):
         "}")
                 self.lblThoiGian.setObjectName("lblThoiGian")
                 self.lblGiangVien = QtWidgets.QLabel(parent=self.frame_3)
-                self.lblGiangVien.setGeometry(QtCore.QRect(130, 130, 141, 16))
+                self.lblGiangVien.setGeometry(QtCore.QRect(130, 130, 138, 20))
                 font = QtGui.QFont()
                 font.setPointSize(10)
                 self.lblGiangVien.setFont(font)
@@ -326,7 +336,7 @@ class UI_NhanDien(object):
         "}")
                 self.lblGiangVien.setObjectName("lblGiangVien")
                 self.label_17 = QtWidgets.QLabel(parent=self.frame_3)
-                self.label_17.setGeometry(QtCore.QRect(30, 130, 101, 16))
+                self.label_17.setGeometry(QtCore.QRect(30, 130, 101, 20))
                 font = QtGui.QFont()
                 font.setPointSize(10)
                 self.label_17.setFont(font)
@@ -391,7 +401,7 @@ class UI_NhanDien(object):
                 self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnClose.setText("")
                 icon2 = QtGui.QIcon()
-                icon2.addPixmap(QtGui.QPixmap("ui\\../image/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnClose.setIcon(icon2)
                 self.btnClose.setIconSize(QtCore.QSize(20, 20))
                 self.btnClose.setObjectName("btnClose")
@@ -400,7 +410,7 @@ class UI_NhanDien(object):
                 self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnMinimize.setText("")
                 icon3 = QtGui.QIcon()
-                icon3.addPixmap(QtGui.QPixmap("ui\\../image/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnMinimize.setIcon(icon3)
                 self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
                 self.btnMinimize.setObjectName("btnMinimize")
@@ -425,7 +435,15 @@ class UI_NhanDien(object):
 
                 self.retranslateUi(MainWindow)
                 
-                self.loadListBH()
+                self.loadListBH()  
+
+                # tạo timer
+                self.timer = QtCore.QTimer()
+                self.timer.timeout.connect(self.clock_number)
+                # start and update every second
+                self.timer.start(1000)
+                self.clock_number()
+
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
                 
         def retranslateUi(self, MainWindow):
@@ -433,11 +451,9 @@ class UI_NhanDien(object):
                 MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
                 self.label_3.setText(_translate("MainWindow", "Nhận diện khuôn mặt"))
                 self.btnBack.setText(_translate("MainWindow", "Trở về"))
-                self.label_2.setText(_translate("MainWindow", "09:15:00"))
-                self.label_4.setText(_translate("MainWindow", "02/02/2022"))
                 self.label_6.setText(_translate("MainWindow", "Chọn buổi học:"))
                 self.label_7.setText(_translate("MainWindow", "Chọn loại điểm danh"))
-                self.lblThongBao.setText(_translate("MainWindow", "Thông báo: Vui lòng chọn ID buổi học để mở camera điểm danh!"))
+                self.lblThongBao.setText(_translate("MainWindow", "Thông báo: Vui lòng chọn ID buổi học và loại điểm danh để mở camera!"))
                 self.label_20.setText(_translate("MainWindow", "Màn hình nhận diện"))
                 self.label_9.setText(_translate("MainWindow", "Thông tin điểm danh"))
                 self.label_10.setText(_translate("MainWindow", "Mã SV:"))
@@ -463,10 +479,9 @@ class UI_NhanDien(object):
         # THAY ĐỔI BUỔI HỌC
         def ChangeBuoiHoc(self):
                 mabuoihoc = self.cmbBuoiHoc.currentText()
-
                 bhBUS = BuoiHocBUS()
                 value = mabuoihoc
-                list = bhBUS.find("mabuoihoc", value)
+                list = bhBUS.findMaBuoiHoc(value)
                 if list is not None:
                         for row in list:
                                 self.lblIDBuoiHoc.setText(mabuoihoc)
@@ -475,32 +490,112 @@ class UI_NhanDien(object):
                                 # LẤY TÊN GV
                                 tengv = ""
                                 gvBUS = GiangVienBUS()
-                                gv = gvBUS.getItem(row[4])
+                                gv = gvBUS.getItem(row[5])
                                 if gv is not None:
                                         tengv = gv._hoten
                                 self.lblGiangVien.setText(tengv)
                                       
-        def stop_capture_video(self):                                              
+        def stop_capture_video(self):                                            
                 self.thread[1].stop()
                 self.camera.setPixmap(QtGui.QPixmap())  
+                self.cmbBuoiHoc.setEnabled(True)
+                self.cmbLoaiDiemDanh.setEnabled(True)
                 
         def start_capture_video(self):
-                self.thread[1] = face_recognition(index=1)                
-                self.thread[1].start()
+                if(self.cmbBuoiHoc.currentIndex()!=0 and self.cmbLoaiDiemDanh.currentIndex()!=0):
+                        self.thread[1] = face_recognition(index=1)                
+                        self.thread[1].start()
+                        self.thread[1].signal.connect(self.show_wedcam)                        
+                        self.lblThongBao.setText("Thông báo: Camera đang mở...")
+                        self.cmbBuoiHoc.setEnabled(False)
+                        self.cmbLoaiDiemDanh.setEnabled(False)
+                else:
+                        self.lblThongBao.setText("Thông báo: Vui lòng chọn ID buổi học và loại điểm danh để mở camera!")
+                        QtWidgets.QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng chọn ID buổi học và loại điểm danh để mở camera!" )
 
-                self.thread[1].signal.connect(self.show_wedcam)
         def show_wedcam(self, cv_img):
-                """Updates the image_label with a new opencv image"""
-                qt_img = self.convert_cv_qt(cv_img)                
+                """Updates the image_label with a new opencv image"""    
+                            
+                self.masinhvien = self.thread[1].getIDSV()            
+                if self.masinhvien not in self.arr_masinhvien:                    
+                        self.arr_masinhvien.append(self.masinhvien)
+                        self.flagSetInfoSV = False
+                
+                if (self.thread[1].getLink_Image()!='') and self.flagSetInfoSV == False:                        
+                        # SET IMAGE NHẬN DIỆN
+                        pixmap = self.convert_cv_qt(self.thread[1].getCv_Image_Cur(), 131, 131)    
+                        self.imageNhanDien.setPixmap(pixmap)                
+                        self.setInfoSV()       
+                        self.hinhanh = self.thread[1].getLink_Image()
+                        if self.cmbLoaiDiemDanh.currentIndex()==1:
+                                self.addDiemDanh()
+                        else:
+                                self.updateGioRa()
+
+                        self.flagSetInfoSV = True
+
+                # SET CAMERA
+                qt_img = self.convert_cv_qt(cv_img, 501, 341)                
                 self.camera.setPixmap(qt_img)
-        def convert_cv_qt(self, cv_img):
+
+        def convert_cv_qt(self, cv_img, width, height):
                 """Convert from an opencv image to QPixmap"""
                 rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
                 h, w, ch = rgb_image.shape
                 bytes_per_line = ch * w
                 convert_to_Qt_format = QtGui.QImage(rgb_image.data, w, h, bytes_per_line, QtGui.QImage.Format.Format_RGB888)
-                p = convert_to_Qt_format.scaled(501, 341, Qt.AspectRatioMode.KeepAspectRatio)  
+                p = convert_to_Qt_format.scaled(width, height, Qt.AspectRatioMode.KeepAspectRatio)  
                 return QPixmap.fromImage(p)
+        
+        
+        def setInfoSV(self):
+                if self.masinhvien!='' :
+                        tensinhvien = ''
+                        svBUS = SinhVienBUS()
+                        list = svBUS.findMaSinhVien(self.masinhvien)
+                        if list is not None:
+                                for row in list:
+                                        tensinhvien = row[1]                                
+                
+                        self.txtMaSV.setText(self.masinhvien)
+                        self.txtHoTen.setText(tensinhvien)
+
+                        # SET THỜI GIAN
+                        time_str = self.label_2.text()
+                        time_format =  "%H:%M:%S"                
+                        time = datetime.strptime(time_str,time_format).time()
+                        self.timeThoiGian.setTime(time)
+
+        def addDiemDanh(self):
+                ddBUS = DiemDanhBUS()
+                madiemdanh = ddBUS.generateID()
+                masinhvien = self.txtMaSV.text()
+                giovao = self.timeThoiGian.text()                
+                date_time_str = self.label_4.text()
+                ngay = datetime.strptime(date_time_str, "%d/%m/%Y").strftime('%Y-%m-%d')
+                mabuoihoc = self.lblIDBuoiHoc.text()
+                hinhanh = self.hinhanh
+                diemdanh = DiemDanh(madiemdanh, masinhvien, giovao,'', ngay, mabuoihoc,hinhanh)
+                ddBUS.add(diemdanh)
+
+        def updateGioRa(self):
+                ddBUS = DiemDanhBUS()
+                masinhvien = self.txtMaSV.text()
+                giora = self.timeThoiGian.text()                
+                mabuoihoc = self.lblIDBuoiHoc.text()  
+                ddBUS.updateGioRa(masinhvien, mabuoihoc, giora)
+
+        def clock_number(self):
+                time = datetime.now()
+                format_time = time.strftime("%H:%M:%S")
+                self.label_2.setText(format_time)
+
+                format_date = time.strftime("%d/%m/%Y")
+                self.label_4.setText(format_date)
+
+
+
+
 
        
                 

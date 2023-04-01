@@ -88,7 +88,7 @@ class ThongKeDAL:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
             cursor = conn.cursor()
-            KDD = "SELECT COUNT(madiemdanh) FROM diemdanh dd JOIN buoihoc bh ON dd.mabuoihoc = bh.mabuoihoc WHERE giora < gioketthuc OR giora = '00:00:00' AND giovao != '00:00:00';"
+            KDD = "SELECT COUNT(madiemdanh) FROM diemdanh dd JOIN buoihoc bh ON dd.mabuoihoc = bh.mabuoihoc WHERE dd.giora = '00:00:00' OR dd.giovao = '00:00:00';"
             cursor.execute(KDD)
             row = cursor.fetchall()
 
@@ -105,7 +105,7 @@ class ThongKeDAL:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
             cursor = conn.cursor()
-            svDiMuon = "SELECT dd.masinhvien, sv.hoten, sv.malop, dd.ngay, dd.mabuoihoc, dd.trangthai FROM sinhvien sv left join diemdanh dd on dd.masinhvien = sv.masinhvien join buoihoc bh  on dd.mabuoihoc = bh.mabuoihoc WHERE dd.giovao > bh.giobatdau OR dd.giovao = '00:00:00' AND dd.giora != '00:00:00'"
+            svDiMuon = "SELECT dd.masinhvien, sv.hoten, sv.malop, dd.ngay, dd.mabuoihoc FROM sinhvien sv left join diemdanh dd on dd.masinhvien = sv.masinhvien join buoihoc bh  on dd.mabuoihoc = bh.mabuoihoc WHERE dd.giovao > bh.giobatdau OR dd.giovao = '00:00:00' AND dd.giora != '00:00:00'"
             cursor.execute(svDiMuon)
             row = cursor.fetchall()
 
@@ -150,7 +150,12 @@ class ThongKeDAL:
             conndb = ConnectDatabase()
             conn = conndb.Connect()
             cursor = conn.cursor()
-            svKDD = "SELECT dd.masinhvien, sv.hoten, sv.malop, dd.ngay, dd.mabuoihoc, dd.trangthai FROM sinhvien sv left join diemdanh dd on dd.masinhvien = sv.masinhvien join buoihoc bh  on dd.mabuoihoc = bh.mabuoihoc WHERE dd.giora < bh.gioketthuc OR dd.giora = '00:00:00' AND dd.giovao != '00:00:00'"
+            svKDD = """ SELECT dd.masinhvien, sv.hoten, sv.malop, dd.ngay, dd.mabuoihoc 
+            FROM sinhvien sv left join diemdanh dd 
+            on dd.masinhvien = sv.masinhvien 
+            join buoihoc bh  
+            on dd.mabuoihoc = bh.mabuoihoc 
+            WHERE dd.giora = '00:00:00' OR dd.giovao = '00:00:00' """
             cursor.execute(svKDD)
             row = cursor.fetchall()
 

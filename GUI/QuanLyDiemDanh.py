@@ -10,15 +10,18 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QMessageBox
 import os
 import sys
-import time
 import pandas as pd
 import win32com.client as win32
 import openpyxl
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
+from BUS.LopBUS import LopBUS
+from BUS.BuoiHocBUS import BuoiHocBUS
 from BUS.DiemDanhBUS import DiemDanhBUS
 from DAL.DiemDanh import DiemDanh
-
+import time
+from datetime import datetime
+from DD_ViewImage import DD_ViewImage
 class UI_QuanLyDiemDanh(object):
         ma = ""
         def setupUi(self, MainWindow):
@@ -95,7 +98,8 @@ class UI_QuanLyDiemDanh(object):
                 self.cmbLop = QtWidgets.QComboBox(parent=self.frmChangeBuoiHoc)
                 self.cmbLop.setGeometry(QtCore.QRect(97, 130, 121, 22))
                 self.cmbLop.setObjectName("cmbLop")
-                self.cmbLop.setEditable(False)
+                self.cmbLop.setEnabled(False)
+                self.cmbLop.setStyleSheet("#cmbLop{color:black}")
                 self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.frmChangeBuoiHoc)
                 self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 370, 211, 41))
                 self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -198,6 +202,7 @@ class UI_QuanLyDiemDanh(object):
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(107, 149, 202, 255), stop:1 rgba(86, 145, 200, 255));\n"
 "}")
                 self.btnXemAnh.setObjectName("btnXemAnh")
+                self.btnXemAnh.clicked.connect(self.show_image)
                 self.horizontalLayout_2.addWidget(self.btnXemAnh)
                 self.txtIDSV = QtWidgets.QLineEdit(parent=self.frmChangeBuoiHoc)
                 self.txtIDSV.setGeometry(QtCore.QRect(97, 50, 121, 21))
@@ -232,6 +237,8 @@ class UI_QuanLyDiemDanh(object):
                 self.cmbIDBuoiHoc = QtWidgets.QComboBox(parent=self.frmChangeBuoiHoc)
                 self.cmbIDBuoiHoc.setGeometry(QtCore.QRect(97, 290, 121, 22))
                 self.cmbIDBuoiHoc.setObjectName("cmbIDBuoiHoc")
+                self.cmbIDBuoiHoc.setEnabled(False)
+                self.cmbIDBuoiHoc.setStyleSheet("#cmbIDBuoiHoc{color:black}")
                 self.label_19 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
                 self.label_19.setGeometry(QtCore.QRect(19, 290, 74, 21))
                 font = QtGui.QFont()
@@ -239,19 +246,7 @@ class UI_QuanLyDiemDanh(object):
                 self.label_19.setFont(font)
                 self.label_19.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
                 self.label_19.setObjectName("label_19")
-                self.label_20 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
-                self.label_20.setGeometry(QtCore.QRect(19, 330, 74, 21))
-                font = QtGui.QFont()
-                font.setPointSize(9)
-                self.label_20.setFont(font)
-                self.label_20.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
-                self.label_20.setObjectName("label_20")
-                self.txtDiemDanh = QtWidgets.QLineEdit(parent=self.frmChangeBuoiHoc)
-                self.txtDiemDanh.setGeometry(QtCore.QRect(97, 330, 121, 21))
-                font = QtGui.QFont()
-                font.setPointSize(9)
-                self.txtDiemDanh.setFont(font)
-                self.txtDiemDanh.setObjectName("txtDiemDanh")
+
                 self.frmInfoBuoiHoc = QtWidgets.QFrame(parent=self.centralwidget)
                 self.frmInfoBuoiHoc.setGeometry(QtCore.QRect(270, 100, 511, 471))
                 self.frmInfoBuoiHoc.setStyleSheet("#frmInfoBuoiHoc\n"
@@ -295,8 +290,7 @@ class UI_QuanLyDiemDanh(object):
                 self.cmbOptionFind.addItem("Giờ vào", "giovao")
                 self.cmbOptionFind.addItem("Giờ ra", "giora")
                 self.cmbOptionFind.addItem("Ngày", "ngay")
-                self.cmbOptionFind.addItem("ID buổi học", "mabuoihoc")
-                self.cmbOptionFind.addItem("Điểm danh", "trangthai")
+                self.cmbOptionFind.addItem("ID buổi học", "mabuoihoc")                
                 self.cmbOptionFind.currentIndexChanged.connect(self.find)
                 self.txtFind = QtWidgets.QLineEdit(parent=self.frame_3)
                 self.txtFind.setGeometry(QtCore.QRect(220, 36, 231, 21))
@@ -381,7 +375,7 @@ class UI_QuanLyDiemDanh(object):
                 self.btnDark.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnDark.setText("")
                 icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap("ui\\../image/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon.addPixmap(QtGui.QPixmap("ui\\../image/icon/moon_symbol_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnDark.setIcon(icon)
                 self.btnDark.setIconSize(QtCore.QSize(20, 20))
                 self.btnDark.setObjectName("btnDark")
@@ -394,7 +388,7 @@ class UI_QuanLyDiemDanh(object):
 "}")
                 self.btnTime.setText("")
                 icon1 = QtGui.QIcon()
-                icon1.addPixmap(QtGui.QPixmap("ui\\../image/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon1.addPixmap(QtGui.QPixmap("ui\\../image/icon/time_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnTime.setIcon(icon1)
                 self.btnTime.setIconSize(QtCore.QSize(20, 20))
                 self.btnTime.setObjectName("btnTime")
@@ -414,7 +408,7 @@ class UI_QuanLyDiemDanh(object):
                 self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnClose.setText("")
                 icon2 = QtGui.QIcon()
-                icon2.addPixmap(QtGui.QPixmap("ui\\../image/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon2.addPixmap(QtGui.QPixmap("ui\\../image/icon/close_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnClose.setIcon(icon2)
                 self.btnClose.setIconSize(QtCore.QSize(20, 20))
                 self.btnClose.setObjectName("btnClose")
@@ -423,7 +417,7 @@ class UI_QuanLyDiemDanh(object):
                 self.btnMinimize.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
                 self.btnMinimize.setText("")
                 icon3 = QtGui.QIcon()
-                icon3.addPixmap(QtGui.QPixmap("ui\\../image/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+                icon3.addPixmap(QtGui.QPixmap("ui\\../image/icon/subtract_50px.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
                 self.btnMinimize.setIcon(icon3)
                 self.btnMinimize.setIconSize(QtCore.QSize(20, 20))
                 self.btnMinimize.setObjectName("btnMinimize")
@@ -469,7 +463,6 @@ class UI_QuanLyDiemDanh(object):
                 self.label_15.setText(_translate("MainWindow", "Mã SV"))
                 self.label_16.setText(_translate("MainWindow", "Họ tên"))
                 self.label_19.setText(_translate("MainWindow", "ID buổi học"))
-                self.label_20.setText(_translate("MainWindow", "Điểm danh"))
                 self.label_17.setText(_translate("MainWindow", "Hệ thống tìm kiếm:"))
                 self.label_18.setText(_translate("MainWindow", "Tìm kiếm theo:"))
                 self.cmbOptionFind.setItemText(0, _translate("MainWindow", "ID điểm danh"))
@@ -489,8 +482,6 @@ class UI_QuanLyDiemDanh(object):
                 item.setText(_translate("MainWindow", "Ngày"))
                 item = self.tbwDiemDanh.horizontalHeaderItem(7)
                 item.setText(_translate("MainWindow", "ID buổi học"))
-                item = self.tbwDiemDanh.horizontalHeaderItem(8)
-                item.setText(_translate("MainWindow", "Điểm danh"))
                 self.label_3.setText(_translate("MainWindow", "Quản lý thông tin điểm danh"))
                 self.btnBack.setText(_translate("MainWindow", "Trở về"))
                 self.label_21.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
@@ -517,18 +508,17 @@ class UI_QuanLyDiemDanh(object):
                                 tablerow+=1
 
         def loadDataCmbLop(self):
-
-                dd = DiemDanhBUS()
-                list = dd.getCmbLop()
+                dd = LopBUS()
+                list = dd.get()
                 self.cmbLop.addItem("Chọn Lớp Học")
                 if list is not None:
                         for row in list:
-                                self.cmbLop.addItem(row[0])
+                                self.cmbLop.addItem(row[1], row[0])
         
         def loadDataCmbIdBH(self):
 
-                dd = DiemDanhBUS()
-                list = dd.getCmbIdBH()
+                dd = BuoiHocBUS()
+                list = dd.get()
                 self.cmbIDBuoiHoc.addItem("Chọn ID buổi học")
                 if list is not None:
                         for row in list:
@@ -544,20 +534,18 @@ class UI_QuanLyDiemDanh(object):
                 time_format =  "%H:%M:%S"
                 date_format = "%Y-%m-%d"
                 
-                timeVao = datetime.datetime.strptime(time_str_Vao,time_format).time()
-                timeRa = datetime.datetime.strptime(time_str_Ra,time_format).time()
-                date = datetime.datetime.strptime(date_str,date_format).date()
+                timeVao = datetime.strptime(time_str_Vao,time_format).time()
+                timeRa = datetime.strptime(time_str_Ra,time_format).time()
+                date = datetime.strptime(date_str,date_format).date()
 
                 self.ma = self.tbwDiemDanh.item(cr,0).text()
                 self.txtIDSV.setText(self.tbwDiemDanh.item(cr,1).text())
                 self.txtHoTen.setText(self.tbwDiemDanh.item(cr,2).text())
-                
                 self.cmbLop.setCurrentText(self.tbwDiemDanh.item(cr,3).text())
                 self.timeGioVao.setTime(timeVao)
                 self.timeGioRa.setTime(timeRa)
                 self.dateNgay.setDate(date)
                 self.cmbIDBuoiHoc.setCurrentText(self.tbwDiemDanh.item(cr,7).text())
-                self.txtDiemDanh.setText(self.tbwDiemDanh.item(cr,8).text())
 
         def clear(self):
 
@@ -566,11 +554,8 @@ class UI_QuanLyDiemDanh(object):
                 self.timeGioVao.setTime(QtCore.QTime(7, 00, 00))
                 self.timeGioRa.setTime(QtCore.QTime(17, 30, 00))
                 self.dateNgay.setDate(QtCore.QDate.currentDate())
-                self.cmbLop.clear()
-                self.loadDataCmbLop()
-                self.cmbIDBuoiHoc.clear()
-                self.loadDataCmbIdBH()
-                self.txtDiemDanh.clear()
+                self.cmbLop.setCurrentIndex(0)
+                self.cmbIDBuoiHoc.setCurrentIndex(0)
         
         def update(self):
 
@@ -581,9 +566,8 @@ class UI_QuanLyDiemDanh(object):
                 giora = self.timeGioRa.text()
                 ngay = self.dateNgay.text()
                 mabuoihoc = self.cmbIDBuoiHoc.currentText()
-                trangthai = self.txtDiemDanh.text()
                 
-                dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, ngay, mabuoihoc, trangthai)
+                dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, ngay, mabuoihoc)
                 
                 if(ddBUS.update(dd)):
                         QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
@@ -602,7 +586,6 @@ class UI_QuanLyDiemDanh(object):
                         QMessageBox.information(self.centralwidget,"Thông báo","Xóa thất bại")
 
         def find(self):
-
                 dd = DiemDanhBUS()
                 key =  self.cmbOptionFind.currentData()
                 value = self.txtFind.text()
@@ -620,37 +603,39 @@ class UI_QuanLyDiemDanh(object):
                                 self.tbwDiemDanh.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                                 self.tbwDiemDanh.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                                 self.tbwDiemDanh.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                                self.tbwDiemDanh.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                                
+                                self.tbwDiemDanh.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))                                
                                 tablerow+=1
 
+
         def importExcel(self):
-
-                dir_path = r"FileExcel\DiemDanh.xlsx"
                 ddBUS = DiemDanhBUS()
-                wb = openpyxl.load_workbook(dir_path)
-                sheet = wb.active
-                # # # Tạo vòng lặp For để lặp qua từng hàng trong tệp xlsx, 
-                # # # bắt đầu từ hàng 2 bỏ qua các tiêu đề
-                for r in range(1, sheet.max_row+1):
-                        madiemdanh = sheet.cell(r,1).value
-                        masinhvien = sheet.cell(r,2).value
-                        giovao = sheet.cell(r,5).value
-                        giora = sheet.cell(r,6).value
-                        ngay = sheet.cell(r,7).value
-                        mabuoihoc = sheet.cell(r,8).value
-                        trangthai = sheet.cell(r,9).value
-                        # print(madiemdanh,masinhvien,giovao,giora,ngay,mabuoihoc,trangthai)
+                flag = True
+                fname = QtWidgets.QFileDialog.getOpenFileName(self.centralwidget, "Open File", "FileExcel", "All Files (*)")		        
+                dir_path = fname[0]                  
+                if dir_path!="":                                              
+                        QuestionDel = QMessageBox.question(self.centralwidget, 'Thông báo', "Thao tác này sẽ làm thay đổi dữ liệu cũ thành dữ liệu mới. Bạn có muốn tiếp tục?", QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, QMessageBox.StandardButton.No)
+                        if QuestionDel == QMessageBox.StandardButton.Yes:    
+                                ddBUS.deleteAll()                    
+                                wb = openpyxl.load_workbook(dir_path)
+                                sheet = wb.active
+                                # # # Tạo vòng lặp For để lặp qua từng hàng trong tệp xlsx, 
+                                # # # bắt đầu từ hàng 2 bỏ qua các tiêu đề
+                                for r in range(2, sheet.max_row+1):                                
+                                        madiemdanh = sheet.cell(r,1).value
+                                        masinhvien = sheet.cell(r,2).value
+                                        giovao = sheet.cell(r,5).value
+                                        giora = sheet.cell(r,6).value
+                                        ngay = sheet.cell(r,7).value
+                                        mabuoihoc = sheet.cell(r,8).value                                        
 
-                        dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, ngay, mabuoihoc, trangthai)
-                        # print(madiemdanh,masinhvien,giovao,giora,ngay,mabuoihoc,trangthai)
-
-                        if(ddBUS.add(dd)):
-                                QMessageBox.information(self.centralwidget,"Thông báo","Import thành công")
-                                self.loadDataQTable()
-                                print(madiemdanh,masinhvien,giovao,giora,ngay,mabuoihoc,trangthai)
-                        else:
-                                QMessageBox.information(self.centralwidget,"Thông báo","Import thất bại")
+                                        dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, ngay, mabuoihoc)                                        
+                                        if(ddBUS.add(dd)==False):
+                                                flag = False
+                                if(flag):
+                                        QMessageBox.information(self.centralwidget,"Thông báo","Import thành công")
+                                        self.loadDataQTable()
+                                else:
+                                        QMessageBox.information(self.centralwidget,"Thông báo","Import thất bại")
 
         def exportExcel(self):
 
@@ -684,6 +669,12 @@ class UI_QuanLyDiemDanh(object):
                         print('Excel file exported')
                 else:
                         QMessageBox.information(self.centralwidget,"Thông báo","Export thất bại")
+        
+        def show_image(self):
+                self.MainWindow = QtWidgets.QMainWindow()
+                self.ui = DD_ViewImage(id=self.ma)
+                self.ui.setupUi(self.MainWindow)
+                self.MainWindow.show()
 
 if __name__ == "__main__":
     import sys

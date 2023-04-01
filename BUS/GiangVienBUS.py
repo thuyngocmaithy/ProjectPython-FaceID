@@ -20,3 +20,5 @@ class GiangVienBUS:
         return GiangVienDAL.delete(id)
     def find(self, key, value):
         return GiangVienDAL.find(key, value)
+    def checkExistTaiKhoan(self, magiangvien):
+        return GiangVienDAL.checkExistTaiKhoan(magiangvien)

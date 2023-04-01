@@ -32,43 +32,24 @@ class BuoiHocDAL:
             cursor.close()
             conn.close()
         return list
-    def find(key, value):
-        list = []
-        query = "SELECT * FROM buoihoc WHERE {} = '{}'".format(key, value)
- 
-    def getCmbLop():
-        list = []
-        try:
-            connDb = ConnectDatabase()
-            conn = connDb.Connect()
-            cursor = conn.cursor()
-            cursor.execute("SELECT malop FROM lop")            
-            for row in BuoiHocDAL.iter_row(cursor, 10):
-                list.append(row)
-        except Exception as e:
-            print(e)
-        finally:
-            # Đóng kết nối
-            cursor.close()
-            conn.close()
-        return list
     
-    def getCmbGv():
-        list = []
+    def countAll():
+        count = 0
         try:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
             cursor = conn.cursor()
-            cursor.execute("SELECT magiangvien FROM giangvien")            
-            for row in BuoiHocDAL.iter_row(cursor, 10):
-                list.append(row)
+            cursor.execute("SELECT COUNT(*) FROM buoihoc")   
+            row = cursor.fetchone()         
+            if row is not None:
+                count = row[0]
         except Exception as e:
             print(e)
         finally:
             # Đóng kết nối
             cursor.close()
             conn.close()
-        return list
+        return count
     
     def generateID():
         ma = ""
@@ -83,7 +64,7 @@ class BuoiHocDAL:
                     + "LIMIT 1"
             cursor.execute(query)
             row = cursor.fetchone()
-            if (row is not None and cursor.rowcount == 0):
+            if (row is None and cursor.rowcount == -1):
                 stt = "0"
             else:
                 stt = row[0]
@@ -175,6 +156,25 @@ class BuoiHocDAL:
     def find(key, value):
         list = []
         query = "SELECT * FROM buoihoc WHERE {} LIKE '%{}%'".format(key, value)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            for row in BuoiHocDAL.iter_row(cursor, 10):
+                list.append(row)            
+        except Exception as ex:
+            print(ex)
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+    def findMaBuoiHoc(value):
+        list = []
+        query = "SELECT * FROM buoihoc WHERE mabuoihoc = '{}'".format(value)
         try:
              # Kết nối database
             connDb = ConnectDatabase()

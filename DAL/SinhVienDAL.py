@@ -33,6 +33,24 @@ class SinhVienDAL:
             conn.close()
         return list
 
+    def countAll():
+        count = 0
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM sinhvien")   
+            row = cursor.fetchone()         
+            if row is not None:
+                count = row[0]
+        except Exception as e:
+            print(e)
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return count
+    
     def generateID():
         ma = ""
         stt = ""
@@ -46,7 +64,7 @@ class SinhVienDAL:
                     + "LIMIT 1"
             cursor.execute(query)
             row = cursor.fetchone()
-            if (row is not None and cursor.rowcount == 0):
+            if (row is None and cursor.rowcount == -1):
                 stt = "0"
             else:
                 stt = row[0]
@@ -88,15 +106,14 @@ class SinhVienDAL:
                     malop = %s,
                     cmnd =%s,
                     gioitinh = %s,
-                    ngsinh = %s,
+                    ngaysinh = %s,
                     email = %s,
                     sodienthoai = %s,
                     khoahoc = %s
                     WHERE masinhvien = %s """
 
-        data = (sv._masinhvien, sv._hoten, sv._malop, sv._cmnd,
-                sv._gioitinh, sv._ngsinh, sv._email, sv._sodienthoai, sv._khoahoc)  
-
+        data = (sv._hoten, sv._malop, sv._cmnd, sv._gioitinh, sv._ngsinh,
+                 sv._email, sv._sodienthoai, sv._khoahoc,sv._masinhvien)  
         try:
             # Kết nối database
             connDb = ConnectDatabase()
@@ -116,6 +133,8 @@ class SinhVienDAL:
             cursor.close()
             conn.close()
         return False
+    
+    
     def delete(id):
         query = "DELETE FROM sinhvien WHERE masinhvien = '{}'".format(id)
         try:
@@ -156,27 +175,24 @@ class SinhVienDAL:
             cursor.close()
             conn.close()
         return list
-
-    # def checkLogin(email,password):
-    #     global cursor
-    #     query = 'SELECT * FROM `sinhvien` WHERE `email` = %s and `matkhau` = %s'
-    #     try:
-    #          # Kết nối database
-    #         connDb = ConnectDatabase()
-    #         conn = connDb.Connect()
-    #         cursor = conn.cursor()
-    #         vals = (email, password)        
-    #         cursor.execute(query, vals)
-    #         user = cursor.fetchone()
-    #         if user is not None:
-    #             return True
-    #     except Exception as ex:
-    #         print(ex)
+    def findMaSinhVien(value):
+        list = []
+        query = "SELECT * FROM sinhvien WHERE masinhvien LIKE '{}'".format(value)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            for row in SinhVienDAL.iter_row(cursor, 10):
+                list.append(row)            
+        except Exception as ex:
+            print(ex)
     
-    #     finally:
-    #         # Đóng kết nối
-            
-    #         cursor.close()
-    #         conn.close()
-    #     return False
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+
 

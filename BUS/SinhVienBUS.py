@@ -8,6 +8,8 @@ from DAL.SinhVien import SinhVien
 class SinhVienBUS:
     def get(self):
         return SinhVienDAL.get()
+    def countAll(self):
+        return SinhVienDAL.countAll()
     def generateID(self):
         return SinhVienDAL.generateID()
     def add(self, sv:SinhVien):
@@ -18,5 +20,5 @@ class SinhVienBUS:
         return SinhVienDAL.delete(id)
     def find(self, key, value):
         return SinhVienDAL.find(key, value)
-    # def checkLogin(self,email, password):
-    #     return SinhVienDAL.checkLogin(email,password)
+    def findMaSinhVien(self,value):
+        return SinhVienDAL.findMaSinhVien(value)
