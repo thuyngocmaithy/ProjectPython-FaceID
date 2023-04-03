@@ -18,7 +18,7 @@ email = ''
 password = ''
 class mainGUI():
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()    
+    MainWindow = QtWidgets.QMainWindow()        
     ui = ''
     DarkMode = True
     def __init__(self, email, password, maquyen):
@@ -59,7 +59,7 @@ class mainGUI():
     def mainUi(self, MainWindow ,page):
         self.ui = Home.UI_Home(self.email, self.password)
         self.MainWindow = MainWindow
-        MainWindow.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+        
         self.ui.setupUi(MainWindow)
     
         if page == "home":
@@ -182,8 +182,12 @@ class mainGUI():
         # Dark-Light Mode
         self.ChangeStyleDarkMode()
         self.ui.btnDark.clicked.connect(self.ChangeDarkMode_UI)
+        self.ui.btnDark.clicked.connect(self.changeQLDiemDanh_Dark)
         MainWindow.show()
 
+    def changeQLDiemDanh_Dark(self):
+        self.ui.cmbLop.setStyleSheet("#cmbLop{color:white}")
+        self.ui.cmbIDBuoiHoc.setStyleSheet("#cmbIDBuoiHoc{color:white}")
 
     def ThongKe_UI(self,MainWindow):
         self.ui = ThongKe.UI_ThongKe()
@@ -258,11 +262,12 @@ class mainGUI():
             if 'CN001' not in listcn:
                 self.ui.btnQLSV.hide()
             if 'CN002' not in listcn:
-                self.ui.btnBuoiHoc.hide()
+                self.ui.btnDiemDanh.hide()                
             if 'CN003' not in listcn:
-                self.ui.btnDiemDanh.hide()
+                self.ui.btnGiangVien.hide() 
             if 'CN004' not in listcn:
-                self.ui.btnGiangVien.hide()            
+                self.ui.btnBuoiHoc.hide()
+                           
         else:
             self.ui.btnQuanLy.hide()
         if 'CN005' not in listcn:

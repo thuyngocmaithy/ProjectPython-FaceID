@@ -344,7 +344,7 @@ class UI_QuanLyGiangVien(object):
                 self.btnTime.raise_()
                 MainWindow.setCentralWidget(self.centralwidget)
 
-                self.loadListCmbQuyen()
+                self.loadListCmbTaiKhoan()
                 self.loadDataQTable()
                 self.retranslateUi(MainWindow)
                 # tạo timer
@@ -380,12 +380,13 @@ class UI_QuanLyGiangVien(object):
                 self.label_3.setText(_translate("MainWindow", "Quản lý giảng viên"))
                 self.btnBack.setText(_translate("MainWindow", "Trở về"))
 
-        def loadListCmbQuyen(self):
+        def loadListCmbTaiKhoan(self):
                 tk = TaiKhoanBUS()
                 list = tk.get()          
                 if list is not None:
                         for row in list:
-                                self.cmbTaiKhoan.addItem(row[1],row[0])   
+                                if tk.checkNotTaiKhoanAmin(mataikhoan = row[0]):
+                                        self.cmbTaiKhoan.addItem(row[1],row[0])   
         def loadDataQTable(self):                    
                 gv = GiangVienBUS()
                 list = gv.get()
@@ -426,10 +427,9 @@ class UI_QuanLyGiangVien(object):
                 if check_error.check_phone(self, input = gv._sodienthoai) == False:
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập số điện thoại đúng định dạng")
                         return False
-                if GiangVienBUS.checkExistTaiKhoan(self, magiangvien=gv._mataikhoan) == False:
+                if GiangVienBUS.checkExistTaiKhoan(self, mataikhoan=gv._mataikhoan) == False:
                         QMessageBox.information(self.centralwidget,"Thông báo","Tài khoản đã được sử dụng")
                         return False
-
                 return True
         
         def add(self):

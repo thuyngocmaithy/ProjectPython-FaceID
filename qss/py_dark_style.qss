@@ -2454,6 +2454,10 @@ QLabel#lblLop {
     background-color: transparent;
 }
 
+#cmbLop {
+    color: white;
+}
+
 #frmHeader {
     background-color: qlineargradient(spread: pad, x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 rgba(0, 92, 151, 255), stop: 0.994318 rgba(54, 55, 149, 255));
     border: none;

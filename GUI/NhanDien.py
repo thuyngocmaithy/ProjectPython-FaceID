@@ -495,11 +495,24 @@ class UI_NhanDien(object):
                                         tengv = gv._hoten
                                 self.lblGiangVien.setText(tengv)
                                       
-        def stop_capture_video(self):                                            
+        def stop_capture_video(self):    
+                self.flagSetInfoSV = False                                        
                 self.thread[1].stop()
                 self.camera.setPixmap(QtGui.QPixmap())  
                 self.cmbBuoiHoc.setEnabled(True)
+                self.cmbBuoiHoc.setCurrentIndex(0)
                 self.cmbLoaiDiemDanh.setEnabled(True)
+                self.cmbLoaiDiemDanh.setCurrentIndex(0)
+                self.imageNhanDien.setPixmap(QtGui.QPixmap())  
+                self.txtMaSV.clear()
+                self.txtHoTen.clear()
+                self.timeThoiGian.clear()
+                self.lblIDBuoiHoc.clear()
+                self.lblGiangVien.clear()
+                self.lblNgay.clear()
+                self.lblThoiGian.clear()
+                self.lblThongBao.setText("Thông báo: Vui lòng chọn ID buổi học và loại điểm danh để mở camera!")
+
                 
         def start_capture_video(self):
                 if(self.cmbBuoiHoc.currentIndex()!=0 and self.cmbLoaiDiemDanh.currentIndex()!=0):

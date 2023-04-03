@@ -203,6 +203,7 @@ class Ui_MainWindow(object):
                 if resultLogin != False:        
                         # QtWidgets.QApplication.closeAllWindows()          
                         self.window = QtWidgets.QMainWindow()
+                        self.window.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
                         self.ui = main.mainGUI(resultLogin[0], resultLogin[1], resultLogin[2])                        
                         self.ui.mainUi(self.window,"home")
                         MainWindow.hide()

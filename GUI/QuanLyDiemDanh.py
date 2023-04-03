@@ -211,7 +211,6 @@ class UI_QuanLyDiemDanh(object):
                 self.txtIDSV.setFont(font)
                 self.txtIDSV.setObjectName("txtIDSV")
                 self.txtIDSV.setReadOnly(True)
-                self.txtIDSV.setStyleSheet("QLineEdit { background: #F2F2F2};") ##
                 self.label_15 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
                 self.label_15.setGeometry(QtCore.QRect(19, 50, 74, 21))
                 font = QtGui.QFont()
@@ -226,7 +225,6 @@ class UI_QuanLyDiemDanh(object):
                 self.txtHoTen.setFont(font)
                 self.txtHoTen.setObjectName("txtHoTen")
                 self.txtHoTen.setReadOnly(True)
-                self.txtHoTen.setStyleSheet("QLineEdit { background: #F2F2F2};")
                 self.label_16 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
                 self.label_16.setGeometry(QtCore.QRect(19, 90, 74, 21))
                 font = QtGui.QFont()

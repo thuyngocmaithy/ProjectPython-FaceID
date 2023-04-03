@@ -22,3 +22,5 @@ class TaiKhoanBUS:
         return TaiKhoanDAL.checkLogin(email,password)
     def changePassword(self, email, mkmoi):
         return TaiKhoanDAL.changePassword(email,mkmoi)
+    def checkNotTaiKhoanAmin(self, mataikhoan):
+        return TaiKhoanDAL.checkNotTaiKhoanAmin(mataikhoan)

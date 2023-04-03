@@ -20,5 +20,7 @@ class GiangVienBUS:
         return GiangVienDAL.delete(id)
     def find(self, key, value):
         return GiangVienDAL.find(key, value)
-    def checkExistTaiKhoan(self, magiangvien):
-        return GiangVienDAL.checkExistTaiKhoan(magiangvien)
+    def checkExistTaiKhoan(self, mataikhoan):
+        return GiangVienDAL.checkExistTaiKhoan(mataikhoan)
+    def checkNotTaiKhoanAmin(self, mataikhoan):
+        return GiangVienDAL.checkNotTaiKhoanAmin(mataikhoan)
