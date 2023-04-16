@@ -147,6 +147,23 @@ class QuyenDAL:
             cursor.close()
             conn.close()
         return list
+    def checkTenQuyenTonTai(tenquyen):
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = """
+            SELECT *
+            FROM quyen
+            WHERE tenquyen = '{}' """.format(tenquyen)
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is None and cursor.rowcount == -1):
+                return True
+        except Exception as ex:
+            print(ex)
+        return False
+
     
 
     

@@ -28,4 +28,10 @@ class ThongKeBUS:
 
     def list_KDD(self):
         return ThongKeDAL.list_KDD(self)
+    def find_DiMuon(self, key, value):
+        return ThongKeDAL.find_DiMuon(self, key, value)
+    def find_Vang(self, key, value):
+        return ThongKeDAL.find_Vang(self, key, value)
+    def find_KhongDD(self, key, value):
+        return ThongKeDAL.find_KhongDD(self, key, value)
 

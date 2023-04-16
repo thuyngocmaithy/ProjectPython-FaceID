@@ -18,3 +18,5 @@ class QuyenBUS:
         return QuyenDAL.delete(id)
     def find(self, key, value):
         return QuyenDAL.find(key, value)
+    def checkTenQuyenTonTai(self, tenquyen):
+        return QuyenDAL.checkTenQuyenTonTai(tenquyen)

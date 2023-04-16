@@ -18,3 +18,6 @@ class ChucNangBUS:
         return ChucNangDAL.delete(id)
     def find(self, key, value):
         return ChucNangDAL.find(key, value)
+    def checkTenCNTonTai(self, tenchucnang):
+        return ChucNangDAL.checkTenCNTonTai(tenchucnang)
+

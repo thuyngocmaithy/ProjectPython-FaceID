@@ -20,3 +20,5 @@ class LopBUS:
         return LopDAL.delete(id)
     def find(self, key, value):
         return LopDAL.find(key, value)
+    def checkTenLopTonTai(self, tenlop):
+        return LopDAL.checkTenLopTonTai(tenlop)

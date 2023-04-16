@@ -342,19 +342,7 @@ class UI_QuanLySinhVien(object):
                 font.setPointSize(9)
                 self.txtSDT.setFont(font)
                 self.txtSDT.setText("")
-                self.txtSDT.setObjectName("txtSDT")
-                self.rdoCoAnh = QtWidgets.QRadioButton(parent=self.frame_2)
-                self.rdoCoAnh.setGeometry(QtCore.QRect(170, 190, 71, 41))
-                font = QtGui.QFont()
-                font.setPointSize(9)
-                self.rdoCoAnh.setFont(font)
-                self.rdoCoAnh.setObjectName("rdoCoAnh")
-                self.sdoKhongAnh = QtWidgets.QRadioButton(parent=self.frame_2)
-                self.sdoKhongAnh.setGeometry(QtCore.QRect(250, 190, 91, 41))
-                font = QtGui.QFont()
-                font.setPointSize(9)
-                self.sdoKhongAnh.setFont(font)
-                self.sdoKhongAnh.setObjectName("sdoKhongAnh")
+                self.txtSDT.setObjectName("txtSDT")               
                 self.horizontalLayoutWidget = QtWidgets.QWidget(
                         parent=self.frmChangeSV)
                 self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 370, 341, 51))
@@ -837,8 +825,6 @@ class UI_QuanLySinhVien(object):
                 self.label_14.setText(_translate("MainWindow", "Ngày sinh"))
                 self.label_15.setText(_translate("MainWindow", "Email"))
                 self.label_16.setText(_translate("MainWindow", "SĐT"))
-                self.rdoCoAnh.setText(_translate("MainWindow", "Có ảnh"))
-                self.sdoKhongAnh.setText(_translate("MainWindow", "Không ảnh"))
                 self.btnThemSV.setText(_translate("MainWindow", "Thêm"))
                 self.btnSuaSV.setText(_translate("MainWindow", "Sửa"))
                 self.btnXoaSV.setText(_translate("MainWindow", "Xóa"))
@@ -978,6 +964,15 @@ class UI_QuanLySinhVien(object):
                 if check_error.check_phone(self, input=sv._sodienthoai) == False:
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập số điện thoại đúng định dạng")
                         return False
+                if SinhVienBUS.checkTonTai(self, key="cmnd", value=sv._cmnd) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","CMND đã tồn tại")
+                        return False
+                if SinhVienBUS.checkTonTai(self, key="sodienthoai", value=sv._sodienthoai) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Số điện thoại đã tồn tại")
+                        return False
+                if SinhVienBUS.checkTonTai(self, key="email", value=sv._email) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Email đã tồn tại")
+                        return False
                 return True
 
 
@@ -1089,6 +1084,9 @@ class UI_QuanLySinhVien(object):
         def validateLop(self, l: Lop):        
                 if l._tenlop == '':
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
+                        return False
+                if LopBUS.checkTenLopTonTai(self, tenlop=l._tenlop) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Tên lớp đã tồn tại")
                         return False
                 return True
 

@@ -22,5 +22,6 @@ class GiangVienBUS:
         return GiangVienDAL.find(key, value)
     def checkExistTaiKhoan(self, mataikhoan):
         return GiangVienDAL.checkExistTaiKhoan(mataikhoan)
-    def checkNotTaiKhoanAmin(self, mataikhoan):
-        return GiangVienDAL.checkNotTaiKhoanAmin(mataikhoan)
+    def checkSoDienThoaiTonTai(self, sodienthoai):
+        return GiangVienDAL.checkSoDienThoaiTonTai(sodienthoai)
+    

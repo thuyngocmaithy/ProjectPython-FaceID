@@ -105,7 +105,15 @@ class ThongKeDAL:
             connDb = ConnectDatabase()
             conn = connDb.Connect()
             cursor = conn.cursor()
-            svDiMuon = "SELECT dd.masinhvien, sv.hoten, sv.malop, dd.ngay, dd.mabuoihoc FROM sinhvien sv left join diemdanh dd on dd.masinhvien = sv.masinhvien join buoihoc bh  on dd.mabuoihoc = bh.mabuoihoc WHERE dd.giovao > bh.giobatdau OR dd.giovao = '00:00:00' AND dd.giora != '00:00:00'"
+            svDiMuon = """ SELECT dd.masinhvien, sv.hoten, sv.malop, bh.ngay, dd.mabuoihoc 
+            FROM sinhvien sv 
+            left join diemdanh dd 
+            on dd.masinhvien = sv.masinhvien 
+            join buoihoc bh 
+            on dd.mabuoihoc = bh.mabuoihoc 
+            WHERE dd.giovao > bh.giobatdau 
+            OR dd.giovao = '00:00:00' 
+            AND dd.giora != '00:00:00' """
             cursor.execute(svDiMuon)
             row = cursor.fetchall()
 
@@ -150,7 +158,7 @@ class ThongKeDAL:
             conndb = ConnectDatabase()
             conn = conndb.Connect()
             cursor = conn.cursor()
-            svKDD = """ SELECT dd.masinhvien, sv.hoten, sv.malop, dd.ngay, dd.mabuoihoc 
+            svKDD = """ SELECT dd.masinhvien, sv.hoten, sv.malop, bh.ngay, dd.mabuoihoc 
             FROM sinhvien sv left join diemdanh dd 
             on dd.masinhvien = sv.masinhvien 
             join buoihoc bh  
@@ -165,6 +173,104 @@ class ThongKeDAL:
             cursor.close()
             conn.close()
         return row
-
+    def iter_row(cursor, size=10):
+        while True:
+            rows = cursor.fetchmany(size)
+            if not rows:
+                break
+            for row in rows:
+                yield row
+    def find_DiMuon(self, key, value):
+        list = []
+        query = """ 
+            SELECT a.masinhvien, a.hoten, a.malop, a.ngay, a.mabuoihoc 
+            FROM            
+            (SELECT dd.masinhvien, sv.hoten, sv.malop, bh.ngay, dd.mabuoihoc 
+            FROM sinhvien sv 
+            left join diemdanh dd 
+            on dd.masinhvien = sv.masinhvien 
+            join buoihoc bh 
+            on dd.mabuoihoc = bh.mabuoihoc 
+            WHERE dd.giovao > bh.giobatdau 
+            OR dd.giovao = '00:00:00' 
+            AND dd.giora != '00:00:00') as a            
+            WHERE a.{} LIKE '%{}%' """.format(key, value)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            for row in ThongKeDAL.iter_row(cursor, 10):
+                list.append(row)            
+        except Exception as ex:
+            print(ex)
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+    def find_Vang(self, key, value):
+        list = []
+        query = """ 
+            SELECT b.masinhvien, b.hoten, b.malop, b.ngay, b.mabuoihoc  
+            FROM            
+            (SELECT a.masinhvien, a.hoten, a.malop, a.ngay, a.mabuoihoc
+            FROM 
+            (SELECT sv.masinhvien, sv.hoten, sv.malop, bh.ngay, bh.mabuoihoc
+            FROM sinhvien sv, lop l, buoihoc bh
+            WHERE sv.malop = l.malop
+            AND l.malop = bh.malop
+            ) as a
+            LEFT JOIN diemdanh dd
+            on a.mabuoihoc = dd.mabuoihoc
+            and a.masinhvien = dd.masinhvien
+            WHERE dd.madiemdanh is NULL) as b
+            WHERE b.{} LIKE '%{}%' """.format(key, value)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            for row in ThongKeDAL.iter_row(cursor, 10):
+                list.append(row)            
+        except Exception as ex:
+            print(ex)
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
+    def find_KhongDD(self, key, value):
+        list = []
+        query = """ 
+            SELECT a.masinhvien, a.hoten, a.malop, a.ngay, a.mabuoihoc 
+            FROM
+            (SELECT dd.masinhvien, sv.hoten, sv.malop, bh.ngay, dd.mabuoihoc 
+            FROM sinhvien sv left join diemdanh dd 
+            on dd.masinhvien = sv.masinhvien 
+            join buoihoc bh  
+            on dd.mabuoihoc = bh.mabuoihoc 
+            WHERE dd.giora = '00:00:00' OR dd.giovao = '00:00:00') as a
+            WHERE a.{} LIKE '%{}%' """.format(key, value)
+        try:
+             # Kết nối database
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            cursor.execute(query)
+            for row in ThongKeDAL.iter_row(cursor, 10):
+                list.append(row)            
+        except Exception as ex:
+            print(ex)
+    
+        finally:
+            # Đóng kết nối
+            cursor.close()
+            conn.close()
+        return list
 
 

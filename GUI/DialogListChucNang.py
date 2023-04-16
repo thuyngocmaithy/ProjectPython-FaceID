@@ -55,7 +55,7 @@ class Ui_Dialog(object):
 
         def retranslateUi(self, Dialog):
             _translate = QtCore.QCoreApplication.translate
-            Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+            Dialog.setWindowTitle(_translate("Dialog", "Chọn chức năng"))
             self.label.setText(_translate("Dialog", "DANH SÁCH CHỨC NĂNG"))
 
 

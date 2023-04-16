@@ -35,7 +35,7 @@ class face_dataset(QThread):
                         
             for (x, y, w, h) in faces:
 
-                cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
+                cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
                 count += 1
                 # Save the captured image into the datasets folder
                 nameFile = f'./image/photo/{self.idSV}-image{count}.jpg'

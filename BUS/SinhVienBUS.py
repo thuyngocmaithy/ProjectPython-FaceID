@@ -22,3 +22,5 @@ class SinhVienBUS:
         return SinhVienDAL.find(key, value)
     def findMaSinhVien(self,value):
         return SinhVienDAL.findMaSinhVien(value)
+    def checkTonTai(self, key, value):
+        return SinhVienDAL.checkTonTai(key, value)

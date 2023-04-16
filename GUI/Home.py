@@ -847,6 +847,39 @@ class UI_Home():
         "font-weight:bold;\n"
         "}")
                 self.label_8.setObjectName("label_8")
+
+                self.error_mkcu = QtWidgets.QLabel(parent=self.frmChangePass)
+                self.error_mkcu.setObjectName("error_mkcu")
+                self.error_mkcu.setGeometry(QtCore.QRect(80, 130, 250, 21))
+                font = QtGui.QFont()
+                font.setPointSize(11)
+                self.error_mkcu.setFont(font)
+                self.error_mkcu.setStyleSheet("#error_mkcu\n"
+        "{\n"
+        "background-color:transparent;\n"
+        "font-weight: 500;\n"
+        "color: #990000;\n"
+        "}")
+                self.error_mkmoi = QtWidgets.QLabel(parent=self.frmChangePass)
+                self.error_mkmoi.setObjectName("error_mkmoi")
+                self.error_mkmoi.setGeometry(QtCore.QRect(80, 220, 250, 21))
+                self.error_mkmoi.setFont(font)
+                self.error_mkmoi.setStyleSheet("#error_mkmoi\n"
+        "{\n"
+        "background-color:transparent;\n"
+        "font-weight: 500;\n"
+        "color: #990000;\n"
+        "}")
+                self.error_mknhaplai = QtWidgets.QLabel(parent=self.frmChangePass)
+                self.error_mknhaplai.setObjectName("error_mknhaplai")
+                self.error_mknhaplai.setGeometry(QtCore.QRect(80, 300, 250, 21))
+                self.error_mknhaplai.setFont(font)
+                self.error_mknhaplai.setStyleSheet("#error_mknhaplai\n"
+        "{\n"
+        "background-color:transparent;\n"
+        "font-weight: 500;\n"
+        "color: #990000;\n"
+        "}")
                 self.btnXacNhan = QtWidgets.QPushButton(parent=self.frmChangePass)
                 self.btnXacNhan.setGeometry(QtCore.QRect(130, 330, 91, 31))
                 font = QtGui.QFont()
@@ -866,6 +899,10 @@ class UI_Home():
 
                 self.retranslateUi(MainWindow)
                 self.stackedWidget.setCurrentIndex(2)
+                # CHANGE TEXT PASSWORD
+                self.txtMatKhauCu.textChanged.connect(self.changeTextMKCu)
+                self.txtMatKhauMoi.textChanged.connect(self.changeTextMKMoi)
+                self.txtNhapLaiMatKhau.textChanged.connect(self.changeTextMKNhapLai)
                 # SET VALUE
                 self.countSV()
                 self.countLop()
@@ -904,19 +941,59 @@ class UI_Home():
                 self.label_7.setText(_translate("MainWindow", "Mật khẩu cũ"))
                 self.label_9.setText(_translate("MainWindow", "Nhập lại mật khẩu"))
                 self.label_8.setText(_translate("MainWindow", "Mật khẩu mới"))
+                self.error_mkcu.setText(_translate("MainWindow", ""))
+                self.error_mkmoi.setText(_translate("MainWindow", ""))
+                self.error_mknhaplai.setText(_translate("MainWindow", ""))
                 self.btnXacNhan.setText(_translate("MainWindow", "Xác nhận"))
-
+        def changeTextMKCu(self):                
+                mkcu = self.txtMatKhauCu.text()
+                check = True
+                if mkcu != self.password :
+                        self.error_mkcu.setText("Mật khẩu cũ không chính xác!") 
+                        check = False               
+                if mkcu == "":
+                      self.error_mkcu.setText("Vui lòng nhập mật khẩu cũ")
+                      check = False        
+                if check == True:
+                        self.error_mkcu.clear()
+        def changeTextMKMoi(self):
+                mkmoi = self.txtMatKhauMoi.text()
+                mkcu = self.txtMatKhauCu.text()
+                check = True
+                if mkmoi == '':
+                        self.error_mkmoi.setText("Vui lòng nhập mật khẩu mới")
+                        check = False
+                if len(mkmoi) < 8:
+                        self.error_mkmoi.setText("Mật khẩu phải tối thiểu 8 ký tự")
+                        check = False
+                if mkmoi == mkcu:
+                        self.error_mkmoi.setText("Mật khẩu mới phải khác mật khẩu cũ")
+                        check = False
+                if check == True:
+                        self.error_mkmoi.clear()
+        def changeTextMKNhapLai(self):                
+                mkmoi = self.txtMatKhauMoi.text()
+                mknhaplai = self.txtNhapLaiMatKhau.text()
+                check = True
+                if mknhaplai == '':
+                        self.error_mknhaplai.setText("Vui lòng nhập mật khẩu nhập lại")
+                        check = False
+                if mkmoi != mknhaplai:
+                        self.error_mknhaplai.setText("Mật khẩu nhập lại không chính xác!")
+                        check = False
+                if check == True:
+                        self.error_mknhaplai.clear()
         def changePassword(self):
                 mkcu = self.txtMatKhauCu.text()
                 mkmoi = self.txtMatKhauMoi.text()
                 mknhaplai = self.txtNhapLaiMatKhau.text()
-                if mkcu != self.password :
-                        QMessageBox.information(self.centralwidget,"Thông báo","Mật khẩu cũ không chính xác!")
-                elif mkmoi == '':
-                        QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập mật khẩu mới")
-                elif mkmoi != mknhaplai:
-                        QMessageBox.information(self.centralwidget,"Thông báo","Mật khẩu nhập lại không chính xác!")
-                else:
+                if mkcu == '' :
+                        self.error_mkcu.setText("Vui lòng nhập mật khẩu cũ") 
+                if mkmoi == '':
+                        self.error_mkmoi.setText("Vui lòng nhập mật khẩu mới")
+                if mknhaplai == '':
+                        self.error_mknhaplai.setText("Vui lòng nhập mật khẩu nhập lại")
+                if self.error_mkcu.text() == "" and self.error_mkmoi.text() == "" and self.error_mknhaplai.text() == "":
                         tk = TaiKhoanBUS()
                         if tk.changePassword(self.email, mkmoi):
                                 QMessageBox.information(self.centralwidget,"Thông báo","Thay đổi mật khẩu thành công")                         
@@ -925,6 +1002,9 @@ class UI_Home():
                         self.txtMatKhauCu.clear()
                         self.txtMatKhauMoi.clear()
                         self.txtNhapLaiMatKhau.clear()
+                        self.error_mkcu.clear()
+                        self.error_mkmoi.clear()
+                        self.error_mknhaplai.clear()
         def clock_number(self):
                 time = datetime.now()
                 format_time = time.strftime("%H:%M:%S")

@@ -75,19 +75,7 @@ class UI_QuanLyDiemDanh(object):
                 self.timeGioRa = QtWidgets.QTimeEdit(parent=self.frmChangeBuoiHoc)
                 self.timeGioRa.setGeometry(QtCore.QRect(97, 210, 121, 22))
                 self.timeGioRa.setObjectName("timeGioRa")
-                self.timeGioRa.setDisplayFormat("HH:mm:ss")
-                self.label_13 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
-                self.label_13.setGeometry(QtCore.QRect(19, 250, 74, 21))
-                font = QtGui.QFont()
-                font.setPointSize(9)
-                self.label_13.setFont(font)
-                self.label_13.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
-                self.label_13.setObjectName("label_13")
-                self.dateNgay = QtWidgets.QDateEdit(parent=self.frmChangeBuoiHoc)
-                self.dateNgay.setGeometry(QtCore.QRect(97, 250, 121, 22))
-                self.dateNgay.setObjectName("dateNgay")
-                self.dateNgay.setDisplayFormat("yyyy-MM-dd")
-                self.dateNgay.setDate(QtCore.QDate.currentDate())
+                self.timeGioRa.setDisplayFormat("HH:mm:ss")               
                 self.label_14 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
                 self.label_14.setGeometry(QtCore.QRect(19, 130, 74, 21))
                 font = QtGui.QFont()
@@ -99,7 +87,6 @@ class UI_QuanLyDiemDanh(object):
                 self.cmbLop.setGeometry(QtCore.QRect(97, 130, 121, 22))
                 self.cmbLop.setObjectName("cmbLop")
                 self.cmbLop.setEnabled(False)
-                self.cmbLop.setStyleSheet("#cmbLop{color:black}")
                 self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.frmChangeBuoiHoc)
                 self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 370, 211, 41))
                 self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -233,12 +220,11 @@ class UI_QuanLyDiemDanh(object):
                 self.label_16.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
                 self.label_16.setObjectName("label_16")
                 self.cmbIDBuoiHoc = QtWidgets.QComboBox(parent=self.frmChangeBuoiHoc)
-                self.cmbIDBuoiHoc.setGeometry(QtCore.QRect(97, 290, 121, 22))
+                self.cmbIDBuoiHoc.setGeometry(QtCore.QRect(97, 250, 121, 22))
                 self.cmbIDBuoiHoc.setObjectName("cmbIDBuoiHoc")
                 self.cmbIDBuoiHoc.setEnabled(False)
-                self.cmbIDBuoiHoc.setStyleSheet("#cmbIDBuoiHoc{color:black}")
                 self.label_19 = QtWidgets.QLabel(parent=self.frmChangeBuoiHoc)
-                self.label_19.setGeometry(QtCore.QRect(19, 290, 74, 21))
+                self.label_19.setGeometry(QtCore.QRect(19, 250, 74, 21))
                 font = QtGui.QFont()
                 font.setPointSize(9)
                 self.label_19.setFont(font)
@@ -287,7 +273,6 @@ class UI_QuanLyDiemDanh(object):
                 self.cmbOptionFind.addItem("Lớp học", "tenlop")
                 self.cmbOptionFind.addItem("Giờ vào", "giovao")
                 self.cmbOptionFind.addItem("Giờ ra", "giora")
-                self.cmbOptionFind.addItem("Ngày", "ngay")
                 self.cmbOptionFind.addItem("ID buổi học", "mabuoihoc")                
                 self.cmbOptionFind.currentIndexChanged.connect(self.find)
                 self.txtFind = QtWidgets.QLineEdit(parent=self.frame_3)
@@ -301,7 +286,7 @@ class UI_QuanLyDiemDanh(object):
                 self.tbwDiemDanh = QtWidgets.QTableWidget(parent=self.frmInfoBuoiHoc)
                 self.tbwDiemDanh.setGeometry(QtCore.QRect(20, 90, 471, 361))
                 self.tbwDiemDanh.setObjectName("tbwDiemDanh")
-                self.tbwDiemDanh.setColumnCount(9)
+                self.tbwDiemDanh.setColumnCount(8)
                 self.tbwDiemDanh.setRowCount(0)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwDiemDanh.setHorizontalHeaderItem(0, item)
@@ -319,8 +304,6 @@ class UI_QuanLyDiemDanh(object):
                 self.tbwDiemDanh.setHorizontalHeaderItem(6, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tbwDiemDanh.setHorizontalHeaderItem(7, item)
-                item = QtWidgets.QTableWidgetItem()
-                self.tbwDiemDanh.setHorizontalHeaderItem(8, item)
                 self.tbwDiemDanh.setEditTriggers(QtWidgets.QTableWidget.EditTrigger.NoEditTriggers)
                 self.tbwDiemDanh.itemClicked.connect(self.getDataRow)
                 self.frmHeader = QtWidgets.QFrame(parent=self.centralwidget)
@@ -441,7 +424,13 @@ class UI_QuanLyDiemDanh(object):
                 self.loadDataQTable()
                 self.loadDataCmbLop()
                 self.loadDataCmbIdBH()
-                self.retranslateUi(MainWindow)
+                # tạo timer
+                self.timer = QtCore.QTimer()
+                self.timer.timeout.connect(self.clock_number)
+                # start and update every second
+                self.timer.start(1000)
+                self.clock_number()
+                self.retranslateUi(MainWindow)                
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         def retranslateUi(self, MainWindow):
@@ -450,7 +439,6 @@ class UI_QuanLyDiemDanh(object):
                 self.label_5.setText(_translate("MainWindow", "Cập nhật điểm danh"))
                 self.label_11.setText(_translate("MainWindow", "Giờ vào"))
                 self.label_12.setText(_translate("MainWindow", "Giờ ra"))
-                self.label_13.setText(_translate("MainWindow", "Ngày"))
                 self.label_14.setText(_translate("MainWindow", "Lớp học"))
                 self.btnCapNhat.setText(_translate("MainWindow", "Cập nhật"))
                 self.btnXoa.setText(_translate("MainWindow", "Xóa"))
@@ -477,9 +465,9 @@ class UI_QuanLyDiemDanh(object):
                 item = self.tbwDiemDanh.horizontalHeaderItem(5)
                 item.setText(_translate("MainWindow", "Giờ ra"))
                 item = self.tbwDiemDanh.horizontalHeaderItem(6)
-                item.setText(_translate("MainWindow", "Ngày"))
-                item = self.tbwDiemDanh.horizontalHeaderItem(7)
                 item.setText(_translate("MainWindow", "ID buổi học"))
+                item = self.tbwDiemDanh.horizontalHeaderItem(7)
+                item.setText(_translate("MainWindow", "Hình ảnh"))
                 self.label_3.setText(_translate("MainWindow", "Quản lý thông tin điểm danh"))
                 self.btnBack.setText(_translate("MainWindow", "Trở về"))
                 self.label_21.setText(_translate("MainWindow", "Phần mềm điểm danh sinh viên"))
@@ -501,7 +489,6 @@ class UI_QuanLyDiemDanh(object):
                                 self.tbwDiemDanh.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                                 self.tbwDiemDanh.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                                 self.tbwDiemDanh.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                                self.tbwDiemDanh.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))
                                 
                                 tablerow+=1
 
@@ -528,13 +515,10 @@ class UI_QuanLyDiemDanh(object):
 
                 time_str_Vao = self.tbwDiemDanh.item(cr,4).text()
                 time_str_Ra = self.tbwDiemDanh.item(cr,5).text()
-                date_str = self.tbwDiemDanh.item(cr,6).text()
                 time_format =  "%H:%M:%S"
-                date_format = "%Y-%m-%d"
                 
                 timeVao = datetime.strptime(time_str_Vao,time_format).time()
                 timeRa = datetime.strptime(time_str_Ra,time_format).time()
-                date = datetime.strptime(date_str,date_format).date()
 
                 self.ma = self.tbwDiemDanh.item(cr,0).text()
                 self.txtIDSV.setText(self.tbwDiemDanh.item(cr,1).text())
@@ -542,8 +526,7 @@ class UI_QuanLyDiemDanh(object):
                 self.cmbLop.setCurrentText(self.tbwDiemDanh.item(cr,3).text())
                 self.timeGioVao.setTime(timeVao)
                 self.timeGioRa.setTime(timeRa)
-                self.dateNgay.setDate(date)
-                self.cmbIDBuoiHoc.setCurrentText(self.tbwDiemDanh.item(cr,7).text())
+                self.cmbIDBuoiHoc.setCurrentText(self.tbwDiemDanh.item(cr,6).text())
 
         def clear(self):
 
@@ -551,7 +534,6 @@ class UI_QuanLyDiemDanh(object):
                 self.txtHoTen.clear()
                 self.timeGioVao.setTime(QtCore.QTime(7, 00, 00))
                 self.timeGioRa.setTime(QtCore.QTime(17, 30, 00))
-                self.dateNgay.setDate(QtCore.QDate.currentDate())
                 self.cmbLop.setCurrentIndex(0)
                 self.cmbIDBuoiHoc.setCurrentIndex(0)
         
@@ -562,10 +544,9 @@ class UI_QuanLyDiemDanh(object):
                 masinhvien = self.txtIDSV.text()
                 giovao = self.timeGioVao.text()
                 giora = self.timeGioRa.text()
-                ngay = self.dateNgay.text()
                 mabuoihoc = self.cmbIDBuoiHoc.currentText()
                 
-                dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, ngay, mabuoihoc)
+                dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, mabuoihoc,"")
                 
                 if(ddBUS.update(dd)):
                         QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
@@ -600,8 +581,7 @@ class UI_QuanLyDiemDanh(object):
                                 self.tbwDiemDanh.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                                 self.tbwDiemDanh.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                                 self.tbwDiemDanh.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                                self.tbwDiemDanh.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                                self.tbwDiemDanh.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))                                
+                                self.tbwDiemDanh.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[7])))                                
                                 tablerow+=1
 
 
@@ -623,10 +603,9 @@ class UI_QuanLyDiemDanh(object):
                                         masinhvien = sheet.cell(r,2).value
                                         giovao = sheet.cell(r,5).value
                                         giora = sheet.cell(r,6).value
-                                        ngay = sheet.cell(r,7).value
-                                        mabuoihoc = sheet.cell(r,8).value                                        
+                                        mabuoihoc = sheet.cell(r,7).value                                        
 
-                                        dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, ngay, mabuoihoc)                                        
+                                        dd = DiemDanh(madiemdanh, masinhvien, giovao, giora, mabuoihoc)                                        
                                         if(ddBUS.add(dd)==False):
                                                 flag = False
                                 if(flag):
@@ -673,6 +652,13 @@ class UI_QuanLyDiemDanh(object):
                 self.ui = DD_ViewImage(id=self.ma)
                 self.ui.setupUi(self.MainWindow)
                 self.MainWindow.show()
+        def clock_number(self):
+                time = datetime.now()
+                format_time = time.strftime("%H:%M:%S")
+                self.label_2.setText(format_time)
+
+                format_date = time.strftime("%d/%m/%Y")
+                self.label_4.setText(format_date)
 
 if __name__ == "__main__":
     import sys

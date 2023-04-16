@@ -26,7 +26,7 @@ class DiemDanhDAL:
             conn = connDb.Connect()
             cursor = conn.cursor()
             query = "SELECT dd.madiemdanh, dd.masinhvien, sv.hoten, l.tenlop, "\
-            + "dd.giovao, dd.giora, dd.ngay, dd.mabuoihoc, "\
+            + "dd.giovao, dd.giora, dd.mabuoihoc, "\
             + "dd.hinhanh FROM diemdanh dd, sinhvien sv, lop l WHERE "\
             + "l.malop = sv.malop AND dd.masinhvien = sv.masinhvien"
             cursor.execute(query) 
@@ -68,12 +68,10 @@ class DiemDanhDAL:
         query = """ UPDATE diemdanh
                     SET masinhvien = %s,
                     giovao = %s,
-                    giora = %s,
-                    ngay = %s
+                    giora = %s
                     WHERE madiemdanh = %s"""
 
-        data = (dd._masinhvien, dd._giovao, dd._giora, 
-                dd._ngay, dd._madiemdanh)
+        data = (dd._masinhvien, dd._giovao, dd._giora, dd._madiemdanh)
 
         try:
             # Kết nối database
@@ -140,7 +138,7 @@ class DiemDanhDAL:
     def find(key, value):
         list = []
         query = "SELECT dd.madiemdanh, sv.masinhvien, sv.hoten, l.tenlop, "\
-            + "dd.giovao, dd.giora, dd.ngay, dd.mabuoihoc, "\
+            + "dd.giovao, dd.giora, dd.mabuoihoc, "\
             + "dd.hinhanh FROM diemdanh dd, sinhvien sv, lop l WHERE "\
             + "l.malop = sv.malop AND dd.masinhvien = sv.masinhvien AND dd.{} LIKE '%{}%'".format(key, value)
         try:
@@ -182,10 +180,9 @@ class DiemDanhDAL:
         return list
     
     def add( dd: DiemDanh):
-        query = """ INSERT INTO diemdanh (madiemdanh, masinhvien, giovao, ngay, mabuoihoc, hinhanh)
-                VALUES(%s, %s, %s, %s, %s, %s) """
-        data = (dd._madiemdanh, dd._masinhvien, dd._giovao, 
-                dd._ngay, dd._mabuoihoc, dd._hinhanh)        
+        query = """ INSERT INTO diemdanh (madiemdanh, masinhvien, giovao, mabuoihoc, hinhanh)
+                VALUES(%s, %s, %s, %s, %s) """
+        data = (dd._madiemdanh, dd._masinhvien, dd._giovao, dd._mabuoihoc, dd._hinhanh)        
         try:
             connDb = ConnectDatabase()
             conn = connDb.Connect()

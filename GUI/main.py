@@ -31,7 +31,7 @@ class mainGUI():
         self.ui.btnDark.setIcon(QtGui.QIcon("image/icon/moon_symbol_50px.png"))
         self.ui.btnTime.setIcon(QtGui.QIcon("image/icon/time_20px.png"))    
         self.app.setStyleSheet(Path(
-            r"qss\py_md_style.qss").read_text())
+            r"qss\py_md_style.qss").read_text())        
 
 
     def listChangeStyleSheet_Dark(self):
@@ -39,6 +39,7 @@ class mainGUI():
         self.ui.btnTime.setIcon(QtGui.QIcon("image/icon/time_white_20px.png"))
         self.app.setStyleSheet(Path(
                 r"qss\py_dark_style.qss").read_text())
+        
     
 
 
@@ -173,6 +174,7 @@ class mainGUI():
         self.ui = QuanLyDiemDanh.UI_QuanLyDiemDanh()
         self.MainWindow = MainWindow
         self.ui.setupUi(MainWindow)
+
         # Chọn minimize
         self.ui.btnMinimize.clicked.connect(self.showMinimized)
         # Chọn close
@@ -182,12 +184,9 @@ class mainGUI():
         # Dark-Light Mode
         self.ChangeStyleDarkMode()
         self.ui.btnDark.clicked.connect(self.ChangeDarkMode_UI)
-        self.ui.btnDark.clicked.connect(self.changeQLDiemDanh_Dark)
         MainWindow.show()
 
-    def changeQLDiemDanh_Dark(self):
-        self.ui.cmbLop.setStyleSheet("#cmbLop{color:white}")
-        self.ui.cmbIDBuoiHoc.setStyleSheet("#cmbIDBuoiHoc{color:white}")
+        
 
     def ThongKe_UI(self,MainWindow):
         self.ui = ThongKe.UI_ThongKe()
@@ -252,6 +251,9 @@ class mainGUI():
         self.window = QtWidgets.QMainWindow()
         self.ui = Login.Ui_MainWindow()
         self.ui.setupUi(self.window)
+        self.DarkMode = True
+        self.app.setStyleSheet(Path(
+            r"qss\py_md_style.qss").read_text())                     
         MainWindow.hide()
         self.window.show()
 
@@ -287,7 +289,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     MainWindow.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
-    ui = mainGUI('a','2','Q001')
+    ui = mainGUI('admin@gmail.com','12345678','Q001')
     ui.mainUi(MainWindow, "home")
     MainWindow.show()
     sys.exit(app.exec())

@@ -53,7 +53,7 @@ class ChucNangDAL:
         except:
             print("Lỗi tăng id")
         stt = (int)(re.sub("[^0-9]", "",stt))+1
-        ma = "GV{0:03}".format(stt)
+        ma = "CN{0:03}".format(stt)
         return ma
 
 
@@ -147,6 +147,22 @@ class ChucNangDAL:
             cursor.close()
             conn.close()
         return list
+    def checkTenCNTonTai(tenchucnang):
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = """
+            SELECT *
+            FROM chucnang
+            WHERE tenchucnang = '{}' """.format(tenchucnang)
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is None and cursor.rowcount == -1):
+                return True
+        except Exception as ex:
+            print(ex)
+        return False
     
 
     

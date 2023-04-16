@@ -73,13 +73,13 @@ class UI_QuanLyGiangVien(object):
                 self.txtHoTen.setGeometry(QtCore.QRect(100, 80, 111, 21))
                 font = QtGui.QFont()
                 font.setPointSize(9)
-                self.txtHoTen.setFont(font)
+                self.txtHoTen.setFont(font)                
                 self.txtHoTen.setObjectName("txtHoTen")
                 self.txtSoDienThoai = QtWidgets.QLineEdit(parent=self.frmChangeBuoiHoc)
                 self.txtSoDienThoai.setGeometry(QtCore.QRect(100, 130, 111, 21))
                 font = QtGui.QFont()
                 font.setPointSize(9)
-                self.txtSoDienThoai.setFont(font)
+                self.txtSoDienThoai.setFont(font)                
                 self.txtSoDienThoai.setObjectName("txtSoDienThoai")
                 self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.frmChangeBuoiHoc)
                 self.horizontalLayoutWidget.setGeometry(QtCore.QRect(30, 300, 171, 51))
@@ -420,15 +420,18 @@ class UI_QuanLyGiangVien(object):
                 self.txtSoDienThoai.clear()
                 self.cmbTaiKhoan.setCurrentIndex(0)
 
-        def validate(self, gv:GiangVien):        
+        def validate(self, gv:GiangVien, trangthai):        
                 if gv._hoten == '' or gv._sodienthoai == '' or gv._mataikhoan == '':
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
                         return False
                 if check_error.check_phone(self, input = gv._sodienthoai) == False:
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập số điện thoại đúng định dạng")
                         return False
-                if GiangVienBUS.checkExistTaiKhoan(self, mataikhoan=gv._mataikhoan) == False:
+                if GiangVienBUS.checkExistTaiKhoan(self, mataikhoan=gv._mataikhoan) == False and trangthai == "add":
                         QMessageBox.information(self.centralwidget,"Thông báo","Tài khoản đã được sử dụng")
+                        return False
+                if GiangVienBUS.checkSoDienThoaiTonTai(self, sodienthoai=gv._sodienthoai) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Số điện thoại đã tồn tại")
                         return False
                 return True
         
@@ -439,7 +442,7 @@ class UI_QuanLyGiangVien(object):
                 sodienthoai = self.txtSoDienThoai.text()
                 taikhoan = self.cmbTaiKhoan.currentData()                                        
                 gv = GiangVien(magiangvien, hoten, sodienthoai, taikhoan)
-                if self.validate(gv):
+                if self.validate(gv=gv, trangthai="add"):
                         if(gvBUS.add(gv)):
                                 QMessageBox.information(self.centralwidget,"Thông báo","Thêm thành công")
                                 self.loadDataQTable()
@@ -455,7 +458,7 @@ class UI_QuanLyGiangVien(object):
                 taikhoan = self.cmbTaiKhoan.currentData()
                 
                 gv = GiangVien(magiangvien, hoten, sodienthoai, taikhoan)
-                if self.validate(gv):
+                if self.validate(gv=gv, trangthai="update"):
                         if(gvBUS.update(gv)):
                                 QMessageBox.information(self.centralwidget,"Thông báo","Cập nhật thành công")
                                 self.loadDataQTable()

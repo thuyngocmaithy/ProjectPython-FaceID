@@ -852,7 +852,9 @@ class UI_QuanLyTaiKhoan(object):
                 list = q.get()          
                 if list is not None:
                         for row in list:
-                                self.cmbQuyen.addItem(row[1],row[0])      
+                                if (row[0]!='Q001'):
+                                        self.cmbQuyen.addItem(row[1],row[0])                                     
+                                 
 
         def loadDataQTableTaiKhoan(self):                    
                 tk = TaiKhoanBUS()
@@ -976,15 +978,24 @@ class UI_QuanLyTaiKhoan(object):
                 if check_error.check_email(self, input=tk._email) == False:
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập email đúng định dạng")
                         return False
+                if TaiKhoanBUS.checkEmailTonTai(self, email=tk._email) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Email đã tồn tại")
+                        return False
                 return True
         def validateQuyen(self, q: Quyen):        
                 if q._tenquyen == '':
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
                         return False
+                if QuyenBUS.checkTenQuyenTonTai(self, tenquyen=q._tenquyen) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Tên quyền đã tồn tại")
+                        return False
                 return True
         def validateCN(self, cn: ChucNang):        
                 if cn._tenchucnang == '':
                         QMessageBox.information(self.centralwidget,"Thông báo","Vui lòng nhập đầy đủ thông tin")
+                        return False
+                if ChucNangBUS.checkTenCNTonTai(self, tenchucnang=cn._tenchucnang) == False:
+                        QMessageBox.information(self.centralwidget,"Thông báo","Tên chức năng đã tồn tại")
                         return False
                 return True
         

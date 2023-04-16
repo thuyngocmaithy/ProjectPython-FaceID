@@ -165,4 +165,20 @@ class LopDAL:
             cursor.close()
             conn.close()
         return list
+    def checkTenLopTonTai(tenlop):
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = """
+            SELECT *
+            FROM lop
+            WHERE tenlop = '{}' """.format(tenlop)
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is None and cursor.rowcount == -1):
+                return True
+        except Exception as ex:
+            print(ex)
+        return False
 

@@ -453,9 +453,9 @@ class UI_QuanLyBuoiHoc(object):
                 date_str = self.tbwBuoiHoc.item(cr,3).text()
                 time_format =  "%H:%M:%S"
                 date_format = "%Y-%m-%d"
-                timeGioBD = datetime.datetime.strptime(time_str_GioBD,time_format).time()
-                timeGioKT = datetime.datetime.strptime(time_str_GioKT,time_format).time()
-                date = datetime.datetime.strptime(date_str,date_format).date()
+                timeGioBD = datetime.strptime(time_str_GioBD,time_format).time()
+                timeGioKT = datetime.strptime(time_str_GioKT,time_format).time()
+                date = datetime.strptime(date_str,date_format).date()
                 self.ma = self.tbwBuoiHoc.item(cr,0).text()
                 self.timeGioBD.setTime(timeGioBD)
                 self.timeGioKT.setTime(timeGioKT)

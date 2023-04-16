@@ -216,3 +216,19 @@ class TaiKhoanDAL:
         except Exception as ex:
             print(ex)
         return False
+    def checkEmailTonTai(email):
+        try:
+            connDb = ConnectDatabase()
+            conn = connDb.Connect()
+            cursor = conn.cursor()
+            query = """
+            SELECT *
+            FROM taikhoan
+            WHERE email = '{}' """.format(email)
+            cursor.execute(query)
+            row = cursor.fetchone()
+            if (row is None and cursor.rowcount == -1):
+                return True
+        except Exception as ex:
+            print(ex)
+        return False

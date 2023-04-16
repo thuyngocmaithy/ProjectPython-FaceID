@@ -11,11 +11,13 @@ Developed by Marcelo Rovai - MJRoBot.org @ 21Feb18
 '''
 from PyQt6.QtWidgets import QMessageBox
 from PyQt6.QtWidgets import QWidget
+from PyQt6 import QtWidgets, QtCore, QtGui
 import cv2
 import numpy as np
 from PIL import Image
 import os
 import re
+import time
 class face_training(QWidget):
     def __init__(self):
         super().__init__()
@@ -23,6 +25,7 @@ class face_training(QWidget):
         self.path = 'image\\photo'
         self.recognizer = cv2.face.LBPHFaceRecognizer_create()
         self.detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+        self.completed = 0
     # function to get the images and label data
     def getImagesAndLabels(self, path):
         imagePaths = [os.path.join(path,f) for f in os.listdir(path)]    
@@ -42,13 +45,15 @@ class face_training(QWidget):
                 ids.append(id)
 
         return faceSamples,ids
+    
+
+
+
     def train(self):
         QMessageBox.information(self,"Thông báo","Đang training data. Vui lòng chờ vài phút...")
         faces,ids = self.getImagesAndLabels(self.path)
         self.recognizer.train(faces, np.array(ids))
-
         # Save the model into trainer/trainer.yml
-        self.recognizer.write('TrainingImageLabel/Trainner.yml') # recognizer.save() worked on Mac, but not on Pi
-
+        self.recognizer.write('TrainingImageLabel/Trainner.yml') # recognizer.save() worked on Mac, but not on Pi        
         # Print the numer of faces trained and end program
         QMessageBox.information(self,"Thông báo","Traning data thành công")

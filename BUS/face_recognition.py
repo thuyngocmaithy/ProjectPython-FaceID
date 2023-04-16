@@ -42,7 +42,7 @@ class face_recognition(QThread):
             for (x, y, w, h) in faces:
                 cv2.rectangle(cv_img, (x, y), (x+w, y+h), (0, 225, 0), 2)
                 self.Id, conf = recognizer.predict(gray[y:y+h, x:x+w])        
-                if (conf <50):
+                if (conf <55):
                     ten = ''
                     sv = SinhVienBUS()
                     masinhvien = "SV{0:03}".format(self.Id)   
@@ -54,7 +54,7 @@ class face_recognition(QThread):
                     tt = masinhvien + "-"+ten
                     # KIỂM TRA MSV CÓ TRONG MẢNG CHƯA (Chưa => lưu điểm danh mới)
                     # SET flag firstImage 
-                    if conf < 40 and masinhvien not in self.arr_ID:
+                    if conf < 45 and masinhvien not in self.arr_ID:
                         self.masinhvien_save = masinhvien    
                         self.arr_ID.append(self.masinhvien_save)
                         self.cv_img_cur = gray[y:y+h, x:x+w]

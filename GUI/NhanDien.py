@@ -140,8 +140,7 @@ class UI_NhanDien(object):
                 font.setPointSize(10)
                 self.cmbBuoiHoc.setFont(font)
                 self.cmbBuoiHoc.setObjectName("cmbBuoiHoc")
-                self.cmbBuoiHoc.currentIndexChanged.connect(self.ChangeBuoiHoc)
-                self.cmbBuoiHoc.setStyleSheet("#cmbBuoiHoc{color:black}")
+                self.cmbBuoiHoc.currentIndexChanged.connect(self.ChangeBuoiHoc)                
                 self.label_7 = QtWidgets.QLabel(parent=self.frame)
                 self.label_7.setGeometry(QtCore.QRect(260, 40, 131, 24))
                 font = QtGui.QFont()
@@ -157,7 +156,6 @@ class UI_NhanDien(object):
                 self.cmbLoaiDiemDanh.addItem("")
                 self.cmbLoaiDiemDanh.addItem("Vào")
                 self.cmbLoaiDiemDanh.addItem("Ra")
-                self.cmbLoaiDiemDanh.setStyleSheet("#cmbLoaiDiemDanh{color:black}")
                 self.frame_5 = QtWidgets.QFrame(parent=self.frame)
                 self.frame_5.setGeometry(QtCore.QRect(10, 380, 451, 31))
                 self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.Box)
@@ -478,6 +476,8 @@ class UI_NhanDien(object):
                                 self.cmbBuoiHoc.addItem(row[0])
         # THAY ĐỔI BUỔI HỌC
         def ChangeBuoiHoc(self):
+                if self.cmbBuoiHoc.currentIndex() == 0:
+                        self.clearInfoBuoiHoc()
                 mabuoihoc = self.cmbBuoiHoc.currentText()
                 bhBUS = BuoiHocBUS()
                 value = mabuoihoc
@@ -494,9 +494,13 @@ class UI_NhanDien(object):
                                 if gv is not None:
                                         tengv = gv._hoten
                                 self.lblGiangVien.setText(tengv)
-                                      
+        def clearInfoBuoiHoc(self):
+                self.lblIDBuoiHoc.clear()
+                self.lblGiangVien.clear()
+                self.lblNgay.clear()
+                self.lblThoiGian.clear()
         def stop_capture_video(self):    
-                self.flagSetInfoSV = False                                        
+                self.flagSetInfoSV = False                                      
                 self.thread[1].stop()
                 self.camera.setPixmap(QtGui.QPixmap())  
                 self.cmbBuoiHoc.setEnabled(True)
@@ -506,11 +510,8 @@ class UI_NhanDien(object):
                 self.imageNhanDien.setPixmap(QtGui.QPixmap())  
                 self.txtMaSV.clear()
                 self.txtHoTen.clear()
-                self.timeThoiGian.clear()
-                self.lblIDBuoiHoc.clear()
-                self.lblGiangVien.clear()
-                self.lblNgay.clear()
-                self.lblThoiGian.clear()
+                self.timeThoiGian.clear()        
+                self.clearInfoBuoiHoc()        
                 self.lblThongBao.setText("Thông báo: Vui lòng chọn ID buổi học và loại điểm danh để mở camera!")
 
                 
@@ -584,11 +585,9 @@ class UI_NhanDien(object):
                 madiemdanh = ddBUS.generateID()
                 masinhvien = self.txtMaSV.text()
                 giovao = self.timeThoiGian.text()                
-                date_time_str = self.label_4.text()
-                ngay = datetime.strptime(date_time_str, "%d/%m/%Y").strftime('%Y-%m-%d')
                 mabuoihoc = self.lblIDBuoiHoc.text()
                 hinhanh = self.hinhanh
-                diemdanh = DiemDanh(madiemdanh, masinhvien, giovao,'', ngay, mabuoihoc,hinhanh)
+                diemdanh = DiemDanh(madiemdanh, masinhvien, giovao,'', mabuoihoc,hinhanh)
                 ddBUS.add(diemdanh)
 
         def updateGioRa(self):
